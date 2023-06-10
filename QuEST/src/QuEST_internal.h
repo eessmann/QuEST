@@ -299,6 +299,25 @@ void agnostic_setDiagonalOpElems(DiagonalOp op, long long int startInd, qreal* r
 
 void agnostic_initDiagonalOpFromPauliHamil(DiagonalOp op, PauliHamil hamil);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// DEBUGGY 
+
+void statevec_contigousPhaseGates(Qureg qureg, int* qubits, int numQubits);
+
+
+
 # ifdef __cplusplus
 }
 # endif

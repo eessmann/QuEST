@@ -847,21 +847,35 @@ void agnostic_applyQFT(Qureg qureg, int* qubits, int numQubits) {
     
     int densShift = qureg.numQubitsRepresented;
     
+    int subLen = numQubits; ////////// I'm too lazy to determine from q
+    
     // start with top/left-most qubit, work down
     for (int q=numQubits-1; q >= 0; q--) {
         
         // H
+        
+        /*
         statevec_hadamard(qureg, qubits[q]);
         if (qureg.isDensityMatrix)
             statevec_hadamard(qureg, qubits[q] + densShift);
         qasm_recordGate(qureg, GATE_HADAMARD, qubits[q]);
+        */
         
         if (q == 0)
             break;
+
+
+        
+        statevec_contigousPhaseGates(qureg, qubits, subLen);
+        subLen -= 1;
+        
+        
         
         // succession of C-phases, control on qubits[q], targeting each of 
         // qubits[q-1], qubits[q-1], ... qubits[0]. This can be expressed by 
         // a single invocation of applyNamedPhaseFunc product
+
+        /*
         
         int numRegs = 2;
         int numQubitsPerReg[2] = {q, 1};
@@ -888,13 +902,20 @@ void agnostic_applyQFT(Qureg qureg, int* qubits, int numQubits) {
                 conj);
             shiftSubregIndices(regs, numQubitsPerReg, numRegs, - densShift);
         }
-        qasm_recordNamedPhaseFunc(
-            qureg, regs, numQubitsPerReg, numRegs, 
-            UNSIGNED, SCALED_PRODUCT, params, numParams, 
-            NULL, NULL, 0);
+        
+        */
+        
+        //qasm_recordNamedPhaseFunc(
+        //    qureg, regs, numQubitsPerReg, numRegs, 
+        //    UNSIGNED, SCALED_PRODUCT, params, numParams, 
+        //    NULL, NULL, 0);
+        
+        
     }
     
     // final swaps
+    
+    /*
     for (int i=0; i<(numQubits/2); i++) {
         
         int qb1 = qubits[i];
@@ -903,8 +924,11 @@ void agnostic_applyQFT(Qureg qureg, int* qubits, int numQubits) {
         statevec_swapQubitAmps(qureg, qb1, qb2);
         if (qureg.isDensityMatrix)
             statevec_swapQubitAmps(qureg, qb1 + densShift, qb2 + densShift);
+        
         qasm_recordControlledGate(qureg, GATE_SWAP, qb1, qb2);
     }
+    
+    */
 }
 
 #ifdef __cplusplus

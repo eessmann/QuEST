@@ -4666,3 +4666,62 @@ void densmatr_setQuregToPauliHamil(Qureg qureg, PauliHamil hamil) {
         }
     }
 }
+
+
+
+
+
+void statevec_contigousPhaseGates(Qureg qureg, int* qubits, int numQubits) {
+    
+    //  NOT YET DENSITY MATRIX FRIENDLY
+    if (qureg.isDensityMatrix)
+        return;
+        
+    // can optimise distributed by desynching when leading/control bit is 0 within rank
+    // (NOT YET DONE)
+        
+    qreal* ampsRe = qureg.stateVec.real;
+    qreal* ampsIm = qureg.stateVec.imag;
+    long long int Lambda = qureg.numAmpsPerChunk;
+    long long int lambda = qureg.numQubitsInStateVec - qureg.numChunks;
+    int r = qureg.chunkId;
+    
+    long long int i;
+    long long int j;
+    int v, b;
+    qreal theta, f_re, f_im, amp_re, amp_im;
+    qreal fac = (2 * M_PI) / (qreal) (1ULL << numQubits);
+    
+# ifdef _OPENMP
+# pragma omp parallel \
+    default  (none) \
+    shared   (Lambda, lambda, qubits, numQubits, r, fac, ampsRe, ampsIm) \
+    private  (i, j, v, b, theta, f_re, f_im, amp_re, amp_im)
+# endif
+    {
+# ifdef _OPENMP
+# pragma omp for schedule (static)
+# endif
+        for (j=0; j<Lambda; j++) {
+            i = (r << lambda) | j;
+            
+            v = 0;
+            for (int q=0; q<numQubits-1; q++) {
+                b = extractBit(qubits[q], i);
+                v |= (b * (1 << q));
+            }
+            
+            b = extractBit(qubits[numQubits-1], i);
+            theta = b * v * fac;
+            f_re = cos(theta);
+            f_im = sin(theta);
+            
+            // amp *= exp(i theta)
+            amp_re = ampsRe[i];
+            amp_im = ampsIm[i];
+            ampsRe[i] = (amp_re*f_re - amp_im*f_im);
+            ampsIm[i] = (amp_re*f_im + amp_im*f_re);
+        }
+    }
+}
+
