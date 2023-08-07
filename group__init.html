@@ -11,6 +11,13 @@
         <title>QuEST: State initialisations</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
         <link href="doxygen.css" rel="stylesheet" type="text/css" />
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -237,9 +244,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialise <code>qureg</code> into the classical state (also known as a "computational basis state") with index <code>stateInd</code>. </p>
-<p >If <code>qureg</code> is a state-vector, it will become <picture><source srcset="form_62_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ | \text{stateInd} \rangle $" src="form_62.png"/></picture>. <br  />
-If <code>qureg</code> is a density matrix, it will become <picture><source srcset="form_63_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ | \text{stateInd} \rangle \langle \text{stateInd} | $" src="form_63.png"/></picture>.</p>
-<p >Classical states are indexed from zero, so that <code>stateInd</code> <b>= 0</b> produces <picture><source srcset="form_64_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ | 00 \dots 00 \rangle $" src="form_64.png"/></picture>, and <code>stateInd</code> <b>= 1</b> produces <picture><source srcset="form_65_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ | 00 \dots 01 \rangle $" src="form_65.png"/></picture>, and <code>stateInd</code> <b>=</b> <picture><source srcset="form_66_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ 2^N - 1 $" src="form_66.png"/></picture> produces <picture><source srcset="form_67_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ | 11 \dots 11 \rangle $" src="form_67.png"/></picture>.</p>
+<p >If <code>qureg</code> is a state-vector, it will become \( | \text{stateInd} \rangle \). <br  />
+If <code>qureg</code> is a density matrix, it will become \( | \text{stateInd} \rangle \langle \text{stateInd} | \).</p>
+<p >Classical states are indexed from zero, so that <code>stateInd</code> <b>= 0</b> produces \( | 00 \dots 00 \rangle \), and <code>stateInd</code> <b>= 1</b> produces \( | 00 \dots 01 \rangle \), and <code>stateInd</code> <b>=</b> \( 2^N - 1 \) produces \( | 11 \dots 11 \rangle \).</p>
 <p >Subsequent calls to <a class="el" href="group__calc.html#ga4a14d22379d399760b0cfc5c8053589b" title="Get the probability of a state-vector at an index in the full state vector.">getProbAmp()</a> will yield 0 for all indices except <code>stateInd</code>, and the phase of <code>stateInd's</code> amplitude will be 1 (real).</p>
 <p >This function can be used to initialise <code>qureg</code> into a specific binary state (e.g. <code>11001</code>) using a binary literal (supported by only some compilers): </p><div class="fragment"><div class="line"><a class="code hl_function" href="group__init.html#ga0379e21efca0767a22607fc0e26a5a22">initClassicalState</a>(qureg, 0b11001);</div>
 <div class="ttc" id="agroup__init_html_ga0379e21efca0767a22607fc0e26a5a22"><div class="ttname"><a href="group__init.html#ga0379e21efca0767a22607fc0e26a5a22">initClassicalState</a></div><div class="ttdeci">void initClassicalState(Qureg qureg, long long int stateInd)</div><div class="ttdoc">Initialise qureg into the classical state (also known as a &quot;computational basis state&quot;) with index st...</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l00134">QuEST.c:134</a></div></div>
@@ -307,15 +314,15 @@ If <code>qureg</code> is a density matrix, it will become <picture><source srcse
 </div><div class="memdoc">
 
 <p>Initialise <code>qureg</code> into the plus state. </p>
-<p >If <code>qureg</code> is a state-vector of <picture><source srcset="form_31_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_31.png"/></picture> qubits, it is modified to state  </p><p class="formulaDsp">
-<picture><source srcset="form_60_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+<p >If <code>qureg</code> is a state-vector of \(N\) qubits, it is modified to state  </p><p class="formulaDsp">
+\[ 
   {| + \rangle}^{\otimes N} = \frac{1}{\sqrt{2^N}} (| 0 \rangle + | 1 \rangle)^{\otimes N}\,.
-\]" src="form_60.png"/></picture>
+\]
 </p>
-<p> If <code>qureg</code> is a density matrix of <picture><source srcset="form_31_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_31.png"/></picture> qubits, it is modified to state  </p><p class="formulaDsp">
-<picture><source srcset="form_61_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+<p> If <code>qureg</code> is a density matrix of \(N\) qubits, it is modified to state  </p><p class="formulaDsp">
+\[ 
   {| + \rangle\langle+|}^{\otimes N} = \frac{1}{{2^N}} \sum_i\sum_j |i\rangle\langle j|\,.
-\]" src="form_61.png"/></picture>
+\]
 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -512,8 +519,8 @@ If <code>qureg</code> is a density matrix, this makes <code>qureg</code> 100% li
 </div><div class="memdoc">
 
 <p>Initialise <code>qureg</code> into the zero state. </p>
-<p >If <code>qureg</code> is a state-vector of <picture><source srcset="form_31_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_31.png"/></picture> qubits, it is modified to state <picture><source srcset="form_57_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ {| 0 \rangle}^{\otimes N} $" src="form_57.png"/></picture>. <br  />
-If <code>qureg</code> is a density matrix of <picture><source srcset="form_58_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ N $" src="form_58.png"/></picture> qubits, it is modified to state <picture><source srcset="form_59_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ {| 0 \rangle\langle 0 |}^{\otimes N} $" src="form_59.png"/></picture></p>
+<p >If <code>qureg</code> is a state-vector of \(N\) qubits, it is modified to state \( {| 0 \rangle}^{\otimes N} \). <br  />
+If <code>qureg</code> is a density matrix of \( N \) qubits, it is modified to state \( {| 0 \rangle\langle 0 |}^{\otimes N} \)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">qureg</td><td>the object representing the set of all qubits to initialise </td></tr>

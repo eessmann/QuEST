@@ -11,6 +11,13 @@
         <title>QuEST: Calculations</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
         <link href="doxygen.css" rel="stylesheet" type="text/css" />
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -84,7 +91,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga87ddbe5c8281543541ccd99e0dafd387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the Hilbert Schmidt distance between two density matrices <code>a</code> and <code>b</code>, defined as the Frobenius norm of the difference between them.  <a href="group__calc.html#ga87ddbe5c8281543541ccd99e0dafd387">More...</a><br /></td></tr>
 <tr class="separator:ga87ddbe5c8281543541ccd99e0dafd387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga374ad70804998394ae41ebfe106258a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structComplex.html">Complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__calc.html#ga374ad70804998394ae41ebfe106258a6">calcInnerProduct</a> (<a class="el" href="structQureg.html">Qureg</a> bra, <a class="el" href="structQureg.html">Qureg</a> ket)</td></tr>
-<tr class="memdesc:ga374ad70804998394ae41ebfe106258a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the inner product <picture><source srcset="form_154_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \langle \text{bra} | \text{ket} \rangle $" src="form_154.png"/></picture> of two equal-size state vectors, given by.  <a href="group__calc.html#ga374ad70804998394ae41ebfe106258a6">More...</a><br /></td></tr>
+<tr class="memdesc:ga374ad70804998394ae41ebfe106258a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the inner product \( \langle \text{bra} | \text{ket} \rangle \) of two equal-size state vectors, given by.  <a href="group__calc.html#ga374ad70804998394ae41ebfe106258a6">More...</a><br /></td></tr>
 <tr class="separator:ga374ad70804998394ae41ebfe106258a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad0cc08d52cad5062553d6f78126780cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__calc.html#gad0cc08d52cad5062553d6f78126780cc">calcProbOfAllOutcomes</a> (<a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> *outcomeProbs, <a class="el" href="structQureg.html">Qureg</a> qureg, int *qubits, int numQubits)</td></tr>
 <tr class="memdesc:gad0cc08d52cad5062553d6f78126780cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates <code>outcomeProbs</code> with the probabilities of every outcome of the sub-register contained in <code>qubits</code>.  <a href="group__calc.html#gad0cc08d52cad5062553d6f78126780cc">More...</a><br /></td></tr>
@@ -151,36 +158,36 @@ Functions</h2></td></tr>
 
 <p>Computes the Hilbert-Schmidt scalar product (which is equivalent to the Frobenius inner product of matrices) of two density matrices <code>rho1</code> and <code>rho2</code> of equivalent size. </p>
 <p >That is, we define the Hilbert-Schmidt scalar product  </p><p class="formulaDsp">
-<picture><source srcset="form_156_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  ((\rho_1, \rho_2))_{HS} := \text{Tr}[ \rho_1^\dagger \rho_2 ],
-\]" src="form_156.png"/></picture>
+\]
 </p>
 <p> which is equivalent to the sum of products of matrix elemets, i.e.,  </p><p class="formulaDsp">
-<picture><source srcset="form_157_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  ((\rho_1, \rho_2))_{HS} = \sum\limits_i \sum\limits_j  (\rho_1)_{ij}^* (\rho_2)_{ij}
-\]" src="form_157.png"/></picture>
+\]
 </p>
 <p> Assuming that both density matrices are Hermitian, the resulting scalar product is real and invariant under reordering its arguments as  </p><p class="formulaDsp">
-<picture><source srcset="form_158_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  ((\rho_1, \rho_2))_{HS} = ((\rho_2, \rho_1))_{HS} = \text{Tr}[\rho_1 \rho_2]
-\]" src="form_158.png"/></picture>
+\]
 </p>
 <p> If both <code>rho1</code> and <code>rho2</code> are density matrices of pure states <code>bra</code> and <code>ket</code>, then the equality holds  </p><p class="formulaDsp">
-<picture><source srcset="form_159_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  ((\rho_1, \rho_2))_{HS} = |\langle \text{bra} | \text{ket} \rangle|^2.
-\]" src="form_159.png"/></picture>
+\]
 </p>
 <p> If either or both of <code>rho1</code> and <code>rho2</code> are non Hermitian (i.e. invalid density matrices), then this function returns the real component of the scalar product, and discards the imaginary component. That is, it returns  </p><p class="formulaDsp">
-<picture><source srcset="form_160_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
   \text{Re}\{ \text{Tr}[ \rho_1^\dagger \rho_2 ] \} = \text{Re}\{ \text{Tr}[ \rho_2^\dagger \rho_1 ] \}.
-\]" src="form_160.png"/></picture>
+\]
 </p>
-<p> This is still sometimes useful, e.g. in calculating the inner product with an anti-commutator, e.g. (for Hermitian <picture><source srcset="form_161_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \sigma $" src="form_161.png"/></picture>, <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture>, <picture><source srcset="form_162_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ H $" src="form_162.png"/></picture>)  </p><p class="formulaDsp">
-<picture><source srcset="form_163_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p> This is still sometimes useful, e.g. in calculating the inner product with an anti-commutator, e.g. (for Hermitian \( \sigma \), \( \rho \), \( H \))  </p><p class="formulaDsp">
+\[
      ((\sigma, H \rho + \rho H))_{HS} = 2 \; \text{Re} \{ ((\sigma, H \rho))_{HS} \} 
-\]" src="form_163.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_164_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ H \rho $" src="form_164.png"/></picture> could be a weighted sum of Pauli products applied to <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture> through <a class="el" href="group__operator.html#ga6fc26cf857db070e12959e59ecfed8a6" title="Modifies outQureg to be the result of applying the weighted sum of Pauli products (a Hermitian but no...">applyPauliSum()</a>.</p>
+<p> where \( H \rho \) could be a weighted sum of Pauli products applied to \( \rho \) through <a class="el" href="group__operator.html#ga6fc26cf857db070e12959e59ecfed8a6" title="Modifies outQureg to be the result of applying the weighted sum of Pauli products (a Hermitian but no...">applyPauliSum()</a>.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__calc.html#ga374ad70804998394ae41ebfe106258a6" title="Computes the inner product  of two equal-size state vectors, given by.">calcInnerProduct()</a></li>
 <li><a class="el" href="group__calc.html#ga87ddbe5c8281543541ccd99e0dafd387" title="Computes the Hilbert Schmidt distance between two density matrices a and b, defined as the Frobenius ...">calcHilbertSchmidtDistance()</a></li>
@@ -254,15 +261,15 @@ Tyson Jones (GPU) </dd></dl>
 
 <p>Computes the expected value of the diagonal operator <code>op</code> for state <code>qureg</code>. </p>
 <p >Since <code>op</code> is not necessarily Hermitian, the expected value may be a complex number.</p>
-<p >Let <picture><source srcset="form_44_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ D $" src="form_44.png"/></picture> be the diagonal operator <code>op</code>, with diagonal elements <picture><source srcset="form_45_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ d_i $" src="form_45.png"/></picture>. Then if <code>qureg</code> is a state-vector <picture><source srcset="form_46_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\psi\rangle $" src="form_46.png"/></picture>, this function computes  </p><p class="formulaDsp">
-<picture><source srcset="form_47_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >Let \( D \) be the diagonal operator <code>op</code>, with diagonal elements \( d_i \). Then if <code>qureg</code> is a state-vector \(|\psi\rangle \), this function computes  </p><p class="formulaDsp">
+\[
  \langle \psi | D | \psi \rangle = \sum_i |\psi_i|^2 \, d_i
-\]" src="form_47.png"/></picture>
+\]
 </p>
-<p> If <code>qureg</code> is a density matrix <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture>, this function computes  </p><p class="formulaDsp">
-<picture><source srcset="form_49_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+<p> If <code>qureg</code> is a density matrix \( \rho \), this function computes  </p><p class="formulaDsp">
+\[ 
  \text{Trace}( D \rho ) = \sum_i \rho_{ii} \, d_i
-\]" src="form_49.png"/></picture>
+\]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__type.html#gaebf896dd8d5eeaf9fd896f6cc8e334fe" title="Creates a DiagonalOp representing a diagonal operator on the full Hilbert space of a Qureg.">createDiagonalOp()</a></li>
@@ -345,9 +352,9 @@ Tyson Jones (GPU) </dd></dl>
 </div><div class="memdoc">
 
 <p>Computes the expected value of <code>qureg</code> under Hermitian operator <code>hamil</code>. </p>
-<p >Represent <code>hamil</code> as <picture><source srcset="form_210_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ H = \sum_i c_i \otimes_j^{N} \hat{\sigma}_{i,j} $" src="form_210.png"/></picture> (where <picture><source srcset="form_211_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ c_i \in $" src="form_211.png"/></picture> <code>hamil.termCoeffs</code> and <picture><source srcset="form_212_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ N = $" src="form_212.png"/></picture> <code>hamil.numQubits</code>). This function computes <picture><source srcset="form_213_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \langle \psi | H | \psi \rangle $" src="form_213.png"/></picture> if <code>qureg</code> = <picture><source srcset="form_93_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \psi $" src="form_93.png"/></picture> is a state-vector, and computes <picture><source srcset="form_214_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \text{Trace}(H \rho) =\text{Trace}(\rho H) $" src="form_214.png"/></picture> if <code>qureg</code> = <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture> is a density matrix.</p>
+<p >Represent <code>hamil</code> as \( H = \sum_i c_i \otimes_j^{N} \hat{\sigma}_{i,j} \) (where \( c_i \in \) <code>hamil.termCoeffs</code> and \( N = \) <code>hamil.numQubits</code>). This function computes \( \langle \psi | H | \psi \rangle \) if <code>qureg</code> = \( \psi \) is a state-vector, and computes \( \text{Trace}(H \rho) =\text{Trace}(\rho H) \) if <code>qureg</code> = \( \rho \) is a density matrix.</p>
 <p >This function is merely an encapsulation of <a class="el" href="group__calc.html#ga50ee589fd5ceab52fdd70d0082352b41" title="Computes the expected value of a sum of products of Pauli operators.">calcExpecPauliSum()</a> - refer to the doc there for an elaboration.</p>
-<p ><code>workspace</code> must be a register with the same type (state-vector vs density matrix) and dimensions (number of represented qubits) as <code>qureg</code> and <code>hamil</code>, and is used as working space. When this function returns, <code>qureg</code> will be unchanged and <code>workspace</code> will be set to <code>qureg</code> pre-multiplied with the final Pauli product in <code>hamil</code>. NOTE that if <code>qureg</code> is a density matrix, <code>workspace</code> will become <picture><source srcset="form_216_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \hat{\sigma} \rho $" src="form_216.png"/></picture> which is itself not a density matrix (it is distinct from <picture><source srcset="form_217_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \hat{\sigma} \rho \hat{\sigma}^\dagger $" src="form_217.png"/></picture>).</p>
+<p ><code>workspace</code> must be a register with the same type (state-vector vs density matrix) and dimensions (number of represented qubits) as <code>qureg</code> and <code>hamil</code>, and is used as working space. When this function returns, <code>qureg</code> will be unchanged and <code>workspace</code> will be set to <code>qureg</code> pre-multiplied with the final Pauli product in <code>hamil</code>. NOTE that if <code>qureg</code> is a density matrix, <code>workspace</code> will become \( \hat{\sigma} \rho \) which is itself not a density matrix (it is distinct from \( \hat{\sigma} \rho \hat{\sigma}^\dagger \)).</p>
 <p >This function works by cloning the <code>qureg</code> state into <code>workspace</code>, applying each of the specified Pauli products in <code>hamil</code> to <code>workspace</code> (one Pauli operation at a time), then computing its inner product with <code>qureg</code> (for state-vectors) or its trace (for density matrices) multiplied with the corresponding coefficient, and summing these contributions. It therefore should scale linearly in time with the total number of non-identity specified Pauli operators.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__type.html#ga35b28710877c462927366fa602e591cb" title="Dynamically allocates a Hamiltonian expressed as a real-weighted sum of products of Pauli operators.">createPauliHamil()</a></li>
@@ -445,14 +452,14 @@ Tyson Jones (GPU) </dd></dl>
 </div><div class="memdoc">
 
 <p>Computes the expected value of a product of Pauli operators. </p>
-<p >Letting <picture><source srcset="form_203_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \sigma = \otimes_j \hat{\sigma}_j $" src="form_203.png"/></picture> be the operators indicated by <code>pauliCodes</code> and acting on qubits <code>targetQubits</code>, this function computes <picture><source srcset="form_204_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \langle \psi | \sigma | \psi \rangle $" src="form_204.png"/></picture> if <code>qureg</code> = <picture><source srcset="form_93_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \psi $" src="form_93.png"/></picture> is a state-vector, and computes <picture><source srcset="form_205_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \text{Trace}(\sigma \rho) $" src="form_205.png"/></picture> if <code>qureg</code> = <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture> is a density matrix.</p>
+<p >Letting \( \sigma = \otimes_j \hat{\sigma}_j \) be the operators indicated by <code>pauliCodes</code> and acting on qubits <code>targetQubits</code>, this function computes \( \langle \psi | \sigma | \psi \rangle \) if <code>qureg</code> = \( \psi \) is a state-vector, and computes \( \text{Trace}(\sigma \rho) \) if <code>qureg</code> = \( \rho \) is a density matrix.</p>
 <p ><code>pauliCodes</code> is an array of length <code>numTargets</code> which specifies which Pauli operators to enact on the corresponding qubits in <code>targetQubits</code>, where 0 = <code>PAULI_I</code>, 1 = <code>PAULI_X</code>, 2 = <code>PAULI_Y</code>, 3 = <code>PAULI_Z</code>. The target qubits must be unique, and at most <code>qureg.numQubitsRepresented</code> may be specified. For example, on a 7-qubit state-vector, </p><div class="fragment"><div class="line"><a class="code hl_function" href="group__calc.html#ga15cfad3f3d26339128e3be32ae7deacd">calcExpecPauliProd</a>(qureg, {4,5,6}, {<a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c">PAULI_X</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a63800f45b01ccc2608f754aee850bf4a">PAULI_I</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a085c85cff6ba79c52d8b1e61c42ddddf">PAULI_Z</a>}, 3, workspace);</div>
 <div class="ttc" id="agroup__calc_html_ga15cfad3f3d26339128e3be32ae7deacd"><div class="ttname"><a href="group__calc.html#ga15cfad3f3d26339128e3be32ae7deacd">calcExpecPauliProd</a></div><div class="ttdeci">qreal calcExpecPauliProd(Qureg qureg, int *targetQubits, enum pauliOpType *pauliCodes, int numTargets, Qureg workspace)</div><div class="ttdoc">Computes the expected value of a product of Pauli operators.</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l01297">QuEST.c:1297</a></div></div>
 <div class="ttc" id="agroup__type_html_gga1c703cf89629e4e9c7023cd402d67028a085c85cff6ba79c52d8b1e61c42ddddf"><div class="ttname"><a href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a085c85cff6ba79c52d8b1e61c42ddddf">PAULI_Z</a></div><div class="ttdeci">@ PAULI_Z</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00096">QuEST.h:96</a></div></div>
 <div class="ttc" id="agroup__type_html_gga1c703cf89629e4e9c7023cd402d67028a63800f45b01ccc2608f754aee850bf4a"><div class="ttname"><a href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a63800f45b01ccc2608f754aee850bf4a">PAULI_I</a></div><div class="ttdeci">@ PAULI_I</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00096">QuEST.h:96</a></div></div>
 <div class="ttc" id="agroup__type_html_gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c"><div class="ttname"><a href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c">PAULI_X</a></div><div class="ttdeci">@ PAULI_X</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00096">QuEST.h:96</a></div></div>
-</div><!-- fragment --><p> will compute <picture><source srcset="form_206_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \langle \psi | I I I I X I Z | \psi \rangle $" src="form_206.png"/></picture> (where in this notation, the left-most operator applies to the least-significant qubit, i.e. that with index 0).</p>
-<p ><code>workspace</code> must be a register with the same type (state-vector vs density matrix) and dimensions (number of represented qubits) as <code>qureg</code>, and is used as working space. When this function returns, <code>qureg</code> will be unchanged and <code>workspace</code> will be set to <picture><source srcset="form_207_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \sigma | \psi \rangle $" src="form_207.png"/></picture> (if <code>qureg</code> is a state-vector) or <picture><source srcset="form_208_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \sigma \rho $" src="form_208.png"/></picture> (if <code>qureg</code> is a density matrix). NOTE that this last quantity is NOT the result of applying the paulis as unitaries, <picture><source srcset="form_209_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \sigma^\dagger \rho \sigma $" src="form_209.png"/></picture>, but is instead the result of their direct multiplication with the density matrix. It is therefore itself not a valid density matrix.</p>
+</div><!-- fragment --><p> will compute \( \langle \psi | I I I I X I Z | \psi \rangle \) (where in this notation, the left-most operator applies to the least-significant qubit, i.e. that with index 0).</p>
+<p ><code>workspace</code> must be a register with the same type (state-vector vs density matrix) and dimensions (number of represented qubits) as <code>qureg</code>, and is used as working space. When this function returns, <code>qureg</code> will be unchanged and <code>workspace</code> will be set to \( \sigma | \psi \rangle \) (if <code>qureg</code> is a state-vector) or \( \sigma \rho \) (if <code>qureg</code> is a density matrix). NOTE that this last quantity is NOT the result of applying the paulis as unitaries, \( \sigma^\dagger \rho \sigma \), but is instead the result of their direct multiplication with the density matrix. It is therefore itself not a valid density matrix.</p>
 <p >This function works by cloning the <code>qureg</code> state into <code>workspace</code>, applying the specified Pauli operators to <code>workspace</code> then computing its inner product with <code>qureg</code> (for state-vectors) or its trace (for density matrices). It therefore should scale linearly in time with the number of specified non-identity Pauli operators, which is bounded by the number of represented qubits.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__calc.html#ga82f17e96a4cb7612fb9c6ef856df3810" title="Computes the expected value of the diagonal operator op for state qureg.">calcExpecDiagonalOp()</a></li>
@@ -549,15 +556,15 @@ Tyson Jones (GPU) </dd></dl>
 </div><div class="memdoc">
 
 <p>Computes the expected value of a sum of products of Pauli operators. </p>
-<p >Let <picture><source srcset="form_210_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ H = \sum_i c_i \otimes_j^{N} \hat{\sigma}_{i,j} $" src="form_210.png"/></picture> be the operators indicated by <code>allPauliCodes</code> (where <picture><source srcset="form_211_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ c_i \in $" src="form_211.png"/></picture> <code>termCoeffs</code> and <picture><source srcset="form_212_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ N = $" src="form_212.png"/></picture> <code>qureg.numQubitsRepresented</code>). This function computes <picture><source srcset="form_213_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \langle \psi | H | \psi \rangle $" src="form_213.png"/></picture> if <code>qureg</code> = <picture><source srcset="form_93_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \psi $" src="form_93.png"/></picture> is a state-vector, and computes <picture><source srcset="form_214_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \text{Trace}(H \rho) =\text{Trace}(\rho H) $" src="form_214.png"/></picture> if <code>qureg</code> = <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture> is a density matrix.</p>
+<p >Let \( H = \sum_i c_i \otimes_j^{N} \hat{\sigma}_{i,j} \) be the operators indicated by <code>allPauliCodes</code> (where \( c_i \in \) <code>termCoeffs</code> and \( N = \) <code>qureg.numQubitsRepresented</code>). This function computes \( \langle \psi | H | \psi \rangle \) if <code>qureg</code> = \( \psi \) is a state-vector, and computes \( \text{Trace}(H \rho) =\text{Trace}(\rho H) \) if <code>qureg</code> = \( \rho \) is a density matrix.</p>
 <p ><code>allPauliCodes</code> is an array of length <code>numSumTerms*<code>qureg.numQubitsRepresented</code> which</code> specifies which Pauli operators to apply, where 0 = <code>PAULI_I</code>, 1 = <code>PAULI_X</code>, 2 = <code>PAULI_Y</code>, 3 = <code>PAULI_Z</code>. For each sum term, a Pauli operator must be specified for EVERY qubit in <code>qureg</code>; each set of <code>numSumTerms</code> operators will be grouped into a product. <code>termCoeffs</code> is an arrray of length <code>numSumTerms</code> containing the term coefficients. For example, on a 3-qubit state-vector, </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> paulis[6] = {<a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c">PAULI_X</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a63800f45b01ccc2608f754aee850bf4a">PAULI_I</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a63800f45b01ccc2608f754aee850bf4a">PAULI_I</a>,  <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c">PAULI_X</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a2c64a9aaee27f6bcfef894d159e759bd">PAULI_Y</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a085c85cff6ba79c52d8b1e61c42ddddf">PAULI_Z</a>};</div>
 <div class="line"><a class="code hl_define" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> coeffs[2] = {1.5, -3.6};</div>
 <div class="line"><a class="code hl_function" href="group__calc.html#ga50ee589fd5ceab52fdd70d0082352b41">calcExpecPauliSum</a>(qureg, paulis, coeffs, 2, workspace);</div>
 <div class="ttc" id="agroup__calc_html_ga50ee589fd5ceab52fdd70d0082352b41"><div class="ttname"><a href="group__calc.html#ga50ee589fd5ceab52fdd70d0082352b41">calcExpecPauliSum</a></div><div class="ttdeci">qreal calcExpecPauliSum(Qureg qureg, enum pauliOpType *allPauliCodes, qreal *termCoeffs, int numSumTerms, Qureg workspace)</div><div class="ttdoc">Computes the expected value of a sum of products of Pauli operators.</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l01306">QuEST.c:1306</a></div></div>
 <div class="ttc" id="agroup__type_html_ga7740e349b4f8bae6451547680f0ce2d6"><div class="ttname"><a href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a></div><div class="ttdeci">#define qreal</div><div class="ttdoc">A precision-agnostic floating point number, as determined by QuEST_PREC.</div></div>
 <div class="ttc" id="agroup__type_html_gga1c703cf89629e4e9c7023cd402d67028a2c64a9aaee27f6bcfef894d159e759bd"><div class="ttname"><a href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a2c64a9aaee27f6bcfef894d159e759bd">PAULI_Y</a></div><div class="ttdeci">@ PAULI_Y</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00096">QuEST.h:96</a></div></div>
-</div><!-- fragment --><p> will compute <picture><source srcset="form_215_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \langle \psi | (1.5 X I I - 3.6 X Y Z) | \psi \rangle $" src="form_215.png"/></picture> (where in this notation, the left-most operator applies to the least-significant qubit, i.e. that with index 0).</p>
-<p ><code>workspace</code> must be a register with the same type (state-vector vs density matrix) and dimensions (number of represented qubits) as <code>qureg</code>, and is used as working space. When this function returns, <code>qureg</code> will be unchanged and <code>workspace</code> will be set to <code>qureg</code> pre-multiplied with the final Pauli product. NOTE that if <code>qureg</code> is a density matrix, <code>workspace</code> will become <picture><source srcset="form_216_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \hat{\sigma} \rho $" src="form_216.png"/></picture> which is itself not a density matrix (it is distinct from <picture><source srcset="form_217_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \hat{\sigma} \rho \hat{\sigma}^\dagger $" src="form_217.png"/></picture>).</p>
+</div><!-- fragment --><p> will compute \( \langle \psi | (1.5 X I I - 3.6 X Y Z) | \psi \rangle \) (where in this notation, the left-most operator applies to the least-significant qubit, i.e. that with index 0).</p>
+<p ><code>workspace</code> must be a register with the same type (state-vector vs density matrix) and dimensions (number of represented qubits) as <code>qureg</code>, and is used as working space. When this function returns, <code>qureg</code> will be unchanged and <code>workspace</code> will be set to <code>qureg</code> pre-multiplied with the final Pauli product. NOTE that if <code>qureg</code> is a density matrix, <code>workspace</code> will become \( \hat{\sigma} \rho \) which is itself not a density matrix (it is distinct from \( \hat{\sigma} \rho \hat{\sigma}^\dagger \)).</p>
 <p >This function works by cloning the <code>qureg</code> state into <code>workspace</code>, applying each of the specified Pauli products to <code>workspace</code> (one Pauli operation at a time), then computing its inner product with <code>qureg</code> (for state-vectors) or its trace (for density matrices) multiplied with the corresponding coefficient, and summing these contributions. It therefore should scale linearly in time with the total number of non-identity specified Pauli operators.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__calc.html#ga82f17e96a4cb7612fb9c6ef856df3810" title="Computes the expected value of the diagonal operator op for state qureg.">calcExpecDiagonalOp()</a></li>
@@ -634,14 +641,14 @@ Tyson Jones (GPU) </dd></dl>
 
 <p>Calculates the fidelity of <code>qureg</code> (a state-vector or density matrix) against a reference pure state (necessarily a state-vector). </p>
 <p >If <code>qureg</code> is a state-vector, this function computes  </p><p class="formulaDsp">
-<picture><source srcset="form_182_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
  |\langle \text{qureg} | \text{pureState} \rangle|^2
-\]" src="form_182.png"/></picture>
+\]
 </p>
 <p> If <code>qureg</code> is a density matrix, this function computes  </p><p class="formulaDsp">
-<picture><source srcset="form_183_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
  \langle \text{pureState} | \text{qureg} | \text{pureState} \rangle
-\]" src="form_183.png"/></picture>
+\]
 </p>
 <p> In either case, the returned fidelity lies in [0, 1] (assuming both input states have valid normalisation). If any of the input <code>Quregs</code> are not normalised, this function will return the real component of the correct linear algebra calculation.</p>
 <p >The number of qubits represented in <code>qureg</code> and <code>pureState</code> must match.</p>
@@ -718,14 +725,14 @@ Tyson Jones (GPU) </dd></dl>
 
 <p>Computes the Hilbert Schmidt distance between two density matrices <code>a</code> and <code>b</code>, defined as the Frobenius norm of the difference between them. </p>
 <p >That is, we define the Hilbert Schmidt distance  </p><p class="formulaDsp">
-<picture><source srcset="form_236_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  D(a, b) = \| a - b \|_F = \sqrt{  \text{Tr}[ (a-b)(a-b)^\dagger ]   }
-\]" src="form_236.png"/></picture>
+\]
 </p>
 <p> This is equivalent to the square-root of the sum of the absolute value squared of the element-differences of the matrices, i.e.  </p><p class="formulaDsp">
-<picture><source srcset="form_237_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  D(a, b) = \sqrt{ \sum\limits_i \sum\limits_j | a_{ij} - b_{ij} |^2 }
-\]" src="form_237.png"/></picture>
+\]
 </p>
 <p> We caution this may differ by some definitions of the Hilbert Schmidt distance by a square-root.</p>
 <p >This function correctly returns the result of the above formulations even when <code>a</code> and <code>b</code> are incorrectly normalised (i.e. are general matrices).</p>
@@ -798,11 +805,11 @@ Tyson Jones (refactored, doc) </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the inner product <picture><source srcset="form_154_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \langle \text{bra} | \text{ket} \rangle $" src="form_154.png"/></picture> of two equal-size state vectors, given by. </p>
+<p>Computes the inner product \( \langle \text{bra} | \text{ket} \rangle \) of two equal-size state vectors, given by. </p>
 <p class="formulaDsp">
-<picture><source srcset="form_155_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
   \langle \text{bra} | \text{ket} \rangle = \sum_i {\text{bra}_i}^* \; \times \; \text{ket}_i 
-\]" src="form_155.png"/></picture>
+\]
 </p>
 <p> The same <code>qureg</code> may be passed as both <code>bra</code> and <code>ket</code>, though we recommend users check state-vector normalisation with <code>calcTotalProb</code> which employs Kahan summation for greater accuracy. Neither state-vector is modified.</p>
 <p >This function returns the correct inner product even if <code>bra</code> and <code>ket</code> are not correctly normalised states.</p>
@@ -891,23 +898,23 @@ Tyson Jones (refactored, doc) </dd></dl>
 </blockquote>
 <ul>
 <li>For <code>qubits</code> <b>= {a, b, c, ...}</b>, <code>outcomeProbs</code> is populated to  <p class="formulaDsp">
-<picture><source srcset="form_145_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
     \text{outcomeProbs} = \{ \; |\alpha_0|^2, \; |\alpha_1|^2, \; |\alpha_2|^2, \; |\alpha_3|^2, \; ... \; \},
-  \]" src="form_145.png"/></picture>
+  \]
 </p>
- where <picture><source srcset="form_146_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\alpha_j|^2$" src="form_146.png"/></picture> are the probabilities of the respective outcome states (interpreting <code>qubits</code> as ordered least to most significant)  <p class="formulaDsp">
-<picture><source srcset="form_147_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ where \(|\alpha_j|^2\) are the probabilities of the respective outcome states (interpreting <code>qubits</code> as ordered least to most significant)  <p class="formulaDsp">
+\[
      |\dots\textbf{c\,b\,a}\rangle_i \; \; = \;\; |000\rangle,  \;\; |001\rangle \;\; |010\rangle \;\; |011\rangle, \;\; \dots
-  \]" src="form_147.png"/></picture>
+  \]
 </p>
- understood in a state-vector <code>qureg</code> <picture><source srcset="form_39_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\psi\rangle$" src="form_39.png"/></picture> as  <p class="formulaDsp">
-<picture><source srcset="form_148_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ understood in a state-vector <code>qureg</code> \(|\psi\rangle\) as  <p class="formulaDsp">
+\[
      |\psi\rangle = \sum\limits_i^{\text{numQubits}} \alpha_i \; |\dots\textbf{c\,b\,a}\rangle_i 
        \; \otimes \; |\phi\rangle_i,
-  \]" src="form_148.png"/></picture>
+  \]
 </p>
- or in a density matrix <code>qureg</code> <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture> as  <p class="formulaDsp">
-<picture><source srcset="form_149_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ or in a density matrix <code>qureg</code> \(\rho\) as  <p class="formulaDsp">
+\[
      \begin{aligned}
      \rho &amp;= \sum\limits_{i,j}^{\text{numQubits}} \; \beta_{ij} \; |\dots\textbf{c\,b\,a}\rangle_i\,\langle\dots\textbf{c\,b\,a}|_j 
            \; \otimes \; \mu_{ij} \\
@@ -915,25 +922,25 @@ Tyson Jones (refactored, doc) </dd></dl>
            \sum\limits_{i \ne j}^{\text{numQubits}} \; \beta_{ij} \; |\dots\textbf{c\,b\,a}\rangle_i\,\langle\dots\textbf{c\,b\,a}|_j 
            \; \otimes \; \mu_{ij},
       \end{aligned}
-  \]" src="form_149.png"/></picture>
+  \]
 </p>
- where <picture><source srcset="form_150_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\phi\rangle_i$" src="form_150.png"/></picture> and <picture><source srcset="form_151_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\mu_{ij}$" src="form_151.png"/></picture> are understood to be the separated states of the remaining qubits.</li>
+ where \(|\phi\rangle_i\) and \(\mu_{ij}\) are understood to be the separated states of the remaining qubits.</li>
 </ul>
 <blockquote class="doxtable">
-<p >&zwj;<code>outcomeProbs</code> must be a pre-allocated array of length <picture><source srcset="form_30_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^{\text{numQubits}}$" src="form_30.png"/></picture>, which is equivalent to <b>1&lt;&lt;</b><code>numQubits</code>. In distributed mode, every node receives the full list of outcome probabilities. </p>
+<p >&zwj;<code>outcomeProbs</code> must be a pre-allocated array of length \(2^{\text{numQubits}}\), which is equivalent to <b>1&lt;&lt;</b><code>numQubits</code>. In distributed mode, every node receives the full list of outcome probabilities. </p>
 </blockquote>
 <ul>
 <li>Note that the indices in <code>qubits</code> need not be adjacent nor ordered. The order of <code>qubits</code> determines the order of <code>outcomeProbs</code>, whereby <code>qubits</code> are treated as <em>increasing</em> significance. <br  />
 <br  />
 </li>
 <li>For example, given a <code>qureg</code> initialised into state-vector  <p class="formulaDsp">
-<picture><source srcset="form_152_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      |\psi\rangle = 
          \alpha_0 |000\rangle \;+\; \alpha_1 |001\rangle \;+\; 
          \alpha_2 |010\rangle \;+\; \alpha_3 |011\rangle \;+\;
          \alpha_4 |100\rangle \;+\; \alpha_5 |101\rangle \;+\; 
          \alpha_6 |110\rangle \;+\; \alpha_7 |111\rangle,
-  \]" src="form_152.png"/></picture>
+  \]
 </p>
  then executing <div class="fragment"><div class="line"><span class="keywordtype">int</span> qubits[] = {2, 0};</div>
 <div class="line"><span class="keywordtype">int</span> numQubits = 2;</div>
@@ -942,10 +949,10 @@ Tyson Jones (refactored, doc) </dd></dl>
 <div class="line"><a class="code hl_function" href="group__calc.html#gad0cc08d52cad5062553d6f78126780cc">calcProbOfAllOutcomes</a>(outcomeProbs, qureg, qubits, numQubits);</div>
 <div class="ttc" id="agroup__calc_html_gad0cc08d52cad5062553d6f78126780cc"><div class="ttname"><a href="group__calc.html#gad0cc08d52cad5062553d6f78126780cc">calcProbOfAllOutcomes</a></div><div class="ttdeci">void calcProbOfAllOutcomes(qreal *retProbs, Qureg qureg, int *qubits, int numQubits)</div><div class="ttdoc">Populates outcomeProbs with the probabilities of every outcome of the sub-register contained in qubit...</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l01272">QuEST.c:1272</a></div></div>
 </div><!-- fragment --> would populate <code>outcomeProbs</code> with  <p class="formulaDsp">
-<picture><source srcset="form_153_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      \text{outcomeProbs} = \{ \;\; |\alpha_0|^2+|\alpha_2|^2, \;\; |\alpha_4|^2+|\alpha_6|^2, \;\;
                                 |\alpha_1|^2+|\alpha_3|^2, \;\; |\alpha_5|^2+|\alpha_7|^2  \;\; \}.
-  \]" src="form_153.png"/></picture>
+  \]
 </p>
 </li>
 </ul>
@@ -1110,9 +1117,9 @@ Tyson Jones (density matrix) </dd></dl>
 </div><div class="memdoc">
 
 <p>Calculates the purity of a density matrix, by the trace of the density matrix squared. </p>
-<p >Returns <picture><source srcset="form_180_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{Tr}(\rho^2)$" src="form_180.png"/></picture>. For a pure state, this =1. For a mixed state, the purity is less than 1 and is lower bounded by 1/2^n, where n is the number of qubits. The minimum purity is achieved for the maximally mixed state identity/2^n.</p>
+<p >Returns \(\text{Tr}(\rho^2)\). For a pure state, this =1. For a mixed state, the purity is less than 1 and is lower bounded by 1/2^n, where n is the number of qubits. The minimum purity is achieved for the maximally mixed state identity/2^n.</p>
 <p >This function does not accept state-vectors, which clearly have purity 1.</p>
-<p >Note this function will give incorrect results for non-Hermitian Quregs (i.e. invalid density matrices), which will disagree with <picture><source srcset="form_180_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{Tr}(\rho^2)$" src="form_180.png"/></picture>. Instead, this function returns <picture><source srcset="form_181_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\sum_{ij} |\rho_{ij}|^2 $" src="form_181.png"/></picture>.</p>
+<p >Note this function will give incorrect results for non-Hermitian Quregs (i.e. invalid density matrices), which will disagree with \(\text{Tr}(\rho^2)\). Instead, this function returns \(\sum_{ij} |\rho_{ij}|^2 \).</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__calc.html#gaa266ed6c8ae5d0d0f49e1ac50819cffc" title="Calculates the fidelity of qureg (a state-vector or density matrix) against a reference pure state (n...">calcFidelity()</a></li>
 <li><a class="el" href="group__calc.html#ga87ddbe5c8281543541ccd99e0dafd387" title="Computes the Hilbert Schmidt distance between two density matrices a and b, defined as the Frobenius ...">calcHilbertSchmidtDistance()</a></li>
@@ -1170,15 +1177,15 @@ Tyson Jones (density matrix) </dd></dl>
 </div><div class="memdoc">
 
 <p>A debugging function which calculates the probability of the qubits in <code>qureg</code> being in any state, which should always be 1 for correctly normalised states (hence returning a real number). </p>
-<p >For state-vectors <picture><source srcset="form_93_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \psi $" src="form_93.png"/></picture>, this is the norm of the entire state-vector (the sum of the absolute-value-squared of every amplitude):  </p><p class="formulaDsp">
-<picture><source srcset="form_94_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >For state-vectors \( \psi \), this is the norm of the entire state-vector (the sum of the absolute-value-squared of every amplitude):  </p><p class="formulaDsp">
+\[
      \sum\limits_i |\psi_i|^2
-\]" src="form_94.png"/></picture>
+\]
 </p>
-<p> and for density matrices <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture>, it is the trace:  </p><p class="formulaDsp">
-<picture><source srcset="form_95_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p> and for density matrices \( \rho \), it is the trace:  </p><p class="formulaDsp">
+\[
      \text{Trace}(\rho) = \sum\limits_i \rho_{i,i} \;
-\]" src="form_95.png"/></picture>
+\]
 </p>
 <p >For un-normalised density matrices (those directly modified or initialised by the user), this function returns the real component of the trace.</p>
 <p >Note this calculation utilises Kahan summation for greater accuracy, and hence is not parallelised and so will be slower than other functions.</p>
@@ -1257,7 +1264,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="group__debug.html#ga51a64b05d31ef9bcf6a63ce26c0092db" title="An internal function called when invalid arguments are passed to a QuEST API call,...">invalidQuESTInputError()</a></td><td><ul>
 <li>if <code>qureg</code> is a density matrix</li>
-<li>if <code>index</code> is outside [0, <picture><source srcset="form_91_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^{N}$" src="form_91.png"/></picture>) where <picture><source srcset="form_92_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N = $" src="form_92.png"/></picture> <code>qureg.numQubitsRepresented</code> </li>
+<li>if <code>index</code> is outside [0, \(2^{N}\)) where \(N = \) <code>qureg.numQubitsRepresented</code> </li>
 </ul>
 </td></tr>
   </table>
@@ -1343,7 +1350,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="group__debug.html#ga51a64b05d31ef9bcf6a63ce26c0092db" title="An internal function called when invalid arguments are passed to a QuEST API call,...">invalidQuESTInputError()</a></td><td><ul>
 <li>if <code>qureg</code> is a state-vector,</li>
-<li>if <code>row</code> or <code>col</code> are outside [0, <picture><source srcset="form_91_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^{N}$" src="form_91.png"/></picture>) where <picture><source srcset="form_92_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N = $" src="form_92.png"/></picture> <code>qureg.numQubitsRepresented</code> </li>
+<li>if <code>row</code> or <code>col</code> are outside [0, \(2^{N}\)) where \(N = \) <code>qureg.numQubitsRepresented</code> </li>
 </ul>
 </td></tr>
   </table>
@@ -1418,7 +1425,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="group__debug.html#ga51a64b05d31ef9bcf6a63ce26c0092db" title="An internal function called when invalid arguments are passed to a QuEST API call,...">invalidQuESTInputError()</a></td><td><ul>
 <li>if <code>qureg</code> is a density matrix</li>
-<li>if <code>index</code> is outside [0, <picture><source srcset="form_91_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^{N}$" src="form_91.png"/></picture>) where <picture><source srcset="form_92_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N = $" src="form_92.png"/></picture> <code>qureg.numQubitsRepresented</code> </li>
+<li>if <code>index</code> is outside [0, \(2^{N}\)) where \(N = \) <code>qureg.numQubitsRepresented</code> </li>
 </ul>
 </td></tr>
   </table>
@@ -1583,7 +1590,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="group__debug.html#ga51a64b05d31ef9bcf6a63ce26c0092db" title="An internal function called when invalid arguments are passed to a QuEST API call,...">invalidQuESTInputError()</a></td><td><ul>
 <li>if <code>qureg</code> is a density matrix</li>
-<li>if <code>index</code> is outside [0, <picture><source srcset="form_91_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^{N}$" src="form_91.png"/></picture>) where <picture><source srcset="form_92_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N = $" src="form_92.png"/></picture> <code>qureg.numQubitsRepresented</code> </li>
+<li>if <code>index</code> is outside [0, \(2^{N}\)) where \(N = \) <code>qureg.numQubitsRepresented</code> </li>
 </ul>
 </td></tr>
   </table>
@@ -1654,7 +1661,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="group__debug.html#ga51a64b05d31ef9bcf6a63ce26c0092db" title="An internal function called when invalid arguments are passed to a QuEST API call,...">invalidQuESTInputError()</a></td><td><ul>
 <li>if <code>qureg</code> is a density matrix</li>
-<li>if <code>index</code> is outside [0, <picture><source srcset="form_91_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^{N}$" src="form_91.png"/></picture>) where <picture><source srcset="form_92_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N = $" src="form_92.png"/></picture> <code>qureg.numQubitsRepresented</code> </li>
+<li>if <code>index</code> is outside [0, \(2^{N}\)) where \(N = \) <code>qureg.numQubitsRepresented</code> </li>
 </ul>
 </td></tr>
   </table>

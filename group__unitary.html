@@ -11,6 +11,13 @@
         <title>QuEST: Unitaries</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
         <link href="doxygen.css" rel="stylesheet" type="text/css" />
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -84,7 +91,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga2fa310101ecffd6aeba96f77b7d85f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the (two-qubit) controlled phase flip gate, also known as the controlled pauliZ gate.  <a href="group__unitary.html#ga2fa310101ecffd6aeba96f77b7d85f56">More...</a><br /></td></tr>
 <tr class="separator:ga2fa310101ecffd6aeba96f77b7d85f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7214a79aa22ae7a50ad6f38615968cb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__unitary.html#ga7214a79aa22ae7a50ad6f38615968cb0">controlledPhaseShift</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int idQubit1, int idQubit2, <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> angle)</td></tr>
-<tr class="memdesc:ga7214a79aa22ae7a50ad6f38615968cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Introduce a phase factor <picture><source srcset="form_75_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \exp(i \theta) $" src="form_75.png"/></picture> on state <picture><source srcset="form_76_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |11\rangle $" src="form_76.png"/></picture> of qubits <code>idQubit1</code> and <code>idQubit2</code>.  <a href="group__unitary.html#ga7214a79aa22ae7a50ad6f38615968cb0">More...</a><br /></td></tr>
+<tr class="memdesc:ga7214a79aa22ae7a50ad6f38615968cb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Introduce a phase factor \( \exp(i \theta) \) on state \( |11\rangle \) of qubits <code>idQubit1</code> and <code>idQubit2</code>.  <a href="group__unitary.html#ga7214a79aa22ae7a50ad6f38615968cb0">More...</a><br /></td></tr>
 <tr class="separator:ga7214a79aa22ae7a50ad6f38615968cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0c84c429cb1d7e2596706c1804dd9cba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__unitary.html#ga0c84c429cb1d7e2596706c1804dd9cba">controlledRotateAroundAxis</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int controlQubit, int targetQubit, <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> angle, <a class="el" href="structVector.html">Vector</a> axis)</td></tr>
 <tr class="memdesc:ga0c84c429cb1d7e2596706c1804dd9cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a controlled rotation by a given angle around a given vector on the Bloch-sphere.  <a href="group__unitary.html#ga0c84c429cb1d7e2596706c1804dd9cba">More...</a><br /></td></tr>
@@ -126,7 +133,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:gad76781842af56821ed4e223bd776f057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the multiple-qubit controlled phase flip gate, also known as the multiple-qubit controlled pauliZ gate.  <a href="group__unitary.html#gad76781842af56821ed4e223bd776f057">More...</a><br /></td></tr>
 <tr class="separator:gad76781842af56821ed4e223bd776f057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0832e39058d913ad47af44e97a854446"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__unitary.html#ga0832e39058d913ad47af44e97a854446">multiControlledPhaseShift</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int *controlQubits, int numControlQubits, <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> angle)</td></tr>
-<tr class="memdesc:ga0832e39058d913ad47af44e97a854446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Introduce a phase factor <picture><source srcset="form_75_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \exp(i \theta) $" src="form_75.png"/></picture> on state <picture><source srcset="form_79_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |1 \dots 1 \rangle $" src="form_79.png"/></picture> of the passed qubits.  <a href="group__unitary.html#ga0832e39058d913ad47af44e97a854446">More...</a><br /></td></tr>
+<tr class="memdesc:ga0832e39058d913ad47af44e97a854446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Introduce a phase factor \( \exp(i \theta) \) on state \( |1 \dots 1 \rangle \) of the passed qubits.  <a href="group__unitary.html#ga0832e39058d913ad47af44e97a854446">More...</a><br /></td></tr>
 <tr class="separator:ga0832e39058d913ad47af44e97a854446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga65c7879947e398690a5428bd43e143e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__unitary.html#ga65c7879947e398690a5428bd43e143e3">multiControlledTwoQubitUnitary</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int *controlQubits, int numControlQubits, int targetQubit1, int targetQubit2, <a class="el" href="structComplexMatrix4.html">ComplexMatrix4</a> u)</td></tr>
 <tr class="memdesc:ga65c7879947e398690a5428bd43e143e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a general multi-controlled two-qubit unitary (including a global phase factor).  <a href="group__unitary.html#ga65c7879947e398690a5428bd43e143e3">More...</a><br /></td></tr>
@@ -159,7 +166,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga5d80b490e3910aa737a81bb597cdfcc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the single-qubit Pauli-Z (also known as the Z, sigma-Z or phase-flip) gate.  <a href="group__unitary.html#ga5d80b490e3910aa737a81bb597cdfcc9">More...</a><br /></td></tr>
 <tr class="separator:ga5d80b490e3910aa737a81bb597cdfcc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga26baa057f5db8804825c2d611386753b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__unitary.html#ga26baa057f5db8804825c2d611386753b">phaseShift</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int targetQubit, <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> angle)</td></tr>
-<tr class="memdesc:ga26baa057f5db8804825c2d611386753b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the phase between <picture><source srcset="form_70_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |0\rangle $" src="form_70.png"/></picture> and <picture><source srcset="form_71_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |1\rangle $" src="form_71.png"/></picture> of a single qubit by a given angle.  <a href="group__unitary.html#ga26baa057f5db8804825c2d611386753b">More...</a><br /></td></tr>
+<tr class="memdesc:ga26baa057f5db8804825c2d611386753b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift the phase between \( |0\rangle \) and \( |1\rangle \) of a single qubit by a given angle.  <a href="group__unitary.html#ga26baa057f5db8804825c2d611386753b">More...</a><br /></td></tr>
 <tr class="separator:ga26baa057f5db8804825c2d611386753b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4c708f066b244801e10f538b48b90145"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__unitary.html#ga4c708f066b244801e10f538b48b90145">rotateAroundAxis</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int rotQubit, <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> angle, <a class="el" href="structVector.html">Vector</a> axis)</td></tr>
 <tr class="memdesc:ga4c708f066b244801e10f538b48b90145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a single qubit by a given angle around a given <a class="el" href="structVector.html">Vector</a> on the Bloch-sphere.  <a href="group__unitary.html#ga4c708f066b244801e10f538b48b90145">More...</a><br /></td></tr>
@@ -248,7 +255,7 @@ Functions</h2></td></tr>
 <p>Apply a general multi-controlled multi-qubit gate specified as an (possibly non-unitary) arbitrary complex matrix. </p>
 <p >This is equivalent to <a class="el" href="group__unitary.html#ga3ad6c477edcdbc845fc1143e860fda08" title="Apply a general multi-controlled multi-qubit unitary (including a global phase factor).">multiControlledMultiQubitUnitary()</a> but does not check nor enforce unitary of the given matrix <code>m</code>. This differs from <a class="el" href="group__operator.html#gab52b6315c5520b7d311b0458785eed8e" title="Apply a general N-by-N matrix, which may be non-unitary, with additional controlled qubits.">applyMultiControlledMatrixN()</a>, because the latter only left-applies the matrix upon density matrices.</p>
 <p >Any number of control and target qubits can be specified. This effects the many-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_253_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
@@ -257,7 +264,7 @@ Functions</h2></td></tr>
 &amp; &amp; &amp; m_{10} &amp; m_{11} &amp; \dots \\
 &amp; &amp; &amp; \vdots &amp; \vdots &amp; \ddots
 \end{pmatrix}
-\]" src="form_253.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits.</p>
 <p >Besides unitarity, the inputs and their preconditions are the same as for <a class="el" href="group__unitary.html#ga3ad6c477edcdbc845fc1143e860fda08" title="Apply a general multi-controlled multi-qubit unitary (including a global phase factor).">multiControlledMultiQubitUnitary()</a>.</p>
@@ -374,19 +381,19 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Apply a single-qubit unitary parameterised by two given complex scalars. </p>
-<p >Given valid complex numbers <picture><source srcset="form_96_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\alpha$" src="form_96.png"/></picture> and <picture><source srcset="form_97_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\beta$" src="form_97.png"/></picture>, applies the unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_98_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >Given valid complex numbers \(\alpha\) and \(\beta\), applies the unitary  </p><p class="formulaDsp">
+\[
 U =
 \begin{pmatrix}
 \alpha &amp; -\beta^* \\
 \beta &amp; \alpha^*
 \end{pmatrix}
-\]" src="form_98.png"/></picture>
+\]
 </p>
 <p> which is general up to a global phase factor. <br  />
- Valid <picture><source srcset="form_96_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\alpha$" src="form_96.png"/></picture>, <picture><source srcset="form_97_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\beta$" src="form_97.png"/></picture> satisfy <picture><source srcset="form_99_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\alpha|^2 + |\beta|^2 = 1$" src="form_99.png"/></picture>.</p>
+ Valid \(\alpha\), \(\beta\) satisfy \(|\alpha|^2 + |\beta|^2 = 1\).</p>
 <p class="formulaDsp">
-<picture><source srcset="form_100_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target};
 
@@ -395,7 +402,7 @@ U =
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {U};
              \end{tikzpicture}
- \]" src="form_100.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#gaf7e15bf09c64082e0a8467998eb25623" title="Apply a controlled unitary (single control, single target) parameterised by two given complex scalars...">controlledCompactUnitary()</a></li>
@@ -497,20 +504,20 @@ Tyson Jones (density matrix, doc) </dd></dl>
 </div><div class="memdoc">
 
 <p>Apply a controlled unitary (single control, single target) parameterised by two given complex scalars. </p>
-<p >Given valid complex numbers <picture><source srcset="form_96_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\alpha$" src="form_96.png"/></picture> and <picture><source srcset="form_97_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\beta$" src="form_97.png"/></picture>, applies the two-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_116_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >Given valid complex numbers \(\alpha\) and \(\beta\), applies the two-qubit unitary  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\
 &amp; &amp; \alpha &amp; -\beta^* \\
 &amp; &amp; \beta &amp; \alpha^*
 \end{pmatrix}
-\]" src="form_116.png"/></picture>
+\]
 </p>
-<p> to the control and target qubits. Valid <picture><source srcset="form_96_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\alpha$" src="form_96.png"/></picture>, <picture><source srcset="form_97_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\beta$" src="form_97.png"/></picture> satisfy <picture><source srcset="form_99_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\alpha|^2 + |\beta|^2 = 1$" src="form_99.png"/></picture>. The target unitary is general up to a global phase factor. <br  />
+<p> to the control and target qubits. Valid \(\alpha\), \(\beta\) satisfy \(|\alpha|^2 + |\beta|^2 = 1\). The target unitary is general up to a global phase factor. <br  />
 </p>
 <p class="formulaDsp">
-<picture><source srcset="form_117_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {control};
              \node[draw=none] at (-3.5, 0) {target};
@@ -524,7 +531,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$U_{\alpha, \beta}$};
              \end{tikzpicture}
- \]" src="form_117.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#gaefaa7acba90373efe4e0f0b94987c734" title="Apply a single-qubit unitary parameterised by two given complex scalars.">compactUnitary()</a></li>
@@ -631,7 +638,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply a general controlled multi-qubit unitary (including a global phase factor). </p>
 <p >One control and any number of target qubits can be specified. This effects the many-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_227_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
@@ -641,13 +648,13 @@ Tyson Jones (density matrix, doc) </dd></dl>
 &amp; &amp; &amp; &amp; u_{10} &amp; u_{11} &amp; \dots \\
 &amp; &amp; &amp; &amp; \vdots &amp; \vdots &amp; \ddots
 \end{pmatrix}
-\]" src="form_227.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits.</p>
 <p >The target qubits in <code>targs</code> are treated as ordered least significant to most significant in <code>u</code>.</p>
 <p >The passed ComplexMatrix must be unitary and be a compatible size with the specified number of target qubits, otherwise an error is thrown.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_228_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 1) {targets};
              \node[draw=none] at (-3.5, 4) {control};      
@@ -665,7 +672,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \node[draw=none] at (0, -1) {$\vdots$};
              
              \end{tikzpicture}
- \]" src="form_228.png"/></picture>
+ \]
 </p>
 <p >Note that in multithreaded mode, each thread will clone 2^<code>numTargs</code> amplitudes, and store these in the runtime stack. Using t threads, the total memory overhead of this function is t*2^<code>numTargs</code>. For many targets (e.g. 16 qubits), this may cause a stack-overflow / seg-fault (e.g. on a 1 MiB stack).</p>
 <p >Note too that in distributed mode, this routine requires that each node contains at least 2^<code>numTargs</code> amplitudes. This means an q-qubit register (state vector or density matrix) can be distributed by at most 2^q / 2^<code>numTargs</code> nodes.</p>
@@ -761,18 +768,18 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply the controlled not (single control, single target) gate, also known as the c-X, c-sigma-X, c-Pauli-X and c-bit-flip gate. </p>
 <p >This applies pauliX to the target qubit if the control qubit has value 1. This effects the two-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_135_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
 &amp; &amp; &amp; 1 \\
 &amp; &amp; 1
 \end{pmatrix}
-\]" src="form_135.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_136_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {control};
              \node[draw=none] at (-3.5, 0) {target};
@@ -784,7 +791,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-2,0) -- (2, 0);
              \draw (0, 0) circle (.5);
              \end{tikzpicture}
- \]" src="form_136.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#gafd81a9217fb7d21c365443442492b2dc" title="Apply a NOT (or Pauli X) gate with multiple control and target qubits.">multiControlledMultiQubitNot()</a></li>
@@ -869,18 +876,18 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply the controlled pauliY (single control, single target) gate, also known as the c-Y and c-sigma-Y gate. </p>
 <p >This applies pauliY to the target qubit if the control qubit has value 1. This effects the two-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_143_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
 &amp; &amp; &amp; -i \\
 &amp; &amp; i
 \end{pmatrix}
-\]" src="form_143.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_144_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {control};
              \node[draw=none] at (-3.5, 0) {target};
@@ -894,7 +901,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {Y};
              \end{tikzpicture}
- \]" src="form_144.png"/></picture>
+ \]
 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -974,17 +981,17 @@ Ania Brown (debug) </dd></dl>
 
 <p>Apply the (two-qubit) controlled phase flip gate, also known as the controlled pauliZ gate. </p>
 <p >For each state, if both input qubits have value one, multiply the amplitude of that state by -1. This applies the two-qubit unitary:  </p><p class="formulaDsp">
-<picture><source srcset="form_81_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
 &amp; &amp; 1 \\
 &amp; &amp; &amp; -1 
 \end{pmatrix}
-\]" src="form_81.png"/></picture>
+\]
 </p>
 <p> with circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_82_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {idQubit1};
              \node[draw=none] at (-3.5, 0) {idQubit2};
@@ -996,7 +1003,7 @@ Ania Brown (debug) </dd></dl>
              \draw (-2,0) -- (2, 0);
              \draw[fill=black] (0, 0) circle (.2);
              \end{tikzpicture}
- \]" src="form_82.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga5d80b490e3910aa737a81bb597cdfcc9" title="Apply the single-qubit Pauli-Z (also known as the Z, sigma-Z or phase-flip) gate.">pauliZ()</a></li>
@@ -1082,20 +1089,20 @@ Ania Brown (debug) </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Introduce a phase factor <picture><source srcset="form_75_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \exp(i \theta) $" src="form_75.png"/></picture> on state <picture><source srcset="form_76_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |11\rangle $" src="form_76.png"/></picture> of qubits <code>idQubit1</code> and <code>idQubit2</code>. </p>
-<p >For angle <picture><source srcset="form_72_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta$" src="form_72.png"/></picture>, this effects the unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_77_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p>Introduce a phase factor \( \exp(i \theta) \) on state \( |11\rangle \) of qubits <code>idQubit1</code> and <code>idQubit2</code>. </p>
+<p >For angle \(\theta\), this effects the unitary  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 1 &amp; &amp; &amp; \\
 &amp; 1 &amp; &amp; \\
 &amp; &amp; 1 &amp; \\
 &amp; &amp; &amp; \exp(i \theta)
 \end{pmatrix}
-\]" src="form_77.png"/></picture>
+\]
 </p>
 <p> on <code>idQubit1</code> and <code>idQubit2</code>.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_78_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {qubit1};
              \node[draw=none] at (-3.5, 0) {qubit2};
@@ -1109,7 +1116,7 @@ Ania Brown (debug) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$R_\theta$};
              \end{tikzpicture}
- \]" src="form_78.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga26baa057f5db8804825c2d611386753b" title="Shift the phase between  and  of a single qubit by a given angle.">phaseShift()</a></li>
@@ -1206,9 +1213,9 @@ Ania Brown (debug) </dd></dl>
 <p>Applies a controlled rotation by a given angle around a given vector on the Bloch-sphere. </p>
 <p ><br  />
  The vector must not be zero (else an error is thrown), but needn't be unit magnitude.</p>
-<p >For angle <picture><source srcset="form_72_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta$" src="form_72.png"/></picture> and axis vector <picture><source srcset="form_109_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{n}$" src="form_109.png"/></picture>, applies <picture><source srcset="form_110_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$R_{\hat{n}} = \exp \left(- i \frac{\theta}{2} \hat{n} \cdot \vec{\sigma} \right) $" src="form_110.png"/></picture> to states where the target qubit is 1 ( <picture><source srcset="form_111_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{\sigma}$" src="form_111.png"/></picture> is the vector of Pauli matrices).</p>
+<p >For angle \(\theta\) and axis vector \(\vec{n}\), applies \(R_{\hat{n}} = \exp \left(- i \frac{\theta}{2} \hat{n} \cdot \vec{\sigma} \right) \) to states where the target qubit is 1 ( \(\vec{\sigma}\) is the vector of Pauli matrices).</p>
 <p class="formulaDsp">
-<picture><source srcset="form_115_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {control};
              \node[draw=none] at (-3.5, 0) {target};
@@ -1222,7 +1229,7 @@ Ania Brown (debug) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$R_{\hat{n}}(\theta)$};
              \end{tikzpicture}
- \]" src="form_115.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga4c708f066b244801e10f538b48b90145" title="Rotate a single qubit by a given angle around a given Vector on the Bloch-sphere.">rotateAroundAxis()</a></li>
@@ -1317,7 +1324,7 @@ Ania Brown (debug) </dd></dl>
 <p>Applies a controlled rotation by a given angle around the X-axis of the Bloch-sphere. </p>
 <p >The target qubit is rotated in states where the control qubit has value 1.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_112_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {control};
              \node[draw=none] at (-3.5, 0) {target};
@@ -1331,7 +1338,7 @@ Ania Brown (debug) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$R_x(\theta)$};
              \end{tikzpicture}
- \]" src="form_112.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga8886a3793b21622c48cf3bad6e15082d" title="Rotate a single qubit by a given angle around the X-axis of the Bloch-sphere.">rotateX()</a></li>
@@ -1426,7 +1433,7 @@ Ania Brown (debug) </dd></dl>
 <p>Applies a controlled rotation by a given angle around the Y-axis of the Bloch-sphere. </p>
 <p >The target qubit is rotated in states where the control qubit has value 1.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_113_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {control};
              \node[draw=none] at (-3.5, 0) {target};
@@ -1440,7 +1447,7 @@ Ania Brown (debug) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$R_y(\theta)$};
              \end{tikzpicture}
- \]" src="form_113.png"/></picture>
+ \]
 </p>
 <ul>
 <li><a class="el" href="group__unitary.html#ga34312ff52cc28bcab3cbd2ff338fd081" title="Rotate a single qubit by a given angle around the Y-axis of the Bloch-sphere.">rotateY()</a></li>
@@ -1534,7 +1541,7 @@ Ania Brown (debug) </dd></dl>
 <p>Applies a controlled rotation by a given angle around the Z-axis of the Bloch-sphere. </p>
 <p >The target qubit is rotated in states where the control qubit has value 1.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_114_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {control};
              \node[draw=none] at (-3.5, 0) {target};
@@ -1548,7 +1555,7 @@ Ania Brown (debug) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$R_z(\theta)$};
              \end{tikzpicture}
- \]" src="form_114.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#gab23a8b022ec83b9d423961ca87cd8cb5" title="Rotate a single qubit by a given angle around the Z-axis of the Bloch-sphere (also known as a phase s...">rotateZ()</a></li>
@@ -1648,7 +1655,7 @@ Ania Brown (debug) </dd></dl>
 
 <p>Apply a general controlled two-qubit unitary (including a global phase factor). </p>
 <p >The given unitary is applied to the target amplitudes where the control qubit has value 1. This effects the many-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_221_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\
@@ -1659,13 +1666,13 @@ Ania Brown (debug) </dd></dl>
 &amp; &amp; &amp; &amp; u_{20} &amp; u_{21} &amp; u_{22} &amp; u_{23} \\
 &amp; &amp; &amp; &amp; u_{30} &amp; u_{31} &amp; u_{32} &amp; u_{33}
 \end{pmatrix}
-\]" src="form_221.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits.</p>
-<p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in <code>u</code>, such that a row in <code>u</code> is dotted with the vector <picture><source srcset="form_219_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |\text{targetQubit2} \;\; \text{targetQubit1}\rangle : \{ |00\rangle, |01\rangle, |10\rangle, |11\rangle \} $" src="form_219.png"/></picture></p>
+<p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in <code>u</code>, such that a row in <code>u</code> is dotted with the vector \( |\text{targetQubit2} \;\; \text{targetQubit1}\rangle : \{ |00\rangle, |01\rangle, |10\rangle, |11\rangle \} \)</p>
 <p >The passed 4x4 ComplexMatrix must be unitary, otherwise an error is thrown.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_222_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target1};
              \node[draw=none] at (-3.5, 2) {target2};
@@ -1682,7 +1689,7 @@ Ania Brown (debug) </dd></dl>
              \draw (-1,-1)--(-1,3)--(1,3)--(1,-1)--cycle;
              \node[draw=none] at (0, 1) {U};
              \end{tikzpicture}
- \]" src="form_222.png"/></picture>
+ \]
 </p>
 <p >Note that in distributed mode, this routine requires that each node contains at least 4 amplitudes. This means an q-qubit register (state vector or density matrix) can be distributed by at most 2^q/4 nodes.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
@@ -1783,18 +1790,18 @@ Ania Brown (debug) </dd></dl>
 
 <p>Apply a general controlled unitary (single control, single target), which can include a global phase factor. </p>
 <p >The given unitary is applied to the target qubit if the control qubit has value 1, effecting the two-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_118_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\
 &amp; &amp; u_{00} &amp; u_{01}\\
 &amp; &amp; u_{10} &amp; u_{11}
 \end{pmatrix}
-\]" src="form_118.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_119_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {control};
              \node[draw=none] at (-3.5, 0) {target};
@@ -1808,7 +1815,7 @@ Ania Brown (debug) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {U};
              \end{tikzpicture}
- \]" src="form_119.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="structComplexMatrix2.html" title="Represents a 2x2 matrix of complex numbers.">ComplexMatrix2</a></li>
@@ -1909,7 +1916,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply a many-qubit unitary specified as a diagonal matrix upon a specific set of qubits of a quantum register. </p>
 <p >Assume the given <a class="el" href="structSubDiagonalOp.html" title="Represents a diagonal complex operator of a smaller dimension than the full Hilbert state of a Qureg.">SubDiagonalOp</a> <code>op</code> represents unitary operator  </p><p class="formulaDsp">
-<picture><source srcset="form_50_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
   \hat{D} = 
   \begin{pmatrix}
   d_1 &amp; &amp; &amp; \\
@@ -1917,22 +1924,22 @@ Tyson Jones (density matrix, doc) </dd></dl>
   &amp; &amp; d_3 &amp; \\
   &amp; &amp; &amp; \ddots
   \end{pmatrix}
-  \]" src="form_50.png"/></picture>
+  \]
 </p>
-<p> Valid unitary operators have elements which satisfy <picture><source srcset="form_51_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|d_i|=1 \; \forall \; i$" src="form_51.png"/></picture>.</p>
+<p> Valid unitary operators have elements which satisfy \(|d_i|=1 \; \forall \; i\).</p>
 <p >This function effects  </p><p class="formulaDsp">
-<picture><source srcset="form_52_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
        |\psi\rangle \rightarrow \hat{D}_{\text{targets}} |\psi\rangle
-  \]" src="form_52.png"/></picture>
+  \]
 </p>
-<p> upon state-vectors <picture><source srcset="form_39_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\psi\rangle$" src="form_39.png"/></picture>, and  </p><p class="formulaDsp">
-<picture><source srcset="form_53_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p> upon state-vectors \(|\psi\rangle\), and  </p><p class="formulaDsp">
+\[
        \rho \rightarrow \hat{D}_{\text{targets}} \; \rho \; \hat{D}_{\text{targets}}^\dagger
-  \]" src="form_53.png"/></picture>
+  \]
 </p>
-<p> upon density matrices <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture>.</p>
+<p> upon density matrices \(\rho\).</p>
 <p class="formulaDsp">
-<picture><source srcset="form_54_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
             \begin{tikzpicture}[scale=.5]
             \node[draw=none] at (-3.5, 1) {targets};
 
@@ -1945,7 +1952,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
             \node[draw=none] at (0, -1) {$\vdots$};
             
             \end{tikzpicture}
-\]" src="form_54.png"/></picture>
+\]
 </p>
 <blockquote class="doxtable">
 <p >&zwj;To relax unitarity, use <a class="el" href="group__operator.html#ga56f8393f74dcf24a8d4b0f47191b38f4" title="Apply a many-qubit unitary specified as a diagonal matrix upon a specific set of qubits of a quantum ...">applyGateSubDiagonalOp()</a></p>
@@ -2039,17 +2046,17 @@ Tyson Jones (density matrix, doc) </dd></dl>
 </div><div class="memdoc">
 
 <p>Apply the single-qubit Hadamard gate. </p>
-<p >This takes <picture><source srcset="form_129_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|0\rangle$" src="form_129.png"/></picture> to <picture><source srcset="form_130_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|+\rangle$" src="form_130.png"/></picture> and <picture><source srcset="form_131_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|1\rangle$" src="form_131.png"/></picture> to <picture><source srcset="form_132_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|-\rangle$" src="form_132.png"/></picture>, and is equivalent to a rotation of <picture><source srcset="form_122_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi$" src="form_122.png"/></picture> around the x-axis then <picture><source srcset="form_85_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi/2$" src="form_85.png"/></picture> about the y-axis on the Bloch-sphere. I.e.  </p><p class="formulaDsp">
-<picture><source srcset="form_133_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This takes \(|0\rangle\) to \(|+\rangle\) and \(|1\rangle\) to \(|-\rangle\), and is equivalent to a rotation of \(\pi\) around the x-axis then \(\pi/2\) about the y-axis on the Bloch-sphere. I.e.  </p><p class="formulaDsp">
+\[
 \frac{1}{\sqrt{2}}
 \begin{pmatrix}
 1 &amp; 1 \\
 1 &amp; -1
 \end{pmatrix}
-\]" src="form_133.png"/></picture>
+\]
 </p>
 <p class="formulaDsp">
-<picture><source srcset="form_134_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target};
 
@@ -2058,7 +2065,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {H};
              \end{tikzpicture}
- \]" src="form_134.png"/></picture>
+ \]
 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2146,16 +2153,16 @@ Tyson Jones (density matrix, doc) </dd></dl>
 </div><div class="memdoc">
 
 <p>Apply a NOT (or Pauli X) gate with multiple control and target qubits. </p>
-<p >This applies pauliX to qubits <code>targs</code> on every basis state for which the control qubits <code>ctrls</code> are all in the <picture><source srcset="form_131_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|1\rangle$" src="form_131.png"/></picture> state. The ordering within each of <code>ctrls</code> and <code>targs</code> has no effect on the operation. </p><blockquote class="doxtable">
+<p >This applies pauliX to qubits <code>targs</code> on every basis state for which the control qubits <code>ctrls</code> are all in the \(|1\rangle\) state. The ordering within each of <code>ctrls</code> and <code>targs</code> has no effect on the operation. </p><blockquote class="doxtable">
 <p >&zwj;This function is equivalent, but significantly faster (approximately <code>numTargs</code> times) than applying controlled NOTs on each qubit in <code>targs</code> in turn, since:  </p><p class="formulaDsp">
-<picture><source srcset="form_137_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
     C_{a, \,b, \,\dots}( X_c \otimes X_d \otimes \dots ) \equiv
     C_{a, \,b, \,\dots}( X_c) \; \otimes \; C_{a, \,b, \,\dots}(X_d) \; \otimes \; \dots
-\]" src="form_137.png"/></picture>
+\]
 </p>
  </blockquote>
 <p>The effected unitary, if <code>targs</code> and <code>ctrls</code> happened to be contiguous, has matrix:  </p><p class="formulaDsp">
-<picture><source srcset="form_138_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
@@ -2165,10 +2172,10 @@ Tyson Jones (density matrix, doc) </dd></dl>
 &amp; &amp; &amp; &amp; 1 &amp;    &amp;  \\
 &amp; &amp; &amp; {{\scriptstyle\cdot}^{{\scriptstyle\cdot}^{{\scriptstyle\cdot}}}} &amp; &amp; &amp;
 \end{pmatrix}
-\]" src="form_138.png"/></picture>
+\]
 </p>
 <p> and circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_139_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 1) {targets};
              \node[draw=none] at (-3.5, 5) {controls};
@@ -2192,7 +2199,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              
              \node[draw=none] at (0, -1.5) {$\vdots$};
              \end{tikzpicture}
- \]" src="form_139.png"/></picture>
+ \]
 </p>
  <blockquote class="doxtable">
 <p >&zwj;In distributed mode, this operation requires at most a single round of pair-wise communication between nodes, and hence is as efficient as <a class="el" href="group__unitary.html#ga4193c14cfb918fa3291fb0648058d63e" title="Apply the single-qubit Pauli-X (also known as the X, sigma-X, NOT or bit-flip) gate.">pauliX()</a>. </p>
@@ -2308,7 +2315,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply a general multi-controlled multi-qubit unitary (including a global phase factor). </p>
 <p >Any number of control and target qubits can be specified. This effects the many-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_229_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
@@ -2317,7 +2324,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 &amp; &amp; &amp; u_{10} &amp; u_{11} &amp; \dots \\
 &amp; &amp; &amp; \vdots &amp; \vdots &amp; \ddots
 \end{pmatrix}
-\]" src="form_229.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits.</p>
 <p >The target qubits in <code>targs</code> are treated as ordered least significant to most significant in <code>u</code>.</p>
@@ -2325,7 +2332,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 <p >&zwj;To left-multiply a non-unitary <a class="el" href="structComplexMatrixN.html" title="Represents a general 2^N by 2^N matrix of complex numbers.">ComplexMatrixN</a>, including control qubits, use <a class="el" href="group__operator.html#gab52b6315c5520b7d311b0458785eed8e" title="Apply a general N-by-N matrix, which may be non-unitary, with additional controlled qubits.">applyMultiControlledMatrixN()</a> </p>
 </blockquote>
 <p class="formulaDsp">
-<picture><source srcset="form_230_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 1) {targets};
              \node[draw=none] at (-3.5, 5) {controls};
@@ -2350,7 +2357,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \node[draw=none] at (0, -1) {$\vdots$};
              
              \end{tikzpicture}
- \]" src="form_230.png"/></picture>
+ \]
 </p>
 <p >Note that in multithreaded mode, each thread will clone 2^<code>numTargs</code> amplitudes, and store these in the runtime stack. Using t threads, the total memory overhead of this function is t*2^<code>numTargs</code>. For many targets (e.g. 16 qubits), this may cause a stack-overflow / seg-fault (e.g. on a 1 MiB stack).</p>
 <p >Note that in distributed mode, this routine requires that each node contains at least 2^<code>numTargs</code> amplitudes. This means an q-qubit register (state vector or density matrix) can be distributed by at most 2^q / 2^<code>numTargs</code> nodes.</p>
@@ -2480,15 +2487,15 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply a multi-controlled multi-target multi-Pauli rotation, also known as a controlled Pauli gadget. </p>
 <p >This is the unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_199_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
    |1\rangle\langle 1|^{\otimes\, \text{numControls}} \; \otimes \,
     \exp \left( - i \, \frac{\theta}{2} \; \bigotimes_{j}^{\text{numTargets}} \hat{\sigma}_j\right)
     \;\;+\;\; \sum\limits_{k=0}^{2^{\,\text{numControls}} - 2} |k\rangle\langle k| \otimes \text{I}
-\]" src="form_199.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_200_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\hat{\sigma}_j$" src="form_200.png"/></picture> are the Pauli operators (<a class="el" href="group__type.html#ga1c703cf89629e4e9c7023cd402d67028" title="Codes for specifying Pauli operators.">pauliOpType</a>) in <code>targetPaulis</code>, which operate upon the corresponding qubits in <code>targetQubits</code>.</p>
+<p> where \(\hat{\sigma}_j\) are the Pauli operators (<a class="el" href="group__type.html#ga1c703cf89629e4e9c7023cd402d67028" title="Codes for specifying Pauli operators.">pauliOpType</a>) in <code>targetPaulis</code>, which operate upon the corresponding qubits in <code>targetQubits</code>.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_201_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-4, 1) {targets};
              \node[draw=none] at (-4, 5) {controls};
@@ -2513,7 +2520,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \node[draw=none] at (0, -1) {$\vdots$};
              
              \end{tikzpicture}
- \]" src="form_201.png"/></picture>
+ \]
 </p>
 <blockquote class="doxtable">
 <p >&zwj;All qubits not appearing in <code>targetQubits</code> and <code>controlQubits</code> are assumed to receive the identity operator. </p>
@@ -2534,14 +2541,14 @@ Tyson Jones (density matrix, doc) </dd></dl>
 <div class="ttc" id="agroup__type_html_gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c"><div class="ttname"><a href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c">PAULI_X</a></div><div class="ttdeci">@ PAULI_X</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00096">QuEST.h:96</a></div></div>
 <div class="ttc" id="agroup__unitary_html_gab2ececaa253252e1b1cdb18a8452704a"><div class="ttname"><a href="group__unitary.html#gab2ececaa253252e1b1cdb18a8452704a">multiControlledMultiRotatePauli</a></div><div class="ttdeci">void multiControlledMultiRotatePauli(Qureg qureg, int *controlQubits, int numControls, int *targetQubits, enum pauliOpType *targetPaulis, int numTargets, qreal angle)</div><div class="ttdoc">Apply a multi-controlled multi-target multi-Pauli rotation, also known as a controlled Pauli gadget.</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l00713">QuEST.c:713</a></div></div>
 </div><!-- fragment --><p> effects  </p><p class="formulaDsp">
-<picture><source srcset="form_202_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
    |1\rangle\langle 1 | \otimes \exp\left( -i \, (0.1/2) \, X_0 \, Y_1 \, Z_2 \right) \, \text{I}_3
    \;\; + \;\; |0\rangle\langle 0| \otimes \text{I}^{\otimes 4}
-\]" src="form_202.png"/></picture>
+\]
 </p>
 <p> on <code>qureg</code>, where unspecified qubits (along with those targeted by <code>PAULI_I</code>) are assumed to receive the identity operator (excluded from exponentiation).</p>
 <blockquote class="doxtable">
-<p >&zwj;This means specifying <code>PAULI_I</code> does <em>not</em> induce a global phase factor <picture><source srcset="form_196_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\exp(-i \theta/2)$" src="form_196.png"/></picture>. Hence, if all <code>targetPaulis</code> are identity, then this function does nothing to <code>qureg</code>. Specifying <code>PAULI_I</code> on a qubit is superfluous but allowed for convenience. </p>
+<p >&zwj;This means specifying <code>PAULI_I</code> does <em>not</em> induce a global phase factor \(\exp(-i \theta/2)\). Hence, if all <code>targetPaulis</code> are identity, then this function does nothing to <code>qureg</code>. Specifying <code>PAULI_I</code> on a qubit is superfluous but allowed for convenience. </p>
 </blockquote>
 <p>This function effects the controlled Pauli gadget by first (controlled) rotating the qubits which are targeted with either <code>X</code> or <code>Y</code> into alternate basis, performing <a class="el" href="group__unitary.html#ga1e5dd165b402e97abaa0b807026527f2" title="Apply a multi-controlled multi-target Z rotation, also known as a controlled phase gadget.">multiControlledMultiRotateZ()</a> on all target qubits, then restoring the original basis.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
@@ -2670,15 +2677,15 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply a multi-controlled multi-target Z rotation, also known as a controlled phase gadget. </p>
 <p >This is the unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_197_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
    |1\rangle\langle 1|^{\otimes\, \text{numControls}} \; \otimes \,
     \exp \left( - i \, \frac{\theta}{2} \; \bigotimes_{j}^{\text{numTargets}} Z_j\right)
     \;\;+\;\; \sum\limits_{k=0}^{2^{\,\text{numControls}} - 2} |k\rangle\langle k| \otimes \text{I}
-\]" src="form_197.png"/></picture>
+\]
 </p>
-<p> where the Pauli Z gates operate upon the qubits in <code>targetQubits</code>, and cause rotations of <picture><source srcset="form_190_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta =$" src="form_190.png"/></picture> <code>angle</code>.</p>
+<p> where the Pauli Z gates operate upon the qubits in <code>targetQubits</code>, and cause rotations of \(\theta =\) <code>angle</code>.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_198_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-4, 1) {targets};
              \node[draw=none] at (-4, 5) {controls};
@@ -2703,12 +2710,12 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \node[draw=none] at (0, -1) {$\vdots$};
              
              \end{tikzpicture}
- \]" src="form_198.png"/></picture>
+ \]
 </p>
 <blockquote class="doxtable">
 <p >&zwj;All qubits not appearing in <code>targetQubits</code> and <code>controlQubits</code> are assumed to receive the identity operator. </p>
 </blockquote>
-<p>This has the effect of premultiplying all amplitudes (for which the control qubits are <code>1</code>) with <picture><source srcset="form_191_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\exp(\pm i \theta/2)$" src="form_191.png"/></picture>, where the sign is determined by the parity of the target qubits for that amplitude.</p>
+<p>This has the effect of premultiplying all amplitudes (for which the control qubits are <code>1</code>) with \(\exp(\pm i \theta/2)\), where the sign is determined by the parity of the target qubits for that amplitude.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#gab2ececaa253252e1b1cdb18a8452704a" title="Apply a multi-controlled multi-target multi-Pauli rotation, also known as a controlled Pauli gadget.">multiControlledMultiRotatePauli()</a></li>
 <li><a class="el" href="group__unitary.html#ga34aa4865c92f9aa5d898c91286c9eca5" title="Apply a multi-qubit multi-Pauli rotation, also known as a Pauli gadget, on a selected number of qubit...">multiRotatePauli()</a></li>
@@ -2807,7 +2814,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply the multiple-qubit controlled phase flip gate, also known as the multiple-qubit controlled pauliZ gate. </p>
 <p >For each state, if all control qubits have value one, multiply the amplitude of that state by -1. This applies the many-qubit unitary:  </p><p class="formulaDsp">
-<picture><source srcset="form_83_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
@@ -2815,11 +2822,11 @@ Tyson Jones (density matrix, doc) </dd></dl>
 &amp; &amp; &amp; 1 \\
 &amp; &amp; &amp; &amp; -1 
 \end{pmatrix}
-\]" src="form_83.png"/></picture>
+\]
 </p>
 <p> on the control qubits.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_84_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {controls};
              
@@ -2837,7 +2844,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-2,0) -- (2, 0);
              \draw[fill=black] (0, 0) circle (.2);
              \end{tikzpicture}
-\]" src="form_84.png"/></picture>
+\]
 </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2922,9 +2929,9 @@ Tyson Jones (density matrix, doc) </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Introduce a phase factor <picture><source srcset="form_75_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \exp(i \theta) $" src="form_75.png"/></picture> on state <picture><source srcset="form_79_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |1 \dots 1 \rangle $" src="form_79.png"/></picture> of the passed qubits. </p>
+<p>Introduce a phase factor \( \exp(i \theta) \) on state \( |1 \dots 1 \rangle \) of the passed qubits. </p>
 <p class="formulaDsp">
-<picture><source srcset="form_80_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 2) {controls};
              \node[draw=none] at (1, .7) {$\theta$};
@@ -2943,7 +2950,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-2,0) -- (2, 0);
              \draw[fill=black] (0, 0) circle (.2);
              \end{tikzpicture}
-\]" src="form_80.png"/></picture>
+\]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga26baa057f5db8804825c2d611386753b" title="Shift the phase between  and  of a single qubit by a given angle.">phaseShift()</a></li>
@@ -3049,7 +3056,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply a general multi-controlled two-qubit unitary (including a global phase factor). </p>
 <p >Any number of control qubits can be specified, and if all have value 1, the given unitary is applied to the target qubit. This effects the many-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_223_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
@@ -3059,13 +3066,13 @@ Tyson Jones (density matrix, doc) </dd></dl>
 &amp; &amp; &amp; u_{20} &amp; u_{21} &amp; u_{22} &amp; u_{23} \\
 &amp; &amp; &amp; u_{30} &amp; u_{31} &amp; u_{32} &amp; u_{33}
 \end{pmatrix}
-\]" src="form_223.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits.</p>
-<p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in <code>u</code>, such that a row in <code>u</code> is dotted with the vector <picture><source srcset="form_219_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |\text{targetQubit2} \;\; \text{targetQubit1}\rangle : \{ |00\rangle, |01\rangle, |10\rangle, |11\rangle \} $" src="form_219.png"/></picture></p>
+<p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in <code>u</code>, such that a row in <code>u</code> is dotted with the vector \( |\text{targetQubit2} \;\; \text{targetQubit1}\rangle : \{ |00\rangle, |01\rangle, |10\rangle, |11\rangle \} \)</p>
 <p >The passed 4x4 ComplexMatrix must be unitary, otherwise an error is thrown.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_224_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target1};
              \node[draw=none] at (-3.5, 2) {target2};
@@ -3089,7 +3096,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,3)--(1,3)--(1,-1)--cycle;
              \node[draw=none] at (0, 1) {U};
              \end{tikzpicture}
- \]" src="form_224.png"/></picture>
+ \]
 </p>
 <p >Note that in distributed mode, this routine requires that each node contains at least 4 amplitudes. This means an q-qubit register (state vector or density matrix) can be distributed by at most 2^q/4 nodes.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
@@ -3196,7 +3203,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply a general multiple-control single-target unitary, which can include a global phase factor. </p>
 <p >Any number of control qubits can be specified, and if all have value 1, the given unitary is applied to the target qubit. This effects the many-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_120_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
@@ -3204,11 +3211,11 @@ Tyson Jones (density matrix, doc) </dd></dl>
 &amp; &amp; &amp; u_{00} &amp; u_{01}\\
 &amp; &amp; &amp; u_{10} &amp; u_{11}
 \end{pmatrix}
-\]" src="form_120.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits. The given 2x2 ComplexMatrix must be unitary, otherwise an error is thrown.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_121_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 3) {controls};
              \node[draw=none] at (-3.5, 0) {target};
@@ -3229,7 +3236,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {U};
              \end{tikzpicture}
- \]" src="form_121.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="structComplexMatrix2.html" title="Represents a 2x2 matrix of complex numbers.">ComplexMatrix2</a></li>
@@ -3329,23 +3336,23 @@ Tyson Jones (density matrix, doc) </dd></dl>
 <p>Apply a NOT (or Pauli X) gate with multiple target qubits, which has the same effect as (but is much faster than) applying each single-qubit NOT gate in turn. </p>
 <p >The ordering within <code>targs</code> has no effect on the operation. </p><blockquote class="doxtable">
 <p >&zwj;This function is equivalent, but significantly faster (approximately <code>numTargs</code> times) than applying <a class="el" href="group__unitary.html#ga4193c14cfb918fa3291fb0648058d63e" title="Apply the single-qubit Pauli-X (also known as the X, sigma-X, NOT or bit-flip) gate.">pauliX()</a> on each qubit in <code>targs</code> in turn.  </p><p class="formulaDsp">
-<picture><source srcset="form_140_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
     X_a \otimes X_b \otimes \dots 
-\]" src="form_140.png"/></picture>
+\]
 </p>
  </blockquote>
 <p>The effected unitary, if <code>targs</code> happen to be contiguous, has matrix:  </p><p class="formulaDsp">
-<picture><source srcset="form_141_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
  &amp;   &amp;    &amp; {{\scriptstyle\cdot}^{{\scriptstyle\cdot}^{{\scriptstyle\cdot}}}} \\
  &amp;   &amp; 1  &amp;   \\
  &amp; 1 &amp;    &amp;  \\
  {{\scriptstyle\cdot}^{{\scriptstyle\cdot}^{{\scriptstyle\cdot}}}} &amp; &amp; &amp;
 \end{pmatrix}
-\]" src="form_141.png"/></picture>
+\]
 </p>
 <p> and circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_142_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 1) {targets};
              \draw (0, -1) -- (0, 2.4);
@@ -3358,7 +3365,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              
              \node[draw=none] at (0, -1.5) {$\vdots$};
              \end{tikzpicture}
- \]" src="form_142.png"/></picture>
+ \]
 </p>
  <blockquote class="doxtable">
 <p >&zwj;In distributed mode, this operation requires at most a single round of pair-wise communication between nodes, and hence is as efficient as <a class="el" href="group__unitary.html#ga4193c14cfb918fa3291fb0648058d63e" title="Apply the single-qubit Pauli-X (also known as the X, sigma-X, NOT or bit-flip) gate.">pauliX()</a>. </p>
@@ -3458,7 +3465,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 <p >The first target qubit in <code>targs</code> is treated as <b>least</b> significant in <code>u</code>. For example, </p><div class="fragment"><div class="line"><a class="code hl_function" href="group__unitary.html#ga20bf9b8a71b8a3ee4651e9497e6d1f4f">multiQubitUnitary</a>(qureg, (<span class="keywordtype">int</span> []) {a, b, c}, 3, u);</div>
 <div class="ttc" id="agroup__unitary_html_ga20bf9b8a71b8a3ee4651e9497e6d1f4f"><div class="ttname"><a href="group__unitary.html#ga20bf9b8a71b8a3ee4651e9497e6d1f4f">multiQubitUnitary</a></div><div class="ttdeci">void multiQubitUnitary(Qureg qureg, int *targs, int numTargs, ComplexMatrixN u)</div><div class="ttdoc">Apply a general multi-qubit unitary (including a global phase factor) with any number of target qubit...</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l00304">QuEST.c:304</a></div></div>
 </div><!-- fragment --><p> will invoke multiplication  </p><p class="formulaDsp">
-<picture><source srcset="form_225_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 u_{00} &amp; u_{01} &amp; u_{02} &amp; u_{03} &amp; u_{04} &amp; u_{05} &amp; u_{06} &amp; u_{07} \\
 u_{10} &amp; u_{11} &amp; u_{12} &amp; u_{13} &amp; u_{14} &amp; u_{15} &amp; u_{16} &amp; u_{17} \\
@@ -3479,7 +3486,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 |cba\rangle = |110\rangle \\
 |cba\rangle = |111\rangle 
 \end{pmatrix}
-\]" src="form_225.png"/></picture>
+\]
 </p>
 <p >The passed ComplexMatrix must be unitary and be a compatible size with the specified number of target qubits, otherwise an error is thrown. </p><blockquote class="doxtable">
 <p >&zwj;To effect a non-unitary <a class="el" href="structComplexMatrixN.html" title="Represents a general 2^N by 2^N matrix of complex numbers.">ComplexMatrixN</a>, use <a class="el" href="group__operator.html#ga9ee59ed07d82e239f0e4534237365e27" title="Apply a gate specified by a general N-by-N matrix, which may be non-unitary, on any number of target ...">applyGateMatrixN()</a>. </p>
@@ -3491,7 +3498,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <p >&zwj;To specify only the diagonal elements of the matrix, use <a class="el" href="group__unitary.html#ga2c8946d0ea290a0ef60f10bc701bc64c" title="Apply a many-qubit unitary specified as a diagonal matrix upon a specific set of qubits of a quantum ...">diagonalUnitary()</a>. </p>
 </blockquote>
 <p class="formulaDsp">
-<picture><source srcset="form_226_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 1) {targets};
 
@@ -3504,7 +3511,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
              \node[draw=none] at (0, -1) {$\vdots$};
              
              \end{tikzpicture}
- \]" src="form_226.png"/></picture>
+ \]
 </p>
 <p >Note that in multithreaded mode, each thread will clone 2^<code>numTargs</code> amplitudes, and store these in the runtime stack. Using t threads, the total memory overhead of this function is t*2^<code>numTargs</code>. For many targets (e.g. 16 qubits), this may cause a stack-overflow / seg-fault (e.g. on a 1 MiB stack).</p>
 <p >Note too that in distributed mode, this routine requires that each node contains at least 2^<code>numTargs</code> amplitudes in the register. This means an q-qubit register (state vector or density matrix) can be distributed by at most 2^q / 2^<code>numTargs</code> nodes.</p>
@@ -3615,20 +3622,20 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 
 <p>Apply a multi-qubit multi-Pauli rotation, also known as a Pauli gadget, on a selected number of qubits. </p>
 <p >This is the unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_192_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
    \exp \left( - i \, \frac{\theta}{2} \; \bigotimes_{j}^{\text{numTargets}} \hat{\sigma}_j\right)
-\]" src="form_192.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_193_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta = $" src="form_193.png"/></picture><code>angle</code> and <picture><source srcset="form_194_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\hat{\sigma}_j \in \{X, Y, Z\}$" src="form_194.png"/></picture> is a Pauli operator <a class="el" href="group__type.html#ga1c703cf89629e4e9c7023cd402d67028" title="Codes for specifying Pauli operators.">pauliOpType</a> operating upon the corresponding qubit <code>targetQubits</code>.</p>
+<p> where \(\theta = \)<code>angle</code> and \(\hat{\sigma}_j \in \{X, Y, Z\}\) is a Pauli operator <a class="el" href="group__type.html#ga1c703cf89629e4e9c7023cd402d67028" title="Codes for specifying Pauli operators.">pauliOpType</a> operating upon the corresponding qubit <code>targetQubits</code>.</p>
 <p >For example: </p><div class="fragment"><div class="line"><a class="code hl_function" href="group__unitary.html#ga34aa4865c92f9aa5d898c91286c9eca5">multiRotatePauli</a>(qureg, (<span class="keywordtype">int</span>[]) {4,5,8,9}, (<span class="keywordtype">int</span>[]) {0,1,2,3}, 4, .1)</div>
 <div class="ttc" id="agroup__unitary_html_ga34aa4865c92f9aa5d898c91286c9eca5"><div class="ttname"><a href="group__unitary.html#ga34aa4865c92f9aa5d898c91286c9eca5">multiRotatePauli</a></div><div class="ttdeci">void multiRotatePauli(Qureg qureg, int *targetQubits, enum pauliOpType *targetPaulis, int numTargets, qreal angle)</div><div class="ttdoc">Apply a multi-qubit multi-Pauli rotation, also known as a Pauli gadget, on a selected number of qubit...</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l00693">QuEST.c:693</a></div></div>
 </div><!-- fragment --><p> effects  </p><p class="formulaDsp">
-<picture><source srcset="form_195_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
    \exp \left( - i \, (0.1/2) \; X_5 \, Y_8 \, Z_9 \right) 
-\]" src="form_195.png"/></picture>
+\]
 </p>
 <p> on <code>qureg</code>, where unspecified qubits (along with those targeted by <code>PAULI_I</code>) are assumed to receive the identity operator (excluded from exponentiation). </p><blockquote class="doxtable">
-<p >&zwj;This means specifying <code>PAULI_I</code> does <em>not</em> induce a global phase factor <picture><source srcset="form_196_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\exp(-i \theta/2)$" src="form_196.png"/></picture>. Hence, if all <code>targetPaulis</code> are identity, then this function does nothing to <code>qureg</code>. Specifying <code>PAULI_I</code> on a qubit is superfluous but allowed for convenience. </p>
+<p >&zwj;This means specifying <code>PAULI_I</code> does <em>not</em> induce a global phase factor \(\exp(-i \theta/2)\). Hence, if all <code>targetPaulis</code> are identity, then this function does nothing to <code>qureg</code>. Specifying <code>PAULI_I</code> on a qubit is superfluous but allowed for convenience. </p>
 </blockquote>
 <p>This function effects the Pauli gadget by first rotating the qubits which are nominated to receive <code>X</code> or <code>Y</code> Paulis into alternate basis, performing <a class="el" href="group__unitary.html#ga3250d0d95b5d755cad542a6a2372b894" title="Apply a multi-qubit Z rotation, also known as a phase gadget, on a selected number of qubits.">multiRotateZ()</a> on all target qubits, then restoring the original basis.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
@@ -3737,15 +3744,15 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 
 <p>Apply a multi-qubit Z rotation, also known as a phase gadget, on a selected number of qubits. </p>
 <p >This is the unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_189_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
    \exp \left( - i \, \frac{\theta}{2} \; \bigotimes_{j}^{\text{numQubits}} Z_j\right)
-\]" src="form_189.png"/></picture>
+\]
 </p>
-<p> where the Pauli Z gates operate the qubits listed in <code>qubits</code>, and cause rotations of <picture><source srcset="form_190_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta =$" src="form_190.png"/></picture> <code>angle</code>.</p>
+<p> where the Pauli Z gates operate the qubits listed in <code>qubits</code>, and cause rotations of \(\theta =\) <code>angle</code>.</p>
 <blockquote class="doxtable">
 <p >&zwj;All qubits not appearing in <code>qubits</code> are assumed to receive the identity operator. </p>
 </blockquote>
-<p>This has the effect of premultiplying every amplitude with <picture><source srcset="form_191_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\exp(\pm i \theta/2)$" src="form_191.png"/></picture> where the sign is determined by the parity of the target qubits for that amplitude.</p>
+<p>This has the effect of premultiplying every amplitude with \(\exp(\pm i \theta/2)\) where the sign is determined by the parity of the target qubits for that amplitude.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga1e5dd165b402e97abaa0b807026527f2" title="Apply a multi-controlled multi-target Z rotation, also known as a controlled phase gadget.">multiControlledMultiRotateZ()</a></li>
 <li><a class="el" href="group__unitary.html#ga34aa4865c92f9aa5d898c91286c9eca5" title="Apply a multi-qubit multi-Pauli rotation, also known as a Pauli gadget, on a selected number of qubit...">multiRotatePauli()</a></li>
@@ -3859,7 +3866,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <p >&zwj;This function is equivalent (albeit faster) to applying <a class="el" href="group__unitary.html#ga4193c14cfb918fa3291fb0648058d63e" title="Apply the single-qubit Pauli-X (also known as the X, sigma-X, NOT or bit-flip) gate.">pauliX()</a> on each of the control qubits which are conditioned on outcome <code>0</code>, calling <a class="el" href="group__unitary.html#gaa700dc9657ade4cf16f1cad1624c5332" title="Apply a general multiple-control single-target unitary, which can include a global phase factor.">multiControlledUnitary()</a>, then re-appplying <a class="el" href="group__unitary.html#ga4193c14cfb918fa3291fb0648058d63e" title="Apply the single-qubit Pauli-X (also known as the X, sigma-X, NOT or bit-flip) gate.">pauliX()</a> on the same qubits. </p>
 </blockquote>
 <p class="formulaDsp">
-<picture><source srcset="form_188_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 3) {controls};
              \node[draw=none] at (-3.5, 0) {target};
@@ -3880,7 +3887,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {U};
              \end{tikzpicture}
- \]" src="form_188.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="structComplexMatrix2.html" title="Represents a 2x2 matrix of complex numbers.">ComplexMatrix2</a></li>
@@ -3971,16 +3978,16 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 </div><div class="memdoc">
 
 <p>Apply the single-qubit Pauli-X (also known as the X, sigma-X, NOT or bit-flip) gate. </p>
-<p >This is a rotation of <picture><source srcset="form_122_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi$" src="form_122.png"/></picture> around the x-axis on the Bloch sphere. I.e.  </p><p class="formulaDsp">
-<picture><source srcset="form_123_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This is a rotation of \(\pi\) around the x-axis on the Bloch sphere. I.e.  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 0 &amp; 1 \\
 1 &amp; 0
 \end{pmatrix}
-\]" src="form_123.png"/></picture>
+\]
 </p>
 <p> with circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_124_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target};
 
@@ -3988,7 +3995,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
              \draw (0, 0) circle (.5);
              \draw (0, .5) -- (0, -.5);
              \end{tikzpicture}
- \]" src="form_124.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga8886a3793b21622c48cf3bad6e15082d" title="Rotate a single qubit by a given angle around the X-axis of the Bloch-sphere.">rotateX()</a></li>
@@ -4065,16 +4072,16 @@ Tyson Jones (density matrix, doc) </dd></dl>
 </div><div class="memdoc">
 
 <p>Apply the single-qubit Pauli-Y (also known as the Y or sigma-Y) gate. </p>
-<p >This is a rotation of <picture><source srcset="form_122_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi$" src="form_122.png"/></picture> around the Y-axis on the Bloch sphere. I.e.  </p><p class="formulaDsp">
-<picture><source srcset="form_125_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This is a rotation of \(\pi\) around the Y-axis on the Bloch sphere. I.e.  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 0 &amp; -i \\
 i &amp; 0
 \end{pmatrix}
-\]" src="form_125.png"/></picture>
+\]
 </p>
 <p> with circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_126_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target};
 
@@ -4083,7 +4090,7 @@ i &amp; 0
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$\sigma_y$};
              \end{tikzpicture}
- \]" src="form_126.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga34312ff52cc28bcab3cbd2ff338fd081" title="Rotate a single qubit by a given angle around the Y-axis of the Bloch-sphere.">rotateY()</a></li>
@@ -4158,16 +4165,16 @@ Tyson Jones (density matrix, doc) </dd></dl>
 </div><div class="memdoc">
 
 <p>Apply the single-qubit Pauli-Z (also known as the Z, sigma-Z or phase-flip) gate. </p>
-<p >This is a rotation of <picture><source srcset="form_122_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi$" src="form_122.png"/></picture> around the Z-axis (a phase shift) on the Bloch sphere. I.e.  </p><p class="formulaDsp">
-<picture><source srcset="form_127_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This is a rotation of \(\pi\) around the Z-axis (a phase shift) on the Bloch sphere. I.e.  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 1 &amp; 0 \\
 0 &amp; -1
 \end{pmatrix}
-\]" src="form_127.png"/></picture>
+\]
 </p>
 <p> with circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_128_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target};
 
@@ -4176,7 +4183,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$\sigma_z$};
              \end{tikzpicture}
- \]" src="form_128.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga26baa057f5db8804825c2d611386753b" title="Shift the phase between  and  of a single qubit by a given angle.">phaseShift()</a></li>
@@ -4258,20 +4265,20 @@ Tyson Jones (density matrix, doc) </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Shift the phase between <picture><source srcset="form_70_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |0\rangle $" src="form_70.png"/></picture> and <picture><source srcset="form_71_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |1\rangle $" src="form_71.png"/></picture> of a single qubit by a given angle. </p>
+<p>Shift the phase between \( |0\rangle \) and \( |1\rangle \) of a single qubit by a given angle. </p>
 <blockquote class="doxtable">
 <p >&zwj;This is equivalent to a Z-axis rotation of the Bloch-sphere up to a global phase factor. </p>
 </blockquote>
-<p>For angle <picture><source srcset="form_72_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta$" src="form_72.png"/></picture>, this effects single-qubit unitary  </p><p class="formulaDsp">
-<picture><source srcset="form_73_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p>For angle \(\theta\), this effects single-qubit unitary  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 1 &amp; 0 \\
 0 &amp; \exp(i \theta)
 \end{pmatrix}
-\]" src="form_73.png"/></picture>
+\]
 </p>
 <p> with circuit diagram  </p><p class="formulaDsp">
-<picture><source srcset="form_74_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-4, 0) {targetQubit};
 
@@ -4280,7 +4287,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$R_\theta$};
              \end{tikzpicture}
- \]" src="form_74.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga7214a79aa22ae7a50ad6f38615968cb0" title="Introduce a phase factor  on state  of qubits idQubit1 and idQubit2.">controlledPhaseShift()</a></li>
@@ -4367,7 +4374,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 <p>Rotate a single qubit by a given angle around a given <a class="el" href="structVector.html">Vector</a> on the Bloch-sphere. </p>
 <p ><br  />
  The vector must not be zero (else an error is thrown), but needn't be unit magnitude, since it will be normalised by QuEST.</p>
-<p >For angle <picture><source srcset="form_72_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta$" src="form_72.png"/></picture> and axis vector <picture><source srcset="form_109_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{n}$" src="form_109.png"/></picture>, applies <picture><source srcset="form_110_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$R_{\hat{n}} = \exp \left(- i \frac{\theta}{2} \hat{n} \cdot \vec{\sigma} \right) $" src="form_110.png"/></picture> where <picture><source srcset="form_111_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{\sigma}$" src="form_111.png"/></picture> is the vector of Pauli matrices.</p>
+<p >For angle \(\theta\) and axis vector \(\vec{n}\), applies \(R_{\hat{n}} = \exp \left(- i \frac{\theta}{2} \hat{n} \cdot \vec{\sigma} \right) \) where \(\vec{\sigma}\) is the vector of Pauli matrices.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga0c84c429cb1d7e2596706c1804dd9cba" title="Applies a controlled rotation by a given angle around a given vector on the Bloch-sphere.">controlledRotateAroundAxis()</a></li>
 <li><a class="el" href="group__unitary.html#ga8886a3793b21622c48cf3bad6e15082d" title="Rotate a single qubit by a given angle around the X-axis of the Bloch-sphere.">rotateX()</a></li>
@@ -4456,16 +4463,16 @@ Tyson Jones (density matrix, doc) </dd></dl>
 </div><div class="memdoc">
 
 <p>Rotate a single qubit by a given angle around the X-axis of the Bloch-sphere. </p>
-<p >For angle <picture><source srcset="form_72_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta$" src="form_72.png"/></picture>, applies  </p><p class="formulaDsp">
-<picture><source srcset="form_103_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >For angle \(\theta\), applies  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 \cos\theta/2 &amp; -i \sin \theta/2\\
 -i \sin \theta/2 &amp; \cos \theta/2
 \end{pmatrix}
-\]" src="form_103.png"/></picture>
+\]
 </p>
 <p> with circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_104_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {rot};
 
@@ -4474,7 +4481,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$R_x(\theta)$};
              \end{tikzpicture}
- \]" src="form_104.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga13f904b417f647c70d163770e65906fc" title="Applies a controlled rotation by a given angle around the X-axis of the Bloch-sphere.">controlledRotateX()</a></li>
@@ -4558,16 +4565,16 @@ Tyson Jones (density matrix, doc) </dd></dl>
 </div><div class="memdoc">
 
 <p>Rotate a single qubit by a given angle around the Y-axis of the Bloch-sphere. </p>
-<p >For angle <picture><source srcset="form_72_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta$" src="form_72.png"/></picture>, applies  </p><p class="formulaDsp">
-<picture><source srcset="form_105_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >For angle \(\theta\), applies  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 \cos\theta/2 &amp; - \sin \theta/2\\
 \sin \theta/2 &amp; \cos \theta/2
 \end{pmatrix}
-\]" src="form_105.png"/></picture>
+\]
 </p>
 <p> with circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_106_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {rot};
 
@@ -4576,7 +4583,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$R_y(\theta)$};
              \end{tikzpicture}
- \]" src="form_106.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#gafbbded98b7233f5da06d74d1db5cbfdb" title="Applies a controlled rotation by a given angle around the Y-axis of the Bloch-sphere.">controlledRotateY()</a></li>
@@ -4658,16 +4665,16 @@ Tyson Jones (density matrix, doc, debug) </dd></dl>
 
 <p>Rotate a single qubit by a given angle around the Z-axis of the Bloch-sphere (also known as a phase shift gate). </p>
 <p ><br  />
- For angle <picture><source srcset="form_72_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\theta$" src="form_72.png"/></picture>, applies  </p><p class="formulaDsp">
-<picture><source srcset="form_107_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ For angle \(\theta\), applies  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 \exp(-i \theta/2) &amp; 0 \\
 0 &amp; \exp(i \theta/2)
 \end{pmatrix}
-\]" src="form_107.png"/></picture>
+\]
 </p>
 <p> with circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_108_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {rot};
 
@@ -4676,7 +4683,7 @@ Tyson Jones (density matrix, doc, debug) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {$R_z(\theta)$};
              \end{tikzpicture}
- \]" src="form_108.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga3250d0d95b5d755cad542a6a2372b894" title="Apply a multi-qubit Z rotation, also known as a phase gadget, on a selected number of qubits.">multiRotateZ()</a></li>
@@ -4755,16 +4762,16 @@ Tyson Jones (density matrix, doc) </dd></dl>
 </div><div class="memdoc">
 
 <p>Apply the single-qubit S gate. </p>
-<p >This is a rotation of <picture><source srcset="form_85_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi/2$" src="form_85.png"/></picture> around the Z-axis on the Bloch sphere, or the unitary:  </p><p class="formulaDsp">
-<picture><source srcset="form_86_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This is a rotation of \(\pi/2\) around the Z-axis on the Bloch sphere, or the unitary:  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 1 &amp; 0 \\
 0 &amp; i
 \end{pmatrix}
-\]" src="form_86.png"/></picture>
+\]
 </p>
 <p> with circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_87_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target};
 
@@ -4773,7 +4780,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {S};
              \end{tikzpicture}
- \]" src="form_87.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#gac15907193da5a7c48b9610a26e669064" title="Apply the single-qubit T gate.">tGate()</a></li>
@@ -4854,18 +4861,18 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Performs a sqrt SWAP gate between <code>qubit1</code> and <code>qubit2</code>. </p>
 <p >This effects  </p><p class="formulaDsp">
-<picture><source srcset="form_186_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; \frac{1}{2}(1+i) &amp; \frac{1}{2}(1-i) \\\
 &amp; \frac{1}{2}(1-i) &amp; \frac{1}{2}(1+i) \\
 &amp; &amp; &amp; 1
 \end{pmatrix}
-\]" src="form_186.png"/></picture>
+\]
 </p>
 <p> on the designated qubits, though is performed internally by three CNOT gates.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_187_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
             \begin{tikzpicture}[scale=.5]
             \node[draw=none] at (-3.5, 2) {qubit1};
             \node[draw=none] at (-3.5, 0) {qubit2};
@@ -4884,7 +4891,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
             \node[draw=none] at (0, 1) {1/2};
 
             \end{tikzpicture}
-\]" src="form_187.png"/></picture>
+\]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga820fd139c035136819e371308c206e36" title="Performs a SWAP gate between qubit1 and qubit2.">swapGate()</a></li>
@@ -4969,18 +4976,18 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Performs a SWAP gate between <code>qubit1</code> and <code>qubit2</code>. </p>
 <p >This effects  </p><p class="formulaDsp">
-<picture><source srcset="form_184_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; &amp; 1 \\\
 &amp;  1 \\
 &amp; &amp; &amp; 1
 \end{pmatrix}
-\]" src="form_184.png"/></picture>
+\]
 </p>
 <p> on the designated qubits, though is performed internally by three CNOT gates.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_185_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
             \begin{tikzpicture}[scale=.5]
             \node[draw=none] at (-3.5, 2) {qubit1};
             \node[draw=none] at (-3.5, 0) {qubit2};
@@ -4996,7 +5003,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
             \draw (-.35,.35 + 2) -- (.35,-.35 + 2);
 
             \end{tikzpicture}
-\]" src="form_185.png"/></picture>
+\]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga75d5e65f87c68403602a669b9c6d52b0" title="Performs a sqrt SWAP gate between qubit1 and qubit2.">sqrtSwapGate()</a></li>
@@ -5070,16 +5077,16 @@ Tyson Jones (density matrix, doc) </dd></dl>
 </div><div class="memdoc">
 
 <p>Apply the single-qubit T gate. </p>
-<p >This is a rotation of <picture><source srcset="form_88_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi/4$" src="form_88.png"/></picture> around the Z-axis on the Bloch sphere, or the unitary:  </p><p class="formulaDsp">
-<picture><source srcset="form_89_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This is a rotation of \(\pi/4\) around the Z-axis on the Bloch sphere, or the unitary:  </p><p class="formulaDsp">
+\[
 \begin{pmatrix}
 1 &amp; 0 \\
 0 &amp; \exp\left(i \frac{\pi}{4}\right)
 \end{pmatrix}
-\]" src="form_89.png"/></picture>
+\]
 </p>
 <p> with circuit diagram:  </p><p class="formulaDsp">
-<picture><source srcset="form_90_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target};
 
@@ -5088,7 +5095,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {T};
              \end{tikzpicture}
- \]" src="form_90.png"/></picture>
+ \]
 </p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__unitary.html#ga655ffcd4def2e127341c9488f5ca8455" title="Apply the single-qubit S gate.">sGate()</a></li>
@@ -5175,7 +5182,7 @@ Tyson Jones (density matrix, doc) </dd></dl>
 
 <p>Apply a general two-qubit unitary (including a global phase factor). </p>
 <p class="formulaDsp">
-<picture><source srcset="form_218_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target2};
              \node[draw=none] at (-3.5, 2) {target1};
@@ -5187,13 +5194,13 @@ Tyson Jones (density matrix, doc) </dd></dl>
              \draw (-1,-1)--(-1,3)--(1,3)--(1,-1)--cycle;
              \node[draw=none] at (0, 1) {U};
              \end{tikzpicture}
- \]" src="form_218.png"/></picture>
+ \]
 </p>
-<p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in <code>u</code>, such that a row in <code>u</code> is dotted with the vector <picture><source srcset="form_219_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |\text{targetQubit2} \;\; \text{targetQubit1}\rangle : \{ |00\rangle, |01\rangle, |10\rangle, |11\rangle \} $" src="form_219.png"/></picture></p>
+<p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in <code>u</code>, such that a row in <code>u</code> is dotted with the vector \( |\text{targetQubit2} \;\; \text{targetQubit1}\rangle : \{ |00\rangle, |01\rangle, |10\rangle, |11\rangle \} \)</p>
 <p >For example, </p><div class="fragment"><div class="line"><a class="code hl_function" href="group__unitary.html#gab525a42d63233f61afeb6be97d89dd36">twoQubitUnitary</a>(qureg, a, b, u);</div>
 <div class="ttc" id="agroup__unitary_html_gab525a42d63233f61afeb6be97d89dd36"><div class="ttname"><a href="group__unitary.html#gab525a42d63233f61afeb6be97d89dd36">twoQubitUnitary</a></div><div class="ttdeci">void twoQubitUnitary(Qureg qureg, int targetQubit1, int targetQubit2, ComplexMatrix4 u)</div><div class="ttdoc">Apply a general two-qubit unitary (including a global phase factor).</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l00264">QuEST.c:264</a></div></div>
 </div><!-- fragment --><p> will invoke multiplication  </p><p class="formulaDsp">
-<picture><source srcset="form_220_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 u_{00} &amp; u_{01} &amp; u_{02} &amp; u_{03} \\
 u_{10} &amp; u_{11} &amp; u_{12} &amp; u_{13} \\
@@ -5206,7 +5213,7 @@ u_{30} &amp; u_{31} &amp; u_{32} &amp; u_{33}
 |ba\rangle = |10\rangle \\
 |ba\rangle = |11\rangle 
 \end{pmatrix}
-\]" src="form_220.png"/></picture>
+\]
 </p>
 <p >The passed <a class="el" href="structComplexMatrix4.html" title="Represents a 4x4 matrix of complex numbers.">ComplexMatrix4</a> must be unitary, otherwise an error is thrown. </p><blockquote class="doxtable">
 <p >&zwj;Use <a class="el" href="group__operator.html#ga74a955ec4bce606d89317bcfc528387f" title="Apply a general 4-by-4 matrix, which may be non-unitary.">applyMatrix4()</a> to left-multiply a non-unitary <a class="el" href="structComplexMatrix4.html" title="Represents a 4x4 matrix of complex numbers.">ComplexMatrix4</a>.</p>
@@ -5302,7 +5309,7 @@ u_{30} &amp; u_{31} &amp; u_{32} &amp; u_{33}
 <p>Apply a general single-qubit unitary (including a global phase factor). </p>
 <p >The passed 2x2 ComplexMatrix must be unitary, otherwise an error is thrown.</p>
 <p class="formulaDsp">
-<picture><source srcset="form_100_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
              \begin{tikzpicture}[scale=.5]
              \node[draw=none] at (-3.5, 0) {target};
 
@@ -5311,10 +5318,10 @@ u_{30} &amp; u_{31} &amp; u_{32} &amp; u_{33}
              \draw (-1,-1)--(-1,1)--(1,1)--(1,-1)--cycle;
              \node[draw=none] at (0, 0) {U};
              \end{tikzpicture}
- \]" src="form_100.png"/></picture>
+ \]
 </p>
-<p >If <code>qureg</code> is a state-vector, then the resulting state is <picture><source srcset="form_101_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ u \, |\text{qureg}\rangle $" src="form_101.png"/></picture>.<br  />
-If <code>qureg</code> is a density-matrix <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture>, then the resulting state is <picture><source srcset="form_102_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ u \, \rho \, u^\dagger $" src="form_102.png"/></picture>.</p>
+<p >If <code>qureg</code> is a state-vector, then the resulting state is \( u \, |\text{qureg}\rangle \).<br  />
+If <code>qureg</code> is a density-matrix \( \rho \), then the resulting state is \( u \, \rho \, u^\dagger \).</p>
 <blockquote class="doxtable">
 <p >&zwj;Use <a class="el" href="group__operator.html#gadfb5c1d99a22ce666fc715a8da2e0950" title="Apply a general 2-by-2 matrix, which may be non-unitary.">applyMatrix2()</a> to left-multiply a non-unitary <a class="el" href="structComplexMatrix2.html" title="Represents a 2x2 matrix of complex numbers.">ComplexMatrix2</a> </p>
 </blockquote>

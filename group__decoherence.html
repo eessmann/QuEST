@@ -11,6 +11,13 @@
         <title>QuEST: Decoherence</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
         <link href="doxygen.css" rel="stylesheet" type="text/css" />
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -75,19 +82,19 @@ Functions</h2></td></tr>
 <tr class="memdesc:gae2ea9255b8b11a4a382231e5604dc4e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mixes a density matrix <code>qureg</code> to induce single-qubit homogeneous depolarising noise.  <a href="group__decoherence.html#gae2ea9255b8b11a4a382231e5604dc4e3">More...</a><br /></td></tr>
 <tr class="separator:gae2ea9255b8b11a4a382231e5604dc4e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacb7faa9d8afb0f4270c866424fffbccd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__decoherence.html#gacb7faa9d8afb0f4270c866424fffbccd">mixKrausMap</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int target, <a class="el" href="structComplexMatrix2.html">ComplexMatrix2</a> *ops, int numOps)</td></tr>
-<tr class="memdesc:gacb7faa9d8afb0f4270c866424fffbccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a general single-qubit Kraus map to a density matrix, as specified by at most four Kraus operators, <picture><source srcset="form_231_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_i$" src="form_231.png"/></picture> (<code>ops</code>).  <a href="group__decoherence.html#gacb7faa9d8afb0f4270c866424fffbccd">More...</a><br /></td></tr>
+<tr class="memdesc:gacb7faa9d8afb0f4270c866424fffbccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a general single-qubit Kraus map to a density matrix, as specified by at most four Kraus operators, \(K_i\) (<code>ops</code>).  <a href="group__decoherence.html#gacb7faa9d8afb0f4270c866424fffbccd">More...</a><br /></td></tr>
 <tr class="separator:gacb7faa9d8afb0f4270c866424fffbccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga65b4c0944090fae78a37ba3b94811ace"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__decoherence.html#ga65b4c0944090fae78a37ba3b94811ace">mixMultiQubitKrausMap</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int *targets, int numTargets, <a class="el" href="structComplexMatrixN.html">ComplexMatrixN</a> *ops, int numOps)</td></tr>
 <tr class="memdesc:ga65b4c0944090fae78a37ba3b94811ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a general N-qubit Kraus map to a density matrix, as specified by at most (2N)^2 Kraus operators.  <a href="group__decoherence.html#ga65b4c0944090fae78a37ba3b94811ace">More...</a><br /></td></tr>
 <tr class="separator:ga65b4c0944090fae78a37ba3b94811ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4b9160ff59cbfd8d83aab54801cdf995"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__decoherence.html#ga4b9160ff59cbfd8d83aab54801cdf995">mixNonTPKrausMap</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int target, <a class="el" href="structComplexMatrix2.html">ComplexMatrix2</a> *ops, int numOps)</td></tr>
-<tr class="memdesc:ga4b9160ff59cbfd8d83aab54801cdf995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a general non-trace-preserving single-qubit Kraus map to a density matrix, as specified by at most four operators, <picture><source srcset="form_231_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_i$" src="form_231.png"/></picture> (<code>ops</code>).  <a href="group__decoherence.html#ga4b9160ff59cbfd8d83aab54801cdf995">More...</a><br /></td></tr>
+<tr class="memdesc:ga4b9160ff59cbfd8d83aab54801cdf995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a general non-trace-preserving single-qubit Kraus map to a density matrix, as specified by at most four operators, \(K_i\) (<code>ops</code>).  <a href="group__decoherence.html#ga4b9160ff59cbfd8d83aab54801cdf995">More...</a><br /></td></tr>
 <tr class="separator:ga4b9160ff59cbfd8d83aab54801cdf995"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga43749b5b74a524622d0fe6b41316ba85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__decoherence.html#ga43749b5b74a524622d0fe6b41316ba85">mixNonTPMultiQubitKrausMap</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int *targets, int numTargets, <a class="el" href="structComplexMatrixN.html">ComplexMatrixN</a> *ops, int numOps)</td></tr>
 <tr class="memdesc:ga43749b5b74a524622d0fe6b41316ba85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a general N-qubit non-trace-preserving Kraus map to a density matrix, as specified by at most (2N)^2 operators.  <a href="group__decoherence.html#ga43749b5b74a524622d0fe6b41316ba85">More...</a><br /></td></tr>
 <tr class="separator:ga43749b5b74a524622d0fe6b41316ba85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadd98e23753620f350fa94b3efcb59bf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__decoherence.html#gadd98e23753620f350fa94b3efcb59bf7">mixNonTPTwoQubitKrausMap</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int target1, int target2, <a class="el" href="structComplexMatrix4.html">ComplexMatrix4</a> *ops, int numOps)</td></tr>
-<tr class="memdesc:gadd98e23753620f350fa94b3efcb59bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a general non-trace-preserving two-qubit Kraus map to a density matrix, as specified by at most sixteen operators, <picture><source srcset="form_231_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_i$" src="form_231.png"/></picture> (<code>ops</code>).  <a href="group__decoherence.html#gadd98e23753620f350fa94b3efcb59bf7">More...</a><br /></td></tr>
+<tr class="memdesc:gadd98e23753620f350fa94b3efcb59bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a general non-trace-preserving two-qubit Kraus map to a density matrix, as specified by at most sixteen operators, \(K_i\) (<code>ops</code>).  <a href="group__decoherence.html#gadd98e23753620f350fa94b3efcb59bf7">More...</a><br /></td></tr>
 <tr class="separator:gadd98e23753620f350fa94b3efcb59bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9a77f84e1aa7d25d036b14d7d0cd8b61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__decoherence.html#ga9a77f84e1aa7d25d036b14d7d0cd8b61">mixPauli</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, int targetQubit, <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> probX, <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> probY, <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> probZ)</td></tr>
 <tr class="memdesc:ga9a77f84e1aa7d25d036b14d7d0cd8b61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mixes a density matrix <code>qureg</code> to induce general single-qubit Pauli noise.  <a href="group__decoherence.html#ga9a77f84e1aa7d25d036b14d7d0cd8b61">More...</a><br /></td></tr>
@@ -139,16 +146,16 @@ Functions</h2></td></tr>
 
 <p>Mixes a density matrix <code>qureg</code> to induce single-qubit amplitude damping (decay to 0 state). </p>
 <p >With probability <code>prob</code>, applies damping (transition from 1 to 0 state).</p>
-<p >This transforms <code>qureg</code> = <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture> into the mixed state  </p><p class="formulaDsp">
-<picture><source srcset="form_170_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This transforms <code>qureg</code> = \(\rho\) into the mixed state  </p><p class="formulaDsp">
+\[
  K_0 \rho K_0^\dagger + K_1 \rho K_1^\dagger
-\]" src="form_170.png"/></picture>
+\]
 </p>
-<p> where q = <code>targetQubit</code> and <picture><source srcset="form_171_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_0$" src="form_171.png"/></picture> and <picture><source srcset="form_172_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_1$" src="form_172.png"/></picture> are Kraus operators  </p><p class="formulaDsp">
-<picture><source srcset="form_173_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p> where q = <code>targetQubit</code> and \(K_0\) and \(K_1\) are Kraus operators  </p><p class="formulaDsp">
+\[
      K_0 = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; \sqrt{1-\text{prob}} \end{pmatrix}, \;\;
      K_1 = \begin{pmatrix} 0 &amp; \sqrt{\text{prob}} \\ 0 &amp; 0 \end{pmatrix}.
-\]" src="form_173.png"/></picture>
+\]
 </p>
 <p> <code>prob</code> cannot exceed 1, at which total damping/decay occurs. Note that unlike <a class="el" href="group__decoherence.html#gacc2667ac87482a7afdcb711b74bf732e" title="Mixes a density matrix qureg to induce single-qubit dephasing noise.">mixDephasing()</a> and <a class="el" href="group__decoherence.html#gae2ea9255b8b11a4a382231e5604dc4e3" title="Mixes a density matrix qureg to induce single-qubit homogeneous depolarising noise.">mixDepolarising()</a>, this function can increase the purity of a mixed state (by, as <code>prob</code> becomes 1, gaining certainty that the qubit is in the 0 state).</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
@@ -319,10 +326,10 @@ Tyson Jones (distributed, doc) </dd></dl>
 
 <p>Mixes a density matrix <code>qureg</code> to induce single-qubit dephasing noise. </p>
 <p >With probability <code>prob</code>, applies Pauli Z to <code>targetQubit</code>.</p>
-<p >This transforms <code>qureg</code> = <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture> into the mixed state  </p><p class="formulaDsp">
-<picture><source srcset="form_165_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This transforms <code>qureg</code> = \(\rho\) into the mixed state  </p><p class="formulaDsp">
+\[
 (1 - \text{prob}) \, \rho + \text{prob} \; Z_q \, \rho \, Z_q
-\]" src="form_165.png"/></picture>
+\]
 </p>
 <p> where q = <code>targetQubit</code>. <code>prob</code> cannot exceed 1/2, which maximally mixes <code>targetQubit</code>.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
@@ -411,22 +418,22 @@ Ania Brown (CPU, distributed) </dd></dl>
 
 <p>Mixes a density matrix <code>qureg</code> to induce single-qubit homogeneous depolarising noise. </p>
 <p >This is equivalent to, with probability <code>prob</code>, uniformly randomly applying either Pauli X, Y, or Z to <code>targetQubit</code>.</p>
-<p >This transforms <code>qureg</code> = <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture> into the mixed state  </p><p class="formulaDsp">
-<picture><source srcset="form_167_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This transforms <code>qureg</code> = \(\rho\) into the mixed state  </p><p class="formulaDsp">
+\[
 (1 - \text{prob}) \, \rho + \frac{\text{prob}}{3} \; \left( 
      X_q \, \rho \, X_q + 
      Y_q \, \rho \, Y_q + 
      Z_q \, \rho \, Z_q
 \right)
-\]" src="form_167.png"/></picture>
+\]
 </p>
 <p> where q = <code>targetQubit</code>. <code>prob</code> cannot exceed 3/4, at which maximal mixing occurs. The produced state is equivalently expressed as  </p><p class="formulaDsp">
-<picture><source srcset="form_168_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      \left( 1 - \frac{4}{3} \text{prob} \right) \rho +
      \left( \frac{4}{3} \text{prob} \right) \frac{\vec{\bf{1}}}{2}
-\]" src="form_168.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_169_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \frac{\vec{\bf{1}}}{2} $" src="form_169.png"/></picture> is the maximally mixed state of the target qubit.</p>
+<p> where \( \frac{\vec{\bf{1}}}{2} \) is the maximally mixed state of the target qubit.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__decoherence.html#gacfc45a8fc86ee18f60866bbd0c874ed0" title="Mixes a density matrix qureg to induce two-qubit homogeneous depolarising noise.">mixTwoQubitDepolarising()</a></li>
 <li><a class="el" href="group__decoherence.html#gacc2667ac87482a7afdcb711b74bf732e" title="Mixes a density matrix qureg to induce single-qubit dephasing noise.">mixDephasing()</a></li>
@@ -517,18 +524,18 @@ Ania Brown (CPU, distributed) </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Apply a general single-qubit Kraus map to a density matrix, as specified by at most four Kraus operators, <picture><source srcset="form_231_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_i$" src="form_231.png"/></picture> (<code>ops</code>). </p>
+<p>Apply a general single-qubit Kraus map to a density matrix, as specified by at most four Kraus operators, \(K_i\) (<code>ops</code>). </p>
 <p >A Kraus map is also referred to as a "operator-sum representation" of a quantum channel, and enables the simulation of general single-qubit noise process, by effecting  </p><p class="formulaDsp">
-<picture><source srcset="form_232_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  \rho \to \sum\limits_i^{\text{numOps}} K_i \rho K_i^\dagger
-\]" src="form_232.png"/></picture>
+\]
 </p>
-<p >The Kraus map must be completely positive and trace preserving, which constrains each <picture><source srcset="form_233_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ K_i $" src="form_233.png"/></picture> in <code>ops</code> by  </p><p class="formulaDsp">
-<picture><source srcset="form_234_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >The Kraus map must be completely positive and trace preserving, which constrains each \( K_i \) in <code>ops</code> by  </p><p class="formulaDsp">
+\[
  \sum \limits_i^{\text{numOps}} K_i^\dagger K_i = I
-\]" src="form_234.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_235_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ I $" src="form_235.png"/></picture> is the identity matrix. Use <a class="el" href="group__decoherence.html#ga4b9160ff59cbfd8d83aab54801cdf995" title="Apply a general non-trace-preserving single-qubit Kraus map to a density matrix, as specified by at m...">mixNonTPKrausMap()</a> to relax this condition.</p>
+<p> where \( I \) is the identity matrix. Use <a class="el" href="group__decoherence.html#ga4b9160ff59cbfd8d83aab54801cdf995" title="Apply a general non-trace-preserving single-qubit Kraus map to a density matrix, as specified by at m...">mixNonTPKrausMap()</a> to relax this condition.</p>
 <p >Note that in distributed mode, this routine requires that each node contains at least 4 amplitudes. This means an q-qubit register can be distributed by at most 2^(q-2) numTargs nodes.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="structComplexMatrix2.html" title="Represents a 2x2 matrix of complex numbers.">ComplexMatrix2</a></li>
@@ -633,12 +640,12 @@ Tyson Jones (refactored, doc) </dd></dl>
 
 <p>Apply a general N-qubit Kraus map to a density matrix, as specified by at most (2N)^2 Kraus operators. </p>
 <p >This allows one to simulate a general noise process.</p>
-<p >The Kraus map must be completely positive and trace preserving, which constrains each <picture><source srcset="form_233_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ K_i $" src="form_233.png"/></picture> in <code>ops</code> by  </p><p class="formulaDsp">
-<picture><source srcset="form_234_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >The Kraus map must be completely positive and trace preserving, which constrains each \( K_i \) in <code>ops</code> by  </p><p class="formulaDsp">
+\[
  \sum \limits_i^{\text{numOps}} K_i^\dagger K_i = I
-\]" src="form_234.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_235_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ I $" src="form_235.png"/></picture> is the identity matrix. Use <a class="el" href="group__decoherence.html#ga43749b5b74a524622d0fe6b41316ba85" title="Apply a general N-qubit non-trace-preserving Kraus map to a density matrix, as specified by at most (...">mixNonTPMultiQubitKrausMap()</a> to relax this condition.</p>
+<p> where \( I \) is the identity matrix. Use <a class="el" href="group__decoherence.html#ga43749b5b74a524622d0fe6b41316ba85" title="Apply a general N-qubit non-trace-preserving Kraus map to a density matrix, as specified by at most (...">mixNonTPMultiQubitKrausMap()</a> to relax this condition.</p>
 <p >The first qubit in <code>targets</code> is treated as the <code>least</code> significant qubit in each op in <code>ops</code>.</p>
 <p >Note that in distributed mode, this routine requires that each node contains at least (2N)^2 amplitudes. This means an q-qubit register can be distributed by at most 2^(q-2)/N^2 nodes.</p>
 <p >Note too that this routine internally creates a 'superoperator'; a complex matrix of dimensions 2^(2*numTargets) by 2^(2*numTargets). Therefore, invoking this function incurs, for numTargs={1,2,3,4,5, ...}, an additional memory overhead of (at double-precision) {0.25 KiB, 4 KiB, 64 KiB, 1 MiB, 16 MiB, ...} (respectively). At quad precision (usually 10 B per number, but possibly 16 B due to alignment), this costs at most double the amount of memory. For numTargets &lt; 4, this superoperator will be created in the runtime stack. For numTargs &gt;= 4, the superoperator will be allocated in the heap and therefore this routine may suffer an anomalous slowdown.</p>
@@ -737,13 +744,13 @@ Balint Koczor </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Apply a general non-trace-preserving single-qubit Kraus map to a density matrix, as specified by at most four operators, <picture><source srcset="form_231_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_i$" src="form_231.png"/></picture> (<code>ops</code>). </p>
+<p>Apply a general non-trace-preserving single-qubit Kraus map to a density matrix, as specified by at most four operators, \(K_i\) (<code>ops</code>). </p>
 <p >This effects  </p><p class="formulaDsp">
-<picture><source srcset="form_232_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  \rho \to \sum\limits_i^{\text{numOps}} K_i \rho K_i^\dagger
-\]" src="form_232.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_231_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_i$" src="form_231.png"/></picture> are permitted to be any matrix. This means the density matrix can enter a non-physical state.</p>
+<p> where \(K_i\) are permitted to be any matrix. This means the density matrix can enter a non-physical state.</p>
 <p >Use <a class="el" href="group__decoherence.html#gacb7faa9d8afb0f4270c866424fffbccd" title="Apply a general single-qubit Kraus map to a density matrix, as specified by at most four Kraus operat...">mixKrausMap()</a> to enforce that the channel is trace preserving and completely positive.</p>
 <p >Note that in distributed mode, this routine requires that each node contains at least 4 amplitudes. This means an q-qubit register can be distributed by at most 2^(q-2) numTargs nodes.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
@@ -842,11 +849,11 @@ Balint Koczor (backend code) </dd></dl>
 
 <p>Apply a general N-qubit non-trace-preserving Kraus map to a density matrix, as specified by at most (2N)^2 operators. </p>
 <p >This effects  </p><p class="formulaDsp">
-<picture><source srcset="form_232_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  \rho \to \sum\limits_i^{\text{numOps}} K_i \rho K_i^\dagger
-\]" src="form_232.png"/></picture>
+\]
 </p>
-<p> where the matrices <picture><source srcset="form_233_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ K_i $" src="form_233.png"/></picture> are unconstrained, and hence the effective map is permitted to be non-completely-positive and non-trace-preserving. Use <a class="el" href="group__decoherence.html#ga65b4c0944090fae78a37ba3b94811ace" title="Apply a general N-qubit Kraus map to a density matrix, as specified by at most (2N)^2 Kraus operators...">mixMultiQubitKrausMap()</a> to enforce that the map be completely positive.</p>
+<p> where the matrices \( K_i \) are unconstrained, and hence the effective map is permitted to be non-completely-positive and non-trace-preserving. Use <a class="el" href="group__decoherence.html#ga65b4c0944090fae78a37ba3b94811ace" title="Apply a general N-qubit Kraus map to a density matrix, as specified by at most (2N)^2 Kraus operators...">mixMultiQubitKrausMap()</a> to enforce that the map be completely positive.</p>
 <p >The first qubit in <code>targets</code> is treated as the <code>least</code> significant qubit in each op in <code>ops</code>.</p>
 <p >Note that in distributed mode, this routine requires that each node contains at least (2N)^2 amplitudes. This means an q-qubit register can be distributed by at most 2^(q-2)/N^2 nodes.</p>
 <p >Note too that this routine internally creates a 'superoperator'; a complex matrix of dimensions 2^(2*numTargets) by 2^(2*numTargets). Therefore, invoking this function incurs, for numTargs={1,2,3,4,5, ...}, an additional memory overhead of (at double-precision) {0.25 KiB, 4 KiB, 64 KiB, 1 MiB, 16 MiB, ...} (respectively). At quad precision (usually 10 B per number, but possibly 16 B due to alignment), this costs at most double the amount of memory. For numTargets &lt; 4, this superoperator will be created in the runtime stack. For numTargs &gt;= 4, the superoperator will be allocated in the heap and therefore this routine may suffer an anomalous slowdown.</p>
@@ -948,13 +955,13 @@ Balint Koczor (backend code) </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Apply a general non-trace-preserving two-qubit Kraus map to a density matrix, as specified by at most sixteen operators, <picture><source srcset="form_231_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_i$" src="form_231.png"/></picture> (<code>ops</code>). </p>
+<p>Apply a general non-trace-preserving two-qubit Kraus map to a density matrix, as specified by at most sixteen operators, \(K_i\) (<code>ops</code>). </p>
 <p >This effects  </p><p class="formulaDsp">
-<picture><source srcset="form_232_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
  \rho \to \sum\limits_i^{\text{numOps}} K_i \rho K_i^\dagger
-\]" src="form_232.png"/></picture>
+\]
 </p>
-<p> where the matrices <picture><source srcset="form_231_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$K_i$" src="form_231.png"/></picture> are unconstrained, and hence the effective map is permitted to be non-completely-positive and non-trace-preserving. Use <a class="el" href="group__decoherence.html#ga2cf7dece0efea4207349f872cdcb7e81" title="Apply a general two-qubit Kraus map to a density matrix, as specified by at most sixteen Kraus operat...">mixTwoQubitKrausMap()</a> to enforce that the map be completely positive.</p>
+<p> where the matrices \(K_i\) are unconstrained, and hence the effective map is permitted to be non-completely-positive and non-trace-preserving. Use <a class="el" href="group__decoherence.html#ga2cf7dece0efea4207349f872cdcb7e81" title="Apply a general two-qubit Kraus map to a density matrix, as specified by at most sixteen Kraus operat...">mixTwoQubitKrausMap()</a> to enforce that the map be completely positive.</p>
 <p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in each op in <code>ops</code>.</p>
 <p >Note that in distributed mode, this routine requires that each node contains at least 16 amplitudes. This means an q-qubit register can be distributed by at most 2^(q-4) numTargs nodes.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
@@ -1056,13 +1063,13 @@ Balint Koczor (backend code) </dd></dl>
 
 <p>Mixes a density matrix <code>qureg</code> to induce general single-qubit Pauli noise. </p>
 <p >With probabilities <code>probX</code>, <code>probY</code> and <code>probZ</code>, applies Pauli X, Y, and Z respectively to <code>targetQubit</code>.</p>
-<p >This transforms <code>qureg</code> = <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture> into the mixed state  </p><p class="formulaDsp">
-<picture><source srcset="form_179_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This transforms <code>qureg</code> = \(\rho\) into the mixed state  </p><p class="formulaDsp">
+\[
 (1 - \text{probX} - \text{probY} - \text{probZ}) \, \rho + \;\;\;
      (\text{probX})\; X_q \, \rho \, X_q + \;\;\;
      (\text{probY})\; Y_q \, \rho \, Y_q + \;\;\;
      (\text{probZ})\; Z_q \, \rho \, Z_q
-\]" src="form_179.png"/></picture>
+\]
 </p>
 <p> where q = <code>targetQubit</code>. Each of <code>probX</code>, <code>probY</code> and <code>probZ</code> cannot exceed the chance of no error: 1 - <code>probX</code> - <code>probY</code> - <code>probZ</code> </p>
 <p >This function operates by first converting the given Pauli probabilities into a single-qubit Kraus map (four 2x2 operators).</p>
@@ -1160,14 +1167,14 @@ Tyson Jones (refactored, doc) </dd></dl>
 
 <p>Mixes a density matrix <code>qureg</code> to induce two-qubit dephasing noise. </p>
 <p >With probability <code>prob</code>, applies Pauli Z to either or both qubits.</p>
-<p >This transforms <code>qureg</code> = <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture> into the mixed state  </p><p class="formulaDsp">
-<picture><source srcset="form_166_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >This transforms <code>qureg</code> = \(\rho\) into the mixed state  </p><p class="formulaDsp">
+\[
 (1 - \text{prob}) \, \rho + \frac{\text{prob}}{3} \; \left( 
      Z_a \, \rho \, Z_a + 
      Z_b \, \rho \, Z_b + 
      Z_a Z_b \, \rho \, Z_a Z_b
 \right)
-\]" src="form_166.png"/></picture>
+\]
 </p>
 <p> where a = <code>qubit1</code>, b = <code>qubit2</code>. <code>prob</code> cannot exceed 3/4, at which maximal mixing occurs.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
@@ -1261,19 +1268,19 @@ Ania Brown (CPU, distributed) </dd></dl>
 </div><div class="memdoc">
 
 <p>Mixes a density matrix <code>qureg</code> to induce two-qubit homogeneous depolarising noise. </p>
-<p >With probability <code>prob</code>, applies to <code>qubit1</code> and <code>qubit2</code> any operator of the set <picture><source srcset="form_174_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{ IX, IY, IZ, XI, YI, ZI, XX, XY, XZ, YX, YY, YZ, ZX, ZY, ZZ \}$" src="form_174.png"/></picture>. Note this is the set of all two-qubit Pauli gates excluding <picture><source srcset="form_175_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$II$" src="form_175.png"/></picture>.</p>
-<p >This transforms <code>qureg</code> = <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture> into the mixed state  </p><p class="formulaDsp">
-<picture><source srcset="form_176_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >With probability <code>prob</code>, applies to <code>qubit1</code> and <code>qubit2</code> any operator of the set \(\{ IX, IY, IZ, XI, YI, ZI, XX, XY, XZ, YX, YY, YZ, ZX, ZY, ZZ \}\). Note this is the set of all two-qubit Pauli gates excluding \(II\).</p>
+<p >This transforms <code>qureg</code> = \(\rho\) into the mixed state  </p><p class="formulaDsp">
+\[
 (1 - \text{prob}) \, \rho \; + \; \frac{\text{prob}}{15} \; \left( 
      \sum \limits_{\sigma_a \in \{X_a,Y_a,Z_a,I_a\}}
      \sum \limits_{\sigma_b \in \{X_b,Y_b,Z_b,I_b\}}
      \sigma_a \sigma_b \; \rho \; \sigma_a \sigma_b
 \right)
 - \frac{\text{prob}}{15} I_a I_b \; \rho \; I_a I_b
-\]" src="form_176.png"/></picture>
+\]
 </p>
 <p> or verbosely  </p><p class="formulaDsp">
-<picture><source srcset="form_177_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 (1 - \text{prob}) \, \rho + \frac{\text{prob}}{15} \; \left( 
 \begin{aligned}
      &amp;X_a \, \rho \, X_a + 
@@ -1295,16 +1302,16 @@ Ania Brown (CPU, distributed) </dd></dl>
      Z_a Z_b \, \rho \, Z_a Z_b
 \end{aligned}
 \right)
-\]" src="form_177.png"/></picture>
+\]
 </p>
 <p> where a = <code>qubit1</code>, b = <code>qubit2</code>.</p>
 <p ><code>prob</code> cannot exceed 15/16, at which maximal mixing occurs.</p>
 <p >The produced state is equivalently expressed as  </p><p class="formulaDsp">
-<picture><source srcset="form_178_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
      \left( 1 - \frac{16}{15} \text{prob} \right) \rho + \left( \frac{16}{15} \text{prob} \right) \frac{\vec{\bf{1}}}{2}
-\]" src="form_178.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_169_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \frac{\vec{\bf{1}}}{2} $" src="form_169.png"/></picture> is the maximally mixed state of the two target qubits.</p>
+<p> where \( \frac{\vec{\bf{1}}}{2} \) is the maximally mixed state of the two target qubits.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__decoherence.html#gae2ea9255b8b11a4a382231e5604dc4e3" title="Mixes a density matrix qureg to induce single-qubit homogeneous depolarising noise.">mixDepolarising()</a></li>
 </ul>
@@ -1401,12 +1408,12 @@ Ania Brown (CPU, distributed) </dd></dl>
 
 <p>Apply a general two-qubit Kraus map to a density matrix, as specified by at most sixteen Kraus operators. </p>
 <p >A Kraus map is also referred to as a "operator-sum representation" of a quantum channel. This allows one to simulate a general two-qubit noise process.</p>
-<p >The Kraus map must be completely positive and trace preserving, which constrains each <picture><source srcset="form_233_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ K_i $" src="form_233.png"/></picture> in <code>ops</code> by  </p><p class="formulaDsp">
-<picture><source srcset="form_234_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >The Kraus map must be completely positive and trace preserving, which constrains each \( K_i \) in <code>ops</code> by  </p><p class="formulaDsp">
+\[
  \sum \limits_i^{\text{numOps}} K_i^\dagger K_i = I
-\]" src="form_234.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_235_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ I $" src="form_235.png"/></picture> is the identity matrix. Use <a class="el" href="group__decoherence.html#gadd98e23753620f350fa94b3efcb59bf7" title="Apply a general non-trace-preserving two-qubit Kraus map to a density matrix, as specified by at most...">mixNonTPTwoQubitKrausMap()</a> to relax this this condition.</p>
+<p> where \( I \) is the identity matrix. Use <a class="el" href="group__decoherence.html#gadd98e23753620f350fa94b3efcb59bf7" title="Apply a general non-trace-preserving two-qubit Kraus map to a density matrix, as specified by at most...">mixNonTPTwoQubitKrausMap()</a> to relax this this condition.</p>
 <p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in each op in <code>ops</code>.</p>
 <p >Note that in distributed mode, this routine requires that each node contains at least 16 amplitudes. This means an q-qubit register can be distributed by at most 2^(q-4) numTargs nodes.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>

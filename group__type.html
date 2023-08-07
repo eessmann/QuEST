@@ -11,6 +11,13 @@
         <title>QuEST: Data structures</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
         <link href="doxygen.css" rel="stylesheet" type="text/css" />
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -443,18 +450,18 @@ Tyson Jones (doc) </dd></dl>
 <p>Flags for specifying how the bits in sub-register computational basis states are mapped to indices in functions like <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a>. </p>
 <ul>
 <li><code>UNSIGNED</code> means the bits encode an unsigned integer, hence  <p class="formulaDsp">
-<picture><source srcset="form_20_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
 \begin{aligned}
     |00\rangle &amp; \rightarrow \, 0 \\
     |01\rangle &amp; \rightarrow \, 1 \\
     |10\rangle &amp; \rightarrow \, 2 \\
     |11\rangle &amp; \rightarrow \, 3
 \end{aligned}
-\]" src="form_20.png"/></picture>
+\]
 </p>
 </li>
 <li><code>TWOS_COMPLEMENT</code> means the bits encode a signed integer through <a href="https://en.wikipedia.org/wiki/Two%27s_complement">two's complement</a>, such that  <p class="formulaDsp">
-<picture><source srcset="form_21_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
 \begin{aligned}
     |000\rangle &amp; \rightarrow \, 0 \\
     |001\rangle &amp; \rightarrow \, 1 \\
@@ -465,7 +472,7 @@ Tyson Jones (doc) </dd></dl>
     |110\rangle &amp; \rightarrow \,-2 \\
     |111\rangle &amp; \rightarrow \,-1
 \end{aligned}
-\]" src="form_21.png"/></picture>
+\]
 </p>
  <blockquote class="doxtable">
 <p >&zwj;Remember that the qubits specified within a sub-register, and their ordering (least to most significant) determine the bits of a computational basis state, before intrepretation as an encoding of an integer. </p>
@@ -530,25 +537,25 @@ Tyson Jones (doc) </dd></dl>
 <p>Flags for specifying named phase functions. </p>
 <p >These can be passed to functions <a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a>, <a class="el" href="group__operator.html#ga2fbaec3bb21cc01f7a2a4ed2aa911ebf" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFuncOverrides()</a>, <a class="el" href="group__operator.html#ga225b82ff8b8eed1fff312240ec70c731" title="Induces a phase change upon each amplitude of qureg, determined by a named, paramaterized (and potent...">applyParamNamedPhaseFunc()</a>, and <a class="el" href="group__operator.html#gaabd7efa3beebc9f3a525321d41a28989" title="Induces a phase change upon each amplitude of qureg, determined by a named, parameterised (and potent...">applyParamNamedPhaseFuncOverrides()</a>.</p>
 <p >Norm based phase functions:</p><ul>
-<li><code>NORM</code> maps state <picture><source srcset="form_2_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x\rangle|y\rangle\dots$" src="form_2.png"/></picture> to <picture><source srcset="form_3_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\sqrt{x^2 + y^2 + \dots}$" src="form_3.png"/></picture></li>
-<li><code>SCALED_NORM</code> maps state <picture><source srcset="form_2_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x\rangle|y\rangle\dots$" src="form_2.png"/></picture> to <picture><source srcset="form_4_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{coeff} \sqrt{x^2 + y^2 + \dots}$" src="form_4.png"/></picture></li>
-<li><code>INVERSE_NORM</code> maps state <picture><source srcset="form_2_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x\rangle|y\rangle\dots$" src="form_2.png"/></picture> to <picture><source srcset="form_5_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$1/\sqrt{x^2 + y^2 + \dots}$" src="form_5.png"/></picture></li>
-<li><code>SCALED_INVERSE_NORM</code> maps state <picture><source srcset="form_2_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x\rangle|y\rangle\dots$" src="form_2.png"/></picture> to <picture><source srcset="form_6_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{coeff}/\sqrt{x^2 + y^2 + \dots}$" src="form_6.png"/></picture></li>
-<li><code>SCALED_INVERSE_SHIFTED_NORM</code> maps state <picture><source srcset="form_2_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x\rangle|y\rangle\dots$" src="form_2.png"/></picture> to <picture><source srcset="form_7_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{coeff}/\sqrt{(x-\Delta_x)^2 + (y-\Delta_y)^2 + \dots}$" src="form_7.png"/></picture></li>
+<li><code>NORM</code> maps state \(|x\rangle|y\rangle\dots\) to \(\sqrt{x^2 + y^2 + \dots}\)</li>
+<li><code>SCALED_NORM</code> maps state \(|x\rangle|y\rangle\dots\) to \(\text{coeff} \sqrt{x^2 + y^2 + \dots}\)</li>
+<li><code>INVERSE_NORM</code> maps state \(|x\rangle|y\rangle\dots\) to \(1/\sqrt{x^2 + y^2 + \dots}\)</li>
+<li><code>SCALED_INVERSE_NORM</code> maps state \(|x\rangle|y\rangle\dots\) to \(\text{coeff}/\sqrt{x^2 + y^2 + \dots}\)</li>
+<li><code>SCALED_INVERSE_SHIFTED_NORM</code> maps state \(|x\rangle|y\rangle\dots\) to \(\text{coeff}/\sqrt{(x-\Delta_x)^2 + (y-\Delta_y)^2 + \dots}\)</li>
 </ul>
 <p >Product based phase functions:</p><ul>
-<li><code>PRODUCT</code> maps state <picture><source srcset="form_8_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x\rangle|y\rangle|z\rangle\dots$" src="form_8.png"/></picture> to <picture><source srcset="form_9_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$x \; y \; z \dots$" src="form_9.png"/></picture></li>
-<li><code>SCALED_PRODUCT</code> maps state <picture><source srcset="form_8_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x\rangle|y\rangle|z\rangle\dots$" src="form_8.png"/></picture> to <picture><source srcset="form_10_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{coeff} \; x \; y \; z \dots$" src="form_10.png"/></picture></li>
-<li><code>INVERSE_PRODUCT</code> maps state <picture><source srcset="form_8_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x\rangle|y\rangle|z\rangle\dots$" src="form_8.png"/></picture> to <picture><source srcset="form_11_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$1/(x \; y \; z \dots)$" src="form_11.png"/></picture></li>
-<li><code>SCALED_INVERSE_PRODUCT</code> maps state <picture><source srcset="form_8_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x\rangle|y\rangle|z\rangle\dots$" src="form_8.png"/></picture> to <picture><source srcset="form_12_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{coeff}/(x \; y \; z \dots)$" src="form_12.png"/></picture></li>
+<li><code>PRODUCT</code> maps state \(|x\rangle|y\rangle|z\rangle\dots\) to \(x \; y \; z \dots\)</li>
+<li><code>SCALED_PRODUCT</code> maps state \(|x\rangle|y\rangle|z\rangle\dots\) to \(\text{coeff} \; x \; y \; z \dots\)</li>
+<li><code>INVERSE_PRODUCT</code> maps state \(|x\rangle|y\rangle|z\rangle\dots\) to \(1/(x \; y \; z \dots)\)</li>
+<li><code>SCALED_INVERSE_PRODUCT</code> maps state \(|x\rangle|y\rangle|z\rangle\dots\) to \(\text{coeff}/(x \; y \; z \dots)\)</li>
 </ul>
 <p >Euclidean distance based phase functions:</p><ul>
-<li><code>DISTANCE</code> maps state <picture><source srcset="form_13_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots$" src="form_13.png"/></picture> to <picture><source srcset="form_14_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2 + \dots}$" src="form_14.png"/></picture></li>
-<li><code>SCALED_DISTANCE</code> maps state <picture><source srcset="form_13_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots$" src="form_13.png"/></picture> to <picture><source srcset="form_15_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{coeff}\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2 + \dots}$" src="form_15.png"/></picture></li>
-<li><code>INVERSE_DISTANCE</code> maps state <picture><source srcset="form_13_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots$" src="form_13.png"/></picture> to <picture><source srcset="form_16_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$1/\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2 + \dots}$" src="form_16.png"/></picture></li>
-<li><code>SCALED_INVERSE_DISTANCE</code> maps state <picture><source srcset="form_13_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots$" src="form_13.png"/></picture> to <picture><source srcset="form_17_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{coeff}/\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2 + \dots}$" src="form_17.png"/></picture></li>
-<li><code>SCALED_INVERSE_SHIFTED_DISTANCE</code> maps state <picture><source srcset="form_13_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots$" src="form_13.png"/></picture> to <picture><source srcset="form_18_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{coeff}/\sqrt{(x_1-x_2-\Delta_x)^2 + (y_1-y_2-\Delta_y)^2 + \dots}$" src="form_18.png"/></picture></li>
-<li><code>SCALED_INVERSE_SHIFTED_WEIGHTED_DISTANCE</code> maps state <picture><source srcset="form_13_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots$" src="form_13.png"/></picture> to <picture><source srcset="form_19_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{coeff}/\sqrt{f_x \, (x_1-x_2-\Delta_x)^2 + f_y \; (y_1-y_2-\Delta_y)^2 + \dots}$" src="form_19.png"/></picture></li>
+<li><code>DISTANCE</code> maps state \(|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots\) to \(\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2 + \dots}\)</li>
+<li><code>SCALED_DISTANCE</code> maps state \(|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots\) to \(\text{coeff}\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2 + \dots}\)</li>
+<li><code>INVERSE_DISTANCE</code> maps state \(|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots\) to \(1/\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2 + \dots}\)</li>
+<li><code>SCALED_INVERSE_DISTANCE</code> maps state \(|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots\) to \(\text{coeff}/\sqrt{(x_1-x_2)^2 + (y_1-y_2)^2 + \dots}\)</li>
+<li><code>SCALED_INVERSE_SHIFTED_DISTANCE</code> maps state \(|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots\) to \(\text{coeff}/\sqrt{(x_1-x_2-\Delta_x)^2 + (y_1-y_2-\Delta_y)^2 + \dots}\)</li>
+<li><code>SCALED_INVERSE_SHIFTED_WEIGHTED_DISTANCE</code> maps state \(|x_1\rangle|x_2\rangle|y_1\rangle|y_2\rangle\dots\) to \(\text{coeff}/\sqrt{f_x \, (x_1-x_2-\Delta_x)^2 + f_y \; (y_1-y_2-\Delta_y)^2 + \dots}\)</li>
 </ul>
 <dl class="section author"><dt>Author</dt><dd>Tyson Jones </dd>
 <dd>
@@ -686,9 +693,9 @@ Richard Meister (shifted functions) </dd></dl>
 
 <p>Allocate dynamic memory for a square complex matrix of any size, which can be passed to functions like <a class="el" href="group__unitary.html#ga20bf9b8a71b8a3ee4651e9497e6d1f4f" title="Apply a general multi-qubit unitary (including a global phase factor) with any number of target qubit...">multiQubitUnitary()</a> and <a class="el" href="group__operator.html#ga358e7094a98851afa86d27f0147e32a1" title="Apply a general N-by-N matrix, which may be non-unitary, on any number of target qubits.">applyMatrixN()</a>. </p>
 <p >The returned matrix will have dimensions  </p><p class="formulaDsp">
-<picture><source srcset="form_28_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      2^{\text{numQubits}} \times 2^{\text{numQubits}},
-\]" src="form_28.png"/></picture>
+\]
 </p>
 <p> stored as nested arrays <a class="el" href="structComplexMatrixN.html#a446e8a077597e4f76049d547df0c9738">ComplexMatrixN.real</a> and <a class="el" href="structComplexMatrixN.html#afde13e469a3b4f179f45e53d1ec0a7cf">ComplexMatrixN.imag</a>, initialised to zero.</p>
 <blockquote class="doxtable">
@@ -800,9 +807,9 @@ A <a class="el" href="structComplexMatrixN.html" title="Represents a general 2^N
 
 <p>Creates a density matrix <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> object representing a set of qubits which can enter noisy and mixed states. </p>
 <p >Allocates space for a matrix of complex amplitudes, which assuming a single <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6" title="A precision-agnostic floating point number, as determined by QuEST_PREC.">qreal</a> floating-point number requires <b>qrealBytes</b>, requires memory  </p><p class="formulaDsp">
-<picture><source srcset="form_25_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
      \text{qrealBytes} \times 2 \times 2^{2 \times\text{numQubits}}\;\;\text{(bytes)},
-\]" src="form_25.png"/></picture>
+\]
 </p>
 <p> though there are additional memory costs in GPU and distributed modes. Notice this is the memory cost of a state-vector created with <a class="el" href="group__type.html#ga3392816c0643414165c2f5caeec17df0" title="Creates a state-vector Qureg object representing a set of qubits which will remain in a pure state.">createQureg()</a> of twice as many qubits.</p>
 <p >The returned <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> begins in the zero state, as produced by <a class="el" href="group__init.html#ga2f049055d4a51d0ea4d1a43b5234dedb" title="Initialise qureg into the zero state.">initZeroState()</a>.</p>
@@ -842,12 +849,12 @@ GPU</h3>
 Distributed</h3>
 <p >In distributed mode, the density matrix is uniformly partitioned between the <b>N</b> distributed nodes (column-wise).</p>
 <blockquote class="doxtable">
-<p >&zwj;Only a power-of-2 number of nodes <b>N</b> may be used (e.g. <b>N = 1, 2, 4, 8, </b>...). There must additionally be at least 1 amplitude of a density matrix stored on each node. This means one cannot create a density matrix <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> with fewer than <picture><source srcset="form_26_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\log_2(\text{N})/2$" src="form_26.png"/></picture> qubits. </p>
+<p >&zwj;Only a power-of-2 number of nodes <b>N</b> may be used (e.g. <b>N = 1, 2, 4, 8, </b>...). There must additionally be at least 1 amplitude of a density matrix stored on each node. This means one cannot create a density matrix <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> with fewer than \(\log_2(\text{N})/2\) qubits. </p>
 </blockquote>
 <p>Additional memory is allocated on each node for communication buffers, of size equal to the density matrix partition. Hence the total memory <em>per-node</em> required is:  </p><p class="formulaDsp">
-<picture><source srcset="form_27_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
      2 \times \text{qrealBytes} \times 2 \times 2^{2\times\text{numQubits}}/N  \;\;\text{(bytes)},
-\]" src="form_27.png"/></picture>
+\]
 </p>
 <p >For example, at double precision (<a class="el" href="group__type.html#ga626676e623baa3de702c185736018b2c" title="Sets the precision of qreal and qcomp floating-point numbers, and hence the numerical precision of Qu...">QuEST_PREC</a> <b>= 2</b>, <b>qrealBytes = 8</b>), the memory costs are:</p>
 <table class="markdownTable">
@@ -946,7 +953,7 @@ Distributed</h3>
 
 <p>Creates a <a class="el" href="structDiagonalOp.html" title="Represents a diagonal complex operator on the full Hilbert state of a Qureg.">DiagonalOp</a> representing a diagonal operator on the full Hilbert space of a <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a>. </p>
 <p >The resulting operator need not be unitary nor Hermitian, and can be applied to any <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> of a compatible number of qubits.</p>
-<p >This function allocates space for <picture><source srcset="form_30_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^{\text{numQubits}}$" src="form_30.png"/></picture> complex amplitudes, which are initially zero. This is the same cost as a local state-vector of equal number of qubits; see the Serial section of <a class="el" href="group__type.html#ga3392816c0643414165c2f5caeec17df0" title="Creates a state-vector Qureg object representing a set of qubits which will remain in a pure state.">createQureg()</a>. Note that this is a <em>paralell</em> data-type, so its ultimate memory costs depend on the hardware backends, as elaborated below.</p>
+<p >This function allocates space for \(2^{\text{numQubits}}\) complex amplitudes, which are initially zero. This is the same cost as a local state-vector of equal number of qubits; see the Serial section of <a class="el" href="group__type.html#ga3392816c0643414165c2f5caeec17df0" title="Creates a state-vector Qureg object representing a set of qubits which will remain in a pure state.">createQureg()</a>. Note that this is a <em>paralell</em> data-type, so its ultimate memory costs depend on the hardware backends, as elaborated below.</p>
 <p >The operator elements should be modified with <a class="el" href="group__type.html#ga12a6c59ebbfba8bdb9453a4138027d46" title="Overwrites the entire DiagonalOp op with the given real and imag complex elements.">initDiagonalOp()</a> and <a class="el" href="group__type.html#gafabb15a6c1cf49f8ecb67e1f35c77c1e" title="Modifies a subset (starting at index startInd, and ending at index startInd + numElems) of the elemen...">setDiagonalOpElems()</a>, and must be later freed with <a class="el" href="group__type.html#ga2c59f45fab56708f687b4104ee99bcd1" title="Destroys a DiagonalOp created with createDiagonalOp(), freeing its memory.">destroyDiagonalOp()</a>.</p>
 <h3><a class="anchor" id="autotoc_md18"></a>
 GPU</h3>
@@ -965,7 +972,7 @@ GPU</h3>
 <div class="ttc" id="astructDiagonalOp_html_a85c3f52533efe831bbe40b9a48602388"><div class="ttname"><a href="structDiagonalOp.html#a85c3f52533efe831bbe40b9a48602388">DiagonalOp::imag</a></div><div class="ttdeci">qreal * imag</div><div class="ttdoc">The imaginary values of the 2^numQubits complex elements.</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00312">QuEST.h:312</a></div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
 Distribution</h3>
-<p >In distributed mode, the memory for the diagonal operator is divided evenly between the <picture><source srcset="form_31_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_31.png"/></picture> available nodes, such that each node contains only <picture><source srcset="form_32_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^{\text{numQubits}}/N$" src="form_32.png"/></picture> complex values. This is assigned to <a class="el" href="structDiagonalOp.html#a2c6eab631ef48b4978db026c98180eee" title="The number of the 2^numQubits amplitudes stored on each distributed node.">DiagonalOp.numElemsPerChunk</a>.</p>
+<p >In distributed mode, the memory for the diagonal operator is divided evenly between the \(N\) available nodes, such that each node contains only \(2^{\text{numQubits}}/N\) complex values. This is assigned to <a class="el" href="structDiagonalOp.html#a2c6eab631ef48b4978db026c98180eee" title="The number of the 2^numQubits amplitudes stored on each distributed node.">DiagonalOp.numElemsPerChunk</a>.</p>
 <p >Users must therefore exercise care in modifying <a class="el" href="structDiagonalOp.html#a1d66088bed235d524cd452b107694d5c" title="The real values of the 2^numQubits complex elements.">DiagonalOp.real</a> and <a class="el" href="structDiagonalOp.html#a85c3f52533efe831bbe40b9a48602388" title="The imaginary values of the 2^numQubits complex elements.">DiagonalOp.imag</a> directly.</p>
 <p >For example, the following is valid code when when distributed between <b>N = 2</b> nodes: </p><div class="fragment"><div class="line"><span class="comment">// create diag({1,2,3,4,5,6,7,8, 9,10,11,12,13,14,15,16})</span></div>
 <div class="line"><span class="keywordtype">int</span> numQubits = 4;</div>
@@ -1240,9 +1247,9 @@ Milos Prokop (serial prototype) </dd></dl>
 <p >For example, the file containing </p><pre class="fragment">0.31 1 0 1 2
 -0.2 3 2 0 0
 </pre><p> encodes a two-term four-qubit Hamiltonian  </p><p class="formulaDsp">
-<picture><source srcset="form_29_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
      0.31 \, X_0 \, X_2 \, Y_3 -0.2 \, Z_0 \, Y_1 \,.
-\]" src="form_29.png"/></picture>
+\]
 </p>
 <p >The initialised <a class="el" href="structPauliHamil.html" title="A Pauli Hamiltonian, expressed as a real-weighted sum of pauli products, and which can hence represen...">PauliHamil</a> can be previewed with <a class="el" href="group__debug.html#gab27234d9ccf440bb5e5d834e8f7e3938" title="Print the PauliHamil to screen.">reportPauliHamil()</a>.</p>
 <p >The number of qubits and terms are inferred from the file. The created Hamiltonian can be used just like one created via <a class="el" href="group__type.html#ga35b28710877c462927366fa602e591cb" title="Dynamically allocates a Hamiltonian expressed as a real-weighted sum of products of Pauli operators.">createPauliHamil()</a>. It can be modified directly (see <a class="el" href="structPauliHamil.html" title="A Pauli Hamiltonian, expressed as a real-weighted sum of pauli products, and which can hence represen...">PauliHamil</a>), or through <a class="el" href="group__type.html#gadbe6701dda1d49168f2f23253e370a7a" title="Initialise PauliHamil instance hamil with the given term coefficients and Pauli codes (one for every ...">initPauliHamil()</a>.</p>
@@ -1478,9 +1485,9 @@ Milos Prokop (serial prototype) </dd></dl>
 
 <p>Creates a state-vector <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> object representing a set of qubits which will remain in a pure state. </p>
 <p >Allocates space for a state-vector of complex amplitudes, which assuming a single <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6" title="A precision-agnostic floating point number, as determined by QuEST_PREC.">qreal</a> floating-point number requires <b>qrealBytes</b>, requires memory  </p><p class="formulaDsp">
-<picture><source srcset="form_22_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
      \text{qrealBytes} \times 2 \times 2^\text{numQubits}\;\;\text{(bytes)},
-\]" src="form_22.png"/></picture>
+\]
 </p>
 <p> though there are additional memory costs in GPU and distributed modes.</p>
 <p >The returned <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> begins in the zero state, as produced by <a class="el" href="group__init.html#ga2f049055d4a51d0ea4d1a43b5234dedb" title="Initialise qureg into the zero state.">initZeroState()</a>.</p>
@@ -1548,12 +1555,12 @@ GPU</h3>
 Distributed</h3>
 <p >In distributed mode, the state-vector is uniformly partitioned between the <b>N</b> distributed nodes.</p>
 <blockquote class="doxtable">
-<p >&zwj;Only a power-of-2 number of nodes <b>N</b> may be used (e.g. <b>N = 1, 2, 4, 8, </b>...). There must additionally be at least 1 amplitude of a state-vector stored on each node. This means one cannot create a state-vector <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> with fewer than <picture><source srcset="form_23_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\log_2(\text{N})$" src="form_23.png"/></picture> qubits. </p>
+<p >&zwj;Only a power-of-2 number of nodes <b>N</b> may be used (e.g. <b>N = 1, 2, 4, 8, </b>...). There must additionally be at least 1 amplitude of a state-vector stored on each node. This means one cannot create a state-vector <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> with fewer than \(\log_2(\text{N})\) qubits. </p>
 </blockquote>
 <p>In addition to <a class="el" href="structQureg.html#a441e4cacef6bd17adb9813c7442d42fe" title="Computational state amplitudes - a subset thereof in the MPI version.">Qureg.stateVec</a>, additional memory is allocated on each node for communication buffers, of size equal to the state-vector partition. Hence the total memory <em>per-node</em> required is:  </p><p class="formulaDsp">
-<picture><source srcset="form_24_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
      2 \times \text{qrealBytes} \times 2 \times 2^\text{numQubits}/N  \;\;\text{(bytes)},
-\]" src="form_24.png"/></picture>
+\]
 </p>
 <p >For example, at double precision (<a class="el" href="group__type.html#ga626676e623baa3de702c185736018b2c" title="Sets the precision of qreal and qcomp floating-point numbers, and hence the numerical precision of Qu...">QuEST_PREC</a> <b>= 2</b>, <b>qrealBytes = 8</b>), the memory costs are:</p>
 <table class="markdownTable">
@@ -1665,7 +1672,7 @@ Tyson Jones (validation, doc) </dd></dl>
 <p >This is similar to a <a class="el" href="structDiagonalOp.html" title="Represents a diagonal complex operator on the full Hilbert state of a Qureg.">DiagonalOp</a> acting upon specific qubits.</p>
 <p >The resulting operator (initially all zero) need not be unitary nor Hermitian, and can be applied to any <a class="el" href="structQureg.html" title="Represents a system of qubits.">Qureg</a> of a compatible number of qubits.</p>
 <blockquote class="doxtable">
-<p >&zwj;This function allocates space for <picture><source srcset="form_30_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$2^{\text{numQubits}}$" src="form_30.png"/></picture> complex amplitudes, which are initially zero. This is the same cost as a local state-vector of equal number of qubits; see the Serial section of <a class="el" href="group__type.html#ga3392816c0643414165c2f5caeec17df0" title="Creates a state-vector Qureg object representing a set of qubits which will remain in a pure state.">createQureg()</a>. Unlike <a class="el" href="structDiagonalOp.html" title="Represents a diagonal complex operator on the full Hilbert state of a Qureg.">DiagonalOp</a>, this object is <em>not</em> distributed; instead, all nodes (during distributed simulation) store the full set of diagonal elements, similar to a <a class="el" href="structComplexMatrixN.html" title="Represents a general 2^N by 2^N matrix of complex numbers.">ComplexMatrixN</a>. </p>
+<p >&zwj;This function allocates space for \(2^{\text{numQubits}}\) complex amplitudes, which are initially zero. This is the same cost as a local state-vector of equal number of qubits; see the Serial section of <a class="el" href="group__type.html#ga3392816c0643414165c2f5caeec17df0" title="Creates a state-vector Qureg object representing a set of qubits which will remain in a pure state.">createQureg()</a>. Unlike <a class="el" href="structDiagonalOp.html" title="Represents a diagonal complex operator on the full Hilbert state of a Qureg.">DiagonalOp</a>, this object is <em>not</em> distributed; instead, all nodes (during distributed simulation) store the full set of diagonal elements, similar to a <a class="el" href="structComplexMatrixN.html" title="Represents a general 2^N by 2^N matrix of complex numbers.">ComplexMatrixN</a>. </p>
 </blockquote>
 <p >The returned <a class="el" href="structSubDiagonalOp.html" title="Represents a diagonal complex operator of a smaller dimension than the full Hilbert state of a Qureg.">SubDiagonalOp</a> must be later freed with <a class="el" href="group__type.html#ga6eaa131f0b73a53f1218e19ce4825ac3" title="Destroy a SubDiagonalOp instance created with createSubDiagonalOp().">destroySubDiagonalOp()</a>.</p>
 <p >For example, the below code creates an 8x8 identity operator. </p><div class="fragment"><div class="line"><a class="code hl_struct" href="structSubDiagonalOp.html">SubDiagonalOp</a> op = <a class="code hl_function" href="group__type.html#ga3129b2a427fb0ea52387b63088d0068b">createSubDiagonalOp</a>(3);</div>
@@ -2238,8 +2245,8 @@ initComplexMatrixN(m,
 </div><div class="memdoc">
 
 <p>Populates the diagonal operator <code>op</code> to be equivalent to the given Pauli Hamiltonian <code>hamil</code>, assuming <code>hamil</code> contains only <code>PAULI_Z</code> operators. </p>
-<p >Given a <a class="el" href="structPauliHamil.html" title="A Pauli Hamiltonian, expressed as a real-weighted sum of pauli products, and which can hence represen...">PauliHamil</a> <code>hamil</code> featuring only <code>PAULI_Z</code> and <code>PAULI_I</code>, with term coefficients <picture><source srcset="form_33_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{\lambda_j\}$" src="form_33.png"/></picture>, which hence has form  </p><p class="formulaDsp">
-<picture><source srcset="form_34_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >Given a <a class="el" href="structPauliHamil.html" title="A Pauli Hamiltonian, expressed as a real-weighted sum of pauli products, and which can hence represen...">PauliHamil</a> <code>hamil</code> featuring only <code>PAULI_Z</code> and <code>PAULI_I</code>, with term coefficients \(\{\lambda_j\}\), which hence has form  </p><p class="formulaDsp">
+\[
      \begin{aligned}
      \text{hamil} &amp;= \sum\limits_j^{\text{numSumTerms}} \lambda_j
                      \bigotimes\limits_{k_j} \hat{Z}_k \\
@@ -2247,18 +2254,18 @@ initComplexMatrixN(m,
              r_1 \\ &amp; r_2 \\ &amp; &amp; r_3 \\ &amp; &amp; &amp; \ddots \\ &amp; &amp; &amp; &amp; r_{2^{\,\text{numQubits}}}
          \end{pmatrix},
      \end{aligned}
-\]" src="form_34.png"/></picture>
+\]
 </p>
 <p> this function modifies <code>op</code> to  </p><p class="formulaDsp">
-<picture><source srcset="form_35_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      \text{op} \; \rightarrow \; \text{diag}
          \big( \; r_1, \; r_2, \; r_3, \; \dots, \; r_{2^{\,\text{numQubits}}} \, \big),
-\]" src="form_35.png"/></picture>
+\]
 </p>
 <p> where the real amplitudes have form  </p><p class="formulaDsp">
-<picture><source srcset="form_36_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
       r_i = \sum\limits_j \, s_{ij} \, \lambda_j, \;\;\;\; s_{ij} = \pm  1 \,.
-\]" src="form_36.png"/></picture>
+\]
 </p>
 <p> This is useful since calculations with <a class="el" href="structDiagonalOp.html" title="Represents a diagonal complex operator on the full Hilbert state of a Qureg.">DiagonalOp</a> are significantly faster than the equivalent calculations with a general <a class="el" href="structPauliHamil.html" title="A Pauli Hamiltonian, expressed as a real-weighted sum of pauli products, and which can hence represen...">PauliHamil</a>. For example, <a class="el" href="group__operator.html#gad2e953390342cd361cfb4064d47715e6" title="Apply a diagonal operator, which is possibly non-unitary and non-Hermitian, to the entire qureg.">applyDiagonalOp()</a> requires a factor <code>numSumTerms * numQubits</code> fewer operations than <a class="el" href="group__operator.html#ga54d4e589468002bdc998200ae45e7312" title="Modifies outQureg to be the result of applying PauliHamil (a Hermitian but not necessarily unitary op...">applyPauliHamil()</a>.</p>
 <blockquote class="doxtable">

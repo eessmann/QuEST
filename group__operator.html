@@ -11,6 +11,13 @@
         <title>QuEST: Operators</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
         <link href="doxygen.css" rel="stylesheet" type="text/css" />
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -126,7 +133,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga2732669d9bc7f83a3fbd28f9fa030f1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left-apply a many-qubit a diagonal matrix upon a specific set of qubits of a quantum register.  <a href="group__operator.html#ga2732669d9bc7f83a3fbd28f9fa030f1a">More...</a><br /></td></tr>
 <tr class="separator:ga2732669d9bc7f83a3fbd28f9fa030f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga35b6321c578a8c69470132b5ee95f930"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__operator.html#ga35b6321c578a8c69470132b5ee95f930">applyTrotterCircuit</a> (<a class="el" href="structQureg.html">Qureg</a> qureg, <a class="el" href="structPauliHamil.html">PauliHamil</a> hamil, <a class="el" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> time, int order, int reps)</td></tr>
-<tr class="memdesc:ga35b6321c578a8c69470132b5ee95f930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a trotterisation of unitary evolution <picture><source srcset="form_243_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \exp(-i \, \text{hamil} \, \text{time}) $" src="form_243.png"/></picture> to <code>qureg</code>.  <a href="group__operator.html#ga35b6321c578a8c69470132b5ee95f930">More...</a><br /></td></tr>
+<tr class="memdesc:ga35b6321c578a8c69470132b5ee95f930"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a trotterisation of unitary evolution \( \exp(-i \, \text{hamil} \, \text{time}) \) to <code>qureg</code>.  <a href="group__operator.html#ga35b6321c578a8c69470132b5ee95f930">More...</a><br /></td></tr>
 <tr class="separator:ga35b6321c578a8c69470132b5ee95f930"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -159,18 +166,18 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Apply a diagonal operator, which is possibly non-unitary and non-Hermitian, to the entire <code>qureg</code>. </p>
-<p >Let <picture><source srcset="form_37_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$d_j = \text{op.real}[j] + (\text{op.imag}[j])\,\text{i} $" src="form_37.png"/></picture>, and  </p><p class="formulaDsp">
-<picture><source srcset="form_38_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >Let \(d_j = \text{op.real}[j] + (\text{op.imag}[j])\,\text{i} \), and  </p><p class="formulaDsp">
+\[
  \hat{D} = \begin{pmatrix}
  d_0 \\
  &amp; d_1 \\
  &amp; &amp; \ddots \\
  &amp; &amp; &amp; d_{2^{\text{op.numQubits}}-1}
  \end{pmatrix}.
-\]" src="form_38.png"/></picture>
+\]
 </p>
-<p> If <code>qureg</code> is a state-vector <picture><source srcset="form_39_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\psi\rangle$" src="form_39.png"/></picture>, this function performs <picture><source srcset="form_40_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\psi\rangle \rightarrow \hat{D} \, |\psi\rangle$" src="form_40.png"/></picture>. <br  />
-If <code>qureg</code> is a density-matrix <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture>, this function performs <picture><source srcset="form_42_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho \rightarrow \hat{D}\, \rho$" src="form_42.png"/></picture>. Notice this has not applied <picture><source srcset="form_43_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\hat{D}$" src="form_43.png"/></picture> in the fashion of a unitary.</p>
+<p> If <code>qureg</code> is a state-vector \(|\psi\rangle\), this function performs \(|\psi\rangle \rightarrow \hat{D} \, |\psi\rangle\). <br  />
+If <code>qureg</code> is a density-matrix \(\rho\), this function performs \(\rho \rightarrow \hat{D}\, \rho\). Notice this has not applied \(\hat{D}\) in the fashion of a unitary.</p>
 <blockquote class="doxtable">
 <p >&zwj;If your operator is unitary with unit amplitudes, the phases of which can be described by an analytic expression, you should instead use <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a> or <a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a> for significant memory and runtime savings. </p>
 </blockquote>
@@ -245,7 +252,7 @@ If <code>qureg</code> is a density-matrix <picture><source srcset="form_41_dark.
 
 <p>Applies the quantum Fourier transform (QFT) to the entirety of <code>qureg</code>. </p>
 <p >The effected unitary circuit (shown here for 4 qubits, bottom qubit is <b>0</b>) resembles  </p><p class="formulaDsp">
-<picture><source srcset="form_307_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
             \begin{tikzpicture}[scale=.5]
             \draw (-2, 5) -- (23, 5);
             \draw (-2, 3) -- (23, 3);
@@ -296,32 +303,32 @@ If <code>qureg</code> is a density-matrix <picture><source srcset="form_41_dark.
             \draw (22 - .35, 1 + .35) -- (22 + .35, 1 - .35);
             \draw (22 - .35, 1 - .35) -- (22 + .35, 1 + .35);
             \end{tikzpicture}
-\]" src="form_307.png"/></picture>
+\]
 </p>
 <p> though is performed more efficiently.</p>
 <ul>
 <li>If <code>qureg</code> is a state-vector, the output amplitudes are the discrete Fourier transform (DFT) of the input amplitudes, in the exact ordering. This is true even if <code>qureg</code> is unnormalised. <br  />
  Precisely,  <p class="formulaDsp">
-<picture><source srcset="form_308_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
        \text{QFT} \, \left(  \sum\limits_{x=0}^{2^N-1} \alpha_x |x\rangle \right) 
        = 
        \frac{1}{\sqrt{2^N}}
         \sum\limits_{x=0}^{2^N-1} \left( 
             \sum\limits_{y=0}^{2^N-1} e^{2 \pi \, i \, x \, y / 2^N} \; \alpha_y
         \right) |x\rangle
-    \]" src="form_308.png"/></picture>
+    \]
 </p>
 </li>
-<li>If <code>qureg</code> is a density matrix <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture>, it will be changed under the unitary action of the QFT. This can be imagined as each mixed state-vector undergoing the DFT on its amplitudes. This is true even if <code>qureg</code> is unnormalised.  <p class="formulaDsp">
-<picture><source srcset="form_309_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<li>If <code>qureg</code> is a density matrix \(\rho\), it will be changed under the unitary action of the QFT. This can be imagined as each mixed state-vector undergoing the DFT on its amplitudes. This is true even if <code>qureg</code> is unnormalised.  <p class="formulaDsp">
+\[
        \rho \; \rightarrow \; \text{QFT} \; \rho \; \text{QFT}^{\dagger}
-    \]" src="form_309.png"/></picture>
+    \]
 </p>
 </li>
 </ul>
 <blockquote class="doxtable">
 <p >&zwj;This function merges contiguous controlled-phase gates into single invocations of <a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a>, and hence is significantly faster than performing the QFT circuit directly.</p>
-<p >Furthermore, in distributed mode, this function requires only <picture><source srcset="form_310_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\log_2(\text{\#nodes})$" src="form_310.png"/></picture> rounds of pair-wise communication, and hence is exponentially faster than directly performing the DFT on the amplitudes of <code>qureg</code>.</p>
+<p >Furthermore, in distributed mode, this function requires only \(\log_2(\text{\#nodes})\) rounds of pair-wise communication, and hence is exponentially faster than directly performing the DFT on the amplitudes of <code>qureg</code>.</p>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__operator.html#ga9bc8c4ab44f8233b5766208a0b1c0776" title="Applies the quantum Fourier transform (QFT) to a specific subset of qubits of the register qureg.">applyQFT()</a> to apply the QFT to a sub-register of <code>qureg</code>.</li>
 </ul>
@@ -679,11 +686,11 @@ If <code>qureg</code> is a density-matrix <picture><source srcset="form_41_dark.
 <p>Apply a general 4-by-4 matrix, which may be non-unitary. </p>
 <p >The matrix is left-multiplied onto the state, for both state-vectors and density matrices.</p>
 <p >Note this differs from the action of <a class="el" href="group__unitary.html#gab525a42d63233f61afeb6be97d89dd36" title="Apply a general two-qubit unitary (including a global phase factor).">twoQubitUnitary()</a> on a density matrix.</p>
-<p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in <code>u</code>, such that a row in <code>u</code> is dotted with the vector <picture><source srcset="form_219_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |\text{targetQubit2} \;\; \text{targetQubit1}\rangle : \{ |00\rangle, |01\rangle, |10\rangle, |11\rangle \} $" src="form_219.png"/></picture></p>
+<p ><code>targetQubit1</code> is treated as the <code>least</code> significant qubit in <code>u</code>, such that a row in <code>u</code> is dotted with the vector \( |\text{targetQubit2} \;\; \text{targetQubit1}\rangle : \{ |00\rangle, |01\rangle, |10\rangle, |11\rangle \} \)</p>
 <p >For example, </p><div class="fragment"><div class="line"><a class="code hl_function" href="group__operator.html#ga74a955ec4bce606d89317bcfc528387f">applyMatrix4</a>(qureg, a, b, u);</div>
 <div class="ttc" id="agroup__operator_html_ga74a955ec4bce606d89317bcfc528387f"><div class="ttname"><a href="group__operator.html#ga74a955ec4bce606d89317bcfc528387f">applyMatrix4</a></div><div class="ttdeci">void applyMatrix4(Qureg qureg, int targetQubit1, int targetQubit2, ComplexMatrix4 u)</div><div class="ttdoc">Apply a general 4-by-4 matrix, which may be non-unitary.</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l01124">QuEST.c:1124</a></div></div>
 </div><!-- fragment --><p> will invoke multiplication  </p><p class="formulaDsp">
-<picture><source srcset="form_220_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 u_{00} &amp; u_{01} &amp; u_{02} &amp; u_{03} \\
 u_{10} &amp; u_{11} &amp; u_{12} &amp; u_{13} \\
@@ -696,7 +703,7 @@ u_{30} &amp; u_{31} &amp; u_{32} &amp; u_{33}
 |ba\rangle = |10\rangle \\
 |ba\rangle = |11\rangle 
 \end{pmatrix}
-\]" src="form_220.png"/></picture>
+\]
 </p>
 <p >This function may leave <code>qureg</code> is an unnormalised state.</p>
 <p >Note that in distributed mode, this routine requires that each node contains at least 4 amplitudes. This means an q-qubit register (state vector or density matrix) can be distributed by at most 2^q/4 nodes.</p>
@@ -791,7 +798,7 @@ u_{30} &amp; u_{31} &amp; u_{32} &amp; u_{33}
 <p >The first target qubit in <code>targs</code> is treated as <b>least</b> significant in <code>u</code>. For example, </p><div class="fragment"><div class="line"><a class="code hl_function" href="group__operator.html#ga358e7094a98851afa86d27f0147e32a1">applyMatrixN</a>(qureg, (<span class="keywordtype">int</span> []) {a, b, c}, 3, u);</div>
 <div class="ttc" id="agroup__operator_html_ga358e7094a98851afa86d27f0147e32a1"><div class="ttname"><a href="group__operator.html#ga358e7094a98851afa86d27f0147e32a1">applyMatrixN</a></div><div class="ttdeci">void applyMatrixN(Qureg qureg, int *targs, int numTargs, ComplexMatrixN u)</div><div class="ttdoc">Apply a general N-by-N matrix, which may be non-unitary, on any number of target qubits.</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l01134">QuEST.c:1134</a></div></div>
 </div><!-- fragment --><p> will invoke multiplication  </p><p class="formulaDsp">
-<picture><source srcset="form_225_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 u_{00} &amp; u_{01} &amp; u_{02} &amp; u_{03} &amp; u_{04} &amp; u_{05} &amp; u_{06} &amp; u_{07} \\
 u_{10} &amp; u_{11} &amp; u_{12} &amp; u_{13} &amp; u_{14} &amp; u_{15} &amp; u_{16} &amp; u_{17} \\
@@ -812,7 +819,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 |cba\rangle = |110\rangle \\
 |cba\rangle = |111\rangle 
 \end{pmatrix}
-\]" src="form_225.png"/></picture>
+\]
 </p>
 <p >This function may leave <code>qureg</code> is an unnormalised state.</p>
 <p >The passed ComplexMatrix must be a compatible size with the specified number of target qubits, otherwise an error is thrown.</p>
@@ -921,7 +928,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <p >The matrix is left-multiplied onto the state, for both state-vectors and density matrices. Hence, this function differs from <a class="el" href="group__unitary.html#ga3ad6c477edcdbc845fc1143e860fda08" title="Apply a general multi-controlled multi-qubit unitary (including a global phase factor).">multiControlledMultiQubitUnitary()</a> by more than just permitting a non-unitary matrix.</p>
 <p >This function may leave <code>qureg</code> is an unnormalised state.</p>
 <p >Any number of control and target qubits can be specified. This effects the many-qubit matrix  </p><p class="formulaDsp">
-<picture><source srcset="form_229_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
 \begin{pmatrix}
 1 \\
 &amp; 1 \\\
@@ -930,7 +937,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 &amp; &amp; &amp; u_{10} &amp; u_{11} &amp; \dots \\
 &amp; &amp; &amp; \vdots &amp; \vdots &amp; \ddots
 \end{pmatrix}
-\]" src="form_229.png"/></picture>
+\]
 </p>
 <p> on the control and target qubits.</p>
 <p >The target qubits in <code>targs</code> are treated as ordered least significant to most significant in <code>u</code>.</p>
@@ -1050,12 +1057,12 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <p>Induces a phase change upon each amplitude of <code>qureg</code>, determined by a multi-variable exponential polynomial "phase function". </p>
 <p >This is a multi-variable extension of <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a>, whereby multiple sub-registers inform separate variables in the exponential polynomial function, and effects a diagonal unitary operator.</p>
 <ul>
-<li>Arguments <code>coeffs</code>, <code>exponents</code> and <code>numTermsPerReg</code> together specify a real exponential polynomial <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> of the form  <p class="formulaDsp">
-<picture><source srcset="form_272_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+<li>Arguments <code>coeffs</code>, <code>exponents</code> and <code>numTermsPerReg</code> together specify a real exponential polynomial \(f(\vec{r})\) of the form  <p class="formulaDsp">
+\[ 
    f(r_1, \; \dots, \; r_{\text{numRegs}}) = \sum\limits_j^{\text{numRegs}} \; \sum\limits_{i}^{\text{numTermsPerReg}[j]} \; c_{i,j} \; {r_j}^{\; p_{i,j}}\,,
-  \]" src="form_272.png"/></picture>
+  \]
 </p>
- where both coefficients <picture><source srcset="form_273_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$c_{i,j}$" src="form_273.png"/></picture> and exponents <picture><source srcset="form_274_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$p_{i,j}$" src="form_274.png"/></picture> can be any real number, subject to constraints described below. <br  />
+ where both coefficients \(c_{i,j}\) and exponents \(p_{i,j}\) can be any real number, subject to constraints described below. <br  />
 <br  />
  While <code>coeffs</code> and <code>exponents</code> are flat lists, they should be considered grouped into #<code>numRegs</code> sublists with lengths given by <code>numTermsPerReg</code> (which itself has length <code>numRegs</code>). <br  />
 <br  />
@@ -1065,19 +1072,19 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <div class="line"><span class="keywordtype">int</span> numTermsPerReg[] =  {1,  2,      1   };</div>
 <div class="ttc" id="agroup__type_html_ga7740e349b4f8bae6451547680f0ce2d6"><div class="ttname"><a href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a></div><div class="ttdeci">#define qreal</div><div class="ttdoc">A precision-agnostic floating point number, as determined by QuEST_PREC.</div></div>
 </div><!-- fragment --> constitutes the function  <p class="formulaDsp">
-<picture><source srcset="form_275_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      f(\vec{r}) =  1 \, {r_1}^2 + 2 \, {r_2} + 4 \, {r_2}^{5} - 3.14 \, {r_3}^{0.5}.
-  \]" src="form_275.png"/></picture>
+  \]
 </p>
  <br  />
 <blockquote class="doxtable">
-<p >&zwj;This means lists <code>coeffs</code> and <code>exponents</code> should both be of length equal to the sum of <code>numTermsPerReg</code>. Unlike <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a>, <a class="el" href="group__operator.html#ga008a46d178a5a9691e2f5d363e3f518f" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFunc()</a> places additional constraints on the exponents in <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture>, due to the exponentially growing costs of overriding diverging indices. Namely:<br  />
+<p >&zwj;This means lists <code>coeffs</code> and <code>exponents</code> should both be of length equal to the sum of <code>numTermsPerReg</code>. Unlike <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a>, <a class="el" href="group__operator.html#ga008a46d178a5a9691e2f5d363e3f518f" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFunc()</a> places additional constraints on the exponents in \(f(\vec{r})\), due to the exponentially growing costs of overriding diverging indices. Namely:<br  />
 </p><ol type="1">
-<li><code>exponents</code> must not contain a negative number, since this would result in a divergence when that register is zero, which would need to be overriden for every other register basis state. If <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> must contain a negative exponent, you should instead call <a class="el" href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFuncOverrides()</a> once for each register/variable, and override the zero index for the relevant variable. This works, because <p class="formulaDsp">
-<picture><source srcset="form_276_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[  \exp( i \sum_j f_j(r_j) ) = \prod_j \exp(i f_j(r_j) ). \]" src="form_276.png"/></picture>
+<li><code>exponents</code> must not contain a negative number, since this would result in a divergence when that register is zero, which would need to be overriden for every other register basis state. If \(f(\vec{r})\) must contain a negative exponent, you should instead call <a class="el" href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFuncOverrides()</a> once for each register/variable, and override the zero index for the relevant variable. This works, because <p class="formulaDsp">
+\[  \exp( i \sum_j f_j(r_j) ) = \prod_j \exp(i f_j(r_j) ). \]
 </p>
 </li>
-<li><code>exponents</code> must not contain a fractional number if <code>endoding</code> <b>=</b> <a class="el" href="group__type.html#gga9c91c41aa42ae537995e89ffc616afe1a9aa2a35d92976c7de970506c4d19a96c">TWOS_COMPLEMENT</a>, because such a term would produce illegal complex values at negative register indices. Similar to the problem above, each negative register index would require overriding at every index of the other registers, and hence require an exponential number of overrides. Therefore, if <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> must contain a negative exponent, you should instead call <a class="el" href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFuncOverrides()</a> once for each register/variable, and override every negative index of each register in turn. </li>
+<li><code>exponents</code> must not contain a fractional number if <code>endoding</code> <b>=</b> <a class="el" href="group__type.html#gga9c91c41aa42ae537995e89ffc616afe1a9aa2a35d92976c7de970506c4d19a96c">TWOS_COMPLEMENT</a>, because such a term would produce illegal complex values at negative register indices. Similar to the problem above, each negative register index would require overriding at every index of the other registers, and hence require an exponential number of overrides. Therefore, if \(f(\vec{r})\) must contain a negative exponent, you should instead call <a class="el" href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFuncOverrides()</a> once for each register/variable, and override every negative index of each register in turn. </li>
 </ol>
 </blockquote>
 <br  />
@@ -1090,10 +1097,10 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <div class="line"><span class="keywordtype">int</span> numQubitsPerReg[] = {2,    3,      1};</div>
 <div class="line"><span class="keywordtype">int</span> numRegs = 3;</div>
 </div><!-- fragment --> describes three sub-registers, which are bolded below in an eight-qubit zero-state.  <p class="formulaDsp">
-<picture><source srcset="form_277_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      |r_3\rangle \; |0\rangle \; |r_2\rangle \; |0\rangle \; |r_1\rangle = 
      |\mathbf{0}\rangle \; |0\rangle \; |\mathbf{000}\rangle \; |0\rangle \; |\mathbf{00}\rangle
-  \]" src="form_277.png"/></picture>
+  \]
 </p>
  Note that the qubits need not be ordered increasing, and qubits within each sub-register are assumed ordered least to most significant in that sub-register.<br  />
 <br  />
@@ -1101,18 +1108,18 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <p >&zwj;List <code>qubits</code> should have length equal to the sum of elements in <code>numQubitsPerReg</code>. </p>
 </blockquote>
 </li>
-<li>Each sub-register is associated with a variable <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> in phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture>. <br  />
+<li>Each sub-register is associated with a variable \(r_j\) in phase function \(f(\vec{r})\). <br  />
  For a given computational basis state of <code>qureg</code>, the value of each variable is determined by the binary value in the corresponding sub-register, when intepreted with <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code>. <br  />
  See <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> for more information.<br  />
 <br  />
 </li>
-<li>The function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> specifies the phase change to induce upon amplitude <picture><source srcset="form_96_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\alpha$" src="form_96.png"/></picture> of computational basis state with the nominated sub-registers encoding values <picture><source srcset="form_279_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_1, \; \dots$" src="form_279.png"/></picture>.  <p class="formulaDsp">
-<picture><source srcset="form_280_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<li>The function \(f(\vec{r})\) specifies the phase change to induce upon amplitude \(\alpha\) of computational basis state with the nominated sub-registers encoding values \(r_1, \; \dots\).  <p class="formulaDsp">
+\[
    \alpha \, |r_{\text{numRegs}}, \; \dots, \; r_2, \; r_1 \rangle \rightarrow \, \exp(i f(\vec{r}\,)) \; \alpha \, |r_{\text{numRegs}}, \; \dots, \; r_2, \; r_1 \rangle.
-  \]" src="form_280.png"/></picture>
+  \]
 </p>
  For example, using the sub-registers in the previous example and <code>encoding</code> <b>=</b> <code>UNSIGNED</code>, the following states receive amplitude factors:  <p class="formulaDsp">
-<picture><source srcset="form_281_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
   \begin{aligned}
     |\mathbf{0}\rangle \; |0\rangle \; |\mathbf{000}\rangle \; |0\rangle \; |\mathbf{00}\rangle &amp; 
        \rightarrow \, 
@@ -1138,16 +1145,16 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
        \rightarrow \, 
            e^{i f(r_3=1,r_2=7,r_1=3)}
   \end{aligned}
-  \]" src="form_281.png"/></picture>
+  \]
 </p>
 </li>
-<li>If <code>qureg</code> is a density matrix <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture>, then its elements are modified as  <p class="formulaDsp">
-<picture><source srcset="form_282_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<li>If <code>qureg</code> is a density matrix \(\rho\), then its elements are modified as  <p class="formulaDsp">
+\[
      \alpha \, |j\rangle\langle k| \; \rightarrow \;
          \exp(i \, (f(\vec{r}_j) - f(\vec{r}_k)) \, ) \; \alpha \, |j\rangle\langle k|,
-  \]" src="form_282.png"/></picture>
+  \]
 </p>
- where <picture><source srcset="form_283_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r}_j)$" src="form_283.png"/></picture> and <picture><source srcset="form_284_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r}_k)$" src="form_284.png"/></picture> are determined as above.<br  />
+ where \(f(\vec{r}_j)\) and \(f(\vec{r}_k)\) are determined as above.<br  />
 <br  />
 </li>
 <li>The interpreted phase function can be previewed in the QASM log, as a comment. <br  />
@@ -1182,9 +1189,9 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
     <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of all the qubit indices contained in each sub-register </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numQubitsPerReg</td><td>a list of the lengths of each sub-list in <code>qubits</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numRegs</td><td>the number of sub-registers, which is the length of both <code>numQubitsPerReg</code> and <code>numTermsPerReg</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> from the bits of a sub-register </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>the coefficients of all terms of the exponential polynomial phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">exponents</td><td>the exponents of all terms of the exponential polynomial phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value \(r_j\) from the bits of a sub-register </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>the coefficients of all terms of the exponential polynomial phase function \(f(\vec{r})\) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exponents</td><td>the exponents of all terms of the exponential polynomial phase function \(f(\vec{r})\) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numTermsPerReg</td><td>a list of the number of <code>coeff</code> and <code>exponent</code> terms supplied for each variable/sub-register </td></tr>
   </table>
   </dd>
@@ -1320,21 +1327,21 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <p>Induces a phase change upon each amplitude of <code>qureg</code>, determined by a multi-variable exponential polynomial "phase function", and an explicit set of 'overriding' values at specific state indices. </p>
 <p >See <a class="el" href="group__operator.html#ga008a46d178a5a9691e2f5d363e3f518f" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFunc()</a> first for a full description.</p>
 <ul>
-<li>As in <a class="el" href="group__operator.html#ga008a46d178a5a9691e2f5d363e3f518f" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFunc()</a>, the arguments <code>coeffs</code> and <code>exponents</code> specify a multi-variable phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture>, where <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> is determined by the sub-registers in <code>qubits</code>, and <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code> for each basis state of <code>qureg</code>.<br  />
+<li>As in <a class="el" href="group__operator.html#ga008a46d178a5a9691e2f5d363e3f518f" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFunc()</a>, the arguments <code>coeffs</code> and <code>exponents</code> specify a multi-variable phase function \(f(\vec{r})\), where \(\vec{r}\) is determined by the sub-registers in <code>qubits</code>, and <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code> for each basis state of <code>qureg</code>.<br  />
 <br  />
 </li>
-<li>Additionally, <code>overrideInds</code> is a list of length <code>numOverrides</code> which specifies the values of <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> for which to explicitly set the induced phase change.<br  />
- While flat, <code>overrideInds</code> should be imagined grouped into sub-lists of length <code>numRegs</code>, which specify the full <picture><source srcset="form_286_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{r_1,\; \dots \;r_{\text{numRegs}} \} $" src="form_286.png"/></picture> coordinate to override. <br  />
+<li>Additionally, <code>overrideInds</code> is a list of length <code>numOverrides</code> which specifies the values of \(\vec{r}\) for which to explicitly set the induced phase change.<br  />
+ While flat, <code>overrideInds</code> should be imagined grouped into sub-lists of length <code>numRegs</code>, which specify the full \(\{r_1,\; \dots \;r_{\text{numRegs}} \} \) coordinate to override. <br  />
  Each sublist corresponds to a single element of <code>overridePhases</code>. <br  />
  For example, <div class="fragment"><div class="line"><span class="keywordtype">int</span> numRegs = 3;</div>
 <div class="line"><span class="keywordtype">int</span> numOverrides = 2;</div>
 <div class="line"><span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> overrideInds[] = { 0,0,0,   1,2,3  };</div>
 <div class="line"><a class="code hl_define" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> overridePhases[]       = { <a class="code hl_define" href="QuEST__common_8c.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a>,   - <a class="code hl_define" href="QuEST__common_8c.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> };</div>
 <div class="ttc" id="aQuEST__common_8c_html_ae71449b1cc6e6250b91f539153a7a0d3"><div class="ttname"><a href="QuEST__common_8c.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a></div><div class="ttdeci">#define M_PI</div><div class="ttdef"><b>Definition:</b> <a href="QuEST__common_8c_source.html#l00041">QuEST_common.c:41</a></div></div>
-</div><!-- fragment --> denotes that any basis state of <code>qureg</code> with sub-register values <picture><source srcset="form_287_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{r_3,r_2,r_1\} = \{0, 0, 0\}$" src="form_287.png"/></picture> (or <picture><source srcset="form_288_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{r_3,r_2,r_1\} = \{1,2,3\}$" src="form_288.png"/></picture>) should receive phase change <picture><source srcset="form_122_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi$" src="form_122.png"/></picture> (or <picture><source srcset="form_289_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$-\pi$" src="form_289.png"/></picture>) in lieu of <picture><source srcset="form_290_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\exp(i f(r_3=0,r_2=0,r_1=0))$" src="form_290.png"/></picture>.<br  />
+</div><!-- fragment --> denotes that any basis state of <code>qureg</code> with sub-register values \(\{r_3,r_2,r_1\} = \{0, 0, 0\}\) (or \(\{r_3,r_2,r_1\} = \{1,2,3\}\)) should receive phase change \(\pi\) (or \(-\pi\)) in lieu of \(\exp(i f(r_3=0,r_2=0,r_1=0))\).<br  />
 <br  />
 <blockquote class="doxtable">
-<p >&zwj;Note that you cannot use <a class="el" href="group__operator.html#ga8dca543fb4d1ee1cd8b4c5d6028b3075" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFuncOverrides()</a> to override divergences in <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture>, since each diverging value <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> would need to be overriden as an <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> coordinate for every basis state of the other registers; the number of overrides grows exponentially. Ergo, if <code>exponents</code> contains a negative number (diverging at <picture><source srcset="form_291_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j=0$" src="form_291.png"/></picture>), or <code>exponents</code> contains a fractional number despite <code>encoding</code> <b>=</b> <a class="el" href="group__type.html#gga9c91c41aa42ae537995e89ffc616afe1a9aa2a35d92976c7de970506c4d19a96c">TWOS_COMPLEMENT</a> (producing complex phases at negative indices), you must instead call <a class="el" href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFuncOverrides()</a> for each variable in turn and override the diverging <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> (each independently of the other registers). </p>
+<p >&zwj;Note that you cannot use <a class="el" href="group__operator.html#ga8dca543fb4d1ee1cd8b4c5d6028b3075" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFuncOverrides()</a> to override divergences in \(f(\vec{r})\), since each diverging value \(r_j\) would need to be overriden as an \(\vec{r}\) coordinate for every basis state of the other registers; the number of overrides grows exponentially. Ergo, if <code>exponents</code> contains a negative number (diverging at \(r_j=0\)), or <code>exponents</code> contains a fractional number despite <code>encoding</code> <b>=</b> <a class="el" href="group__type.html#gga9c91c41aa42ae537995e89ffc616afe1a9aa2a35d92976c7de970506c4d19a96c">TWOS_COMPLEMENT</a> (producing complex phases at negative indices), you must instead call <a class="el" href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFuncOverrides()</a> for each variable in turn and override the diverging \(r_j\) (each independently of the other registers). </p>
 </blockquote>
 </li>
 <li>The interpreted overrides can be previewed in the QASM log, as a comment. <br  />
@@ -1360,12 +1367,12 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
     <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of all the qubit indices contained in each sub-register </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numQubitsPerReg</td><td>a list of the lengths of each sub-list in <code>qubits</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numRegs</td><td>the number of sub-registers, which is the length of both <code>numQubitsPerReg</code> and <code>numTermsPerReg</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> from the bits of a sub-register </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>the coefficients of all terms of the exponential polynomial phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">exponents</td><td>the exponents of all terms of the exponential polynomial phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value \(r_j\) from the bits of a sub-register </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>the coefficients of all terms of the exponential polynomial phase function \(f(\vec{r})\) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exponents</td><td>the exponents of all terms of the exponential polynomial phase function \(f(\vec{r})\) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numTermsPerReg</td><td>a list of the number of <code>coeff</code> and <code>exponent</code> terms supplied for each variable/sub-register </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">overrideInds</td><td>a flattened list of sub-register coordinates (values of <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture>) of which to explicit set the phase change </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">overridePhases</td><td>a list of replacement phase changes, for the corresponding <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> values in <code>overrideInds</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">overrideInds</td><td>a flattened list of sub-register coordinates (values of \(\vec{r}\)) of which to explicit set the phase change </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">overridePhases</td><td>a list of replacement phase changes, for the corresponding \(\vec{r}\) values in <code>overrideInds</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numOverrides</td><td>the lengths of list <code>overridePhases</code> (but not necessarily of <code>overrideInds</code>) </td></tr>
   </table>
   </dd>
@@ -1467,7 +1474,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 </div><div class="memdoc">
 
 <p>Induces a phase change upon each amplitude of <code>qureg</code>, determined by a named (and potentially multi-variable) phase function. </p>
-<p >This effects a diagonal unitary operator, with a phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> which may not be simply expressible as an exponential polynomial in functions <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a> and <a class="el" href="group__operator.html#ga008a46d178a5a9691e2f5d363e3f518f" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFunc()</a>.</p>
+<p >This effects a diagonal unitary operator, with a phase function \(f(\vec{r})\) which may not be simply expressible as an exponential polynomial in functions <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a> and <a class="el" href="group__operator.html#ga008a46d178a5a9691e2f5d363e3f518f" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFunc()</a>.</p>
 <p >Arguments <code>qubits</code> and <code>numQubitsPerReg</code> encode sub-registers of <code>qureg</code> in the same manner as in <a class="el" href="group__operator.html#ga008a46d178a5a9691e2f5d363e3f518f" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFunc()</a>:</p><ul>
 <li>Lists <code>qubits</code> and <code>numQubitsPerReg</code> together describe #<code>numRegs</code> sub-registers of <code>qureg</code>, which can each contain a different number of qubits. <br  />
  Although <code>qubits</code> is a flat list of unique qubit indices, it should be imagined grouped into #<code>numRegs</code> sub-lists, of lengths given by <code>numQubitsPerReg</code>. <br  />
@@ -1476,10 +1483,10 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <div class="line"><span class="keywordtype">int</span> numQubitsPerReg[] = {2,    3,      1};</div>
 <div class="line"><span class="keywordtype">int</span> numRegs = 3;</div>
 </div><!-- fragment --> describes three sub-registers, which are bolded below in an eight-qubit zero-state.  <p class="formulaDsp">
-<picture><source srcset="form_277_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      |r_3\rangle \; |0\rangle \; |r_2\rangle \; |0\rangle \; |r_1\rangle = 
      |\mathbf{0}\rangle \; |0\rangle \; |\mathbf{000}\rangle \; |0\rangle \; |\mathbf{00}\rangle
-  \]" src="form_277.png"/></picture>
+  \]
 </p>
  Note that the qubits need not be ordered increasing, and qubits within each sub-register are assumed ordered least to most significant in that sub-register.<br  />
 <br  />
@@ -1487,36 +1494,36 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <p >&zwj;List <code>qubits</code> should have length equal to the sum of elements in <code>numQubitsPerReg</code>. </p>
 </blockquote>
 </li>
-<li>Each sub-register is associated with a variable <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> in phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture>. <br  />
+<li>Each sub-register is associated with a variable \(r_j\) in phase function \(f(\vec{r})\). <br  />
  For a given computational basis state of <code>qureg</code>, the value of each variable is determined by the binary value in the corresponding sub-register, when intepreted with <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code>. <br  />
  See <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> for more information.<br  />
 <br  />
 </li>
-<li>Argument <code>functionNameCode</code> determines the phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture>.<br  />
+<li>Argument <code>functionNameCode</code> determines the phase function \(f(\vec{r})\).<br  />
  For example, <div class="fragment"><div class="line"><span class="keywordtype">int</span> numRegs = 3;</div>
 <div class="line"><span class="keyword">enum</span> <a class="code hl_enumeration" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65">phaseFunc</a> functionNameCode = <a class="code hl_enumvalue" href="group__type.html#ggaa7d869b117ba5024d6b84938e8cdfc65ae003ec1158e3a4e295616ced12af154e">NORM</a>;</div>
 <div class="ttc" id="agroup__type_html_gaa7d869b117ba5024d6b84938e8cdfc65"><div class="ttname"><a href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65">phaseFunc</a></div><div class="ttdeci">phaseFunc</div><div class="ttdoc">Flags for specifying named phase functions.</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00232">QuEST.h:232</a></div></div>
 <div class="ttc" id="agroup__type_html_ggaa7d869b117ba5024d6b84938e8cdfc65ae003ec1158e3a4e295616ced12af154e"><div class="ttname"><a href="group__type.html#ggaa7d869b117ba5024d6b84938e8cdfc65ae003ec1158e3a4e295616ced12af154e">NORM</a></div><div class="ttdeci">@ NORM</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00233">QuEST.h:233</a></div></div>
 </div><!-- fragment --> describes phase function  <p class="formulaDsp">
-<picture><source srcset="form_292_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      f(\vec{r}) = \sqrt{ {r_1}^2 + {r_2}^2 + {r_3} ^2 }.
-  \]" src="form_292.png"/></picture>
+  \]
 </p>
  See <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> for a list and description of all named phase functions. <br  />
  Some phase functions, like <code>SCALED_NORM</code>, require passing additional parameters, through the function <a class="el" href="group__operator.html#ga225b82ff8b8eed1fff312240ec70c731" title="Induces a phase change upon each amplitude of qureg, determined by a named, paramaterized (and potent...">applyParamNamedPhaseFunc()</a>.<br  />
 <br  />
 <blockquote class="doxtable">
-<p >&zwj;If the phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> diverges at one or more <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> values, you should instead use <a class="el" href="group__operator.html#ga2fbaec3bb21cc01f7a2a4ed2aa911ebf" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFuncOverrides()</a> and specify explicit phase changes for these coordinates. Otherwise, the corresponding amplitudes of <code>qureg</code> will become indeterminate (like <code>NaN</code>). <br  />
+<p >&zwj;If the phase function \(f(\vec{r})\) diverges at one or more \(\vec{r}\) values, you should instead use <a class="el" href="group__operator.html#ga2fbaec3bb21cc01f7a2a4ed2aa911ebf" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFuncOverrides()</a> and specify explicit phase changes for these coordinates. Otherwise, the corresponding amplitudes of <code>qureg</code> will become indeterminate (like <code>NaN</code>). <br  />
 </p>
 </blockquote>
 </li>
-<li>The function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> specifies the phase change to induce upon amplitude <picture><source srcset="form_96_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\alpha$" src="form_96.png"/></picture> of computational basis state with the nominated sub-registers encoding values <picture><source srcset="form_279_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_1, \; \dots$" src="form_279.png"/></picture>.  <p class="formulaDsp">
-<picture><source srcset="form_280_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<li>The function \(f(\vec{r})\) specifies the phase change to induce upon amplitude \(\alpha\) of computational basis state with the nominated sub-registers encoding values \(r_1, \; \dots\).  <p class="formulaDsp">
+\[
    \alpha \, |r_{\text{numRegs}}, \; \dots, \; r_2, \; r_1 \rangle \rightarrow \, \exp(i f(\vec{r}\,)) \; \alpha \, |r_{\text{numRegs}}, \; \dots, \; r_2, \; r_1 \rangle.
-  \]" src="form_280.png"/></picture>
+  \]
 </p>
  For example, using the sub-registers in the above example and <code>encoding</code> <b>=</b> <code>UNSIGNED</code>, the following states receive amplitude factors:  <p class="formulaDsp">
-<picture><source srcset="form_281_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
   \begin{aligned}
     |\mathbf{0}\rangle \; |0\rangle \; |\mathbf{000}\rangle \; |0\rangle \; |\mathbf{00}\rangle &amp; 
        \rightarrow \, 
@@ -1542,25 +1549,25 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
        \rightarrow \, 
            e^{i f(r_3=1,r_2=7,r_1=3)}
   \end{aligned}
-  \]" src="form_281.png"/></picture>
+  \]
 </p>
 <br  />
 </li>
 <li>If <code>qureg</code> is a density matrix, its elements are modified to  <p class="formulaDsp">
-<picture><source srcset="form_293_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      \alpha \, |j\rangle\langle k| \; \rightarrow \;
          \exp(i (f(\vec{r}_j) \, - \, f(\vec{r}_k))) \; \alpha \, |j\rangle\langle k|
-  \]" src="form_293.png"/></picture>
+  \]
 </p>
- where <picture><source srcset="form_283_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r}_j)$" src="form_283.png"/></picture> and <picture><source srcset="form_284_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r}_k)$" src="form_284.png"/></picture> are determined as above. This is equivalent to modification  <p class="formulaDsp">
-<picture><source srcset="form_294_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ where \(f(\vec{r}_j)\) and \(f(\vec{r}_k)\) are determined as above. This is equivalent to modification  <p class="formulaDsp">
+\[
          \rho \; \rightarrow \; \hat{D} \, \rho \, \hat{D}^\dagger
-  \]" src="form_294.png"/></picture>
+  \]
 </p>
- where <picture><source srcset="form_43_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\hat{D}$" src="form_43.png"/></picture> is the diagonal unitary  <p class="formulaDsp">
-<picture><source srcset="form_295_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ where \(\hat{D}\) is the diagonal unitary  <p class="formulaDsp">
+\[
      \hat{D} = \text{diag}\, \{ \; e^{i f(\vec{r_0})}, \; e^{i f(\vec{r_1})}, \; \dots \; \}.
-  \]" src="form_295.png"/></picture>
+  \]
 </p>
 <br  />
 </li>
@@ -1589,8 +1596,8 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
     <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of all the qubit indices contained in each sub-register </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numQubitsPerReg</td><td>a list of the lengths of each sub-list in <code>qubits</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numRegs</td><td>the number of sub-registers, which is the length of both <code>numQubitsPerReg</code> and <code>numTermsPerReg</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> from the bits of a sub-register </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">functionNameCode</td><td>the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value \(r_j\) from the bits of a sub-register </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">functionNameCode</td><td>the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> \(f(\vec{r})\) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1709,17 +1716,17 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <p>Induces a phase change upon each amplitude of <code>qureg</code>, determined by a named (and potentially multi-variable) phase function, and an explicit set of 'overriding' values at specific state indices. </p>
 <p >See <a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a> first for a full description.</p>
 <ul>
-<li>As in <a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a>, <code>functionNameCode</code> specifies a multi-variable phase function <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture>, where <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> is determined by the sub-registers in <code>qubits</code>, and <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code> for each basis state of <code>qureg</code>.<br  />
+<li>As in <a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a>, <code>functionNameCode</code> specifies a multi-variable phase function \(f(\vec{r})\), where \(\vec{r}\) is determined by the sub-registers in <code>qubits</code>, and <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code> for each basis state of <code>qureg</code>.<br  />
 <br  />
 </li>
-<li>Additionally, <code>overrideInds</code> is a list of length <code>numOverrides</code> which specifies the values of <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> for which to explicitly set the induced phase change.<br  />
- While flat, <code>overrideInds</code> should be imagined grouped into sub-lists of length <code>numRegs</code>, which specify the full <picture><source srcset="form_286_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{r_1,\; \dots \;r_{\text{numRegs}} \} $" src="form_286.png"/></picture> coordinate to override. <br  />
+<li>Additionally, <code>overrideInds</code> is a list of length <code>numOverrides</code> which specifies the values of \(\vec{r}\) for which to explicitly set the induced phase change.<br  />
+ While flat, <code>overrideInds</code> should be imagined grouped into sub-lists of length <code>numRegs</code>, which specify the full \(\{r_1,\; \dots \;r_{\text{numRegs}} \} \) coordinate to override. <br  />
  Each sublist corresponds to a single element of <code>overridePhases</code>. <br  />
  For example, <div class="fragment"><div class="line"><span class="keywordtype">int</span> numRegs = 3;</div>
 <div class="line"><span class="keywordtype">int</span> numOverrides = 2;</div>
 <div class="line"><span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> overrideInds[] = { 0,0,0,   1,2,3  };</div>
 <div class="line"><a class="code hl_define" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> overridePhases[]       = { <a class="code hl_define" href="QuEST__common_8c.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a>,   - <a class="code hl_define" href="QuEST__common_8c.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> };</div>
-</div><!-- fragment --> denotes that any basis state of <code>qureg</code> with sub-register values <picture><source srcset="form_287_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{r_3,r_2,r_1\} = \{0, 0, 0\}$" src="form_287.png"/></picture> (or <picture><source srcset="form_288_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{r_3,r_2,r_1\} = \{1,2,3\}$" src="form_288.png"/></picture>) should receive phase change <picture><source srcset="form_122_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi$" src="form_122.png"/></picture> (or <picture><source srcset="form_289_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$-\pi$" src="form_289.png"/></picture>) in lieu of <picture><source srcset="form_290_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\exp(i f(r_3=0,r_2=0,r_1=0))$" src="form_290.png"/></picture>.<br  />
+</div><!-- fragment --> denotes that any basis state of <code>qureg</code> with sub-register values \(\{r_3,r_2,r_1\} = \{0, 0, 0\}\) (or \(\{r_3,r_2,r_1\} = \{1,2,3\}\)) should receive phase change \(\pi\) (or \(-\pi\)) in lieu of \(\exp(i f(r_3=0,r_2=0,r_1=0))\).<br  />
 <br  />
 </li>
 <li>The interpreted overrides can be previewed in the QASM log, as a comment. <br  />
@@ -1747,10 +1754,10 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
     <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of all the qubit indices contained in each sub-register </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numQubitsPerReg</td><td>a list of the lengths of each sub-list in <code>qubits</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numRegs</td><td>the number of sub-registers, which is the length of both <code>numQubitsPerReg</code> and <code>numTermsPerReg</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> from the bits of a sub-register </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">functionNameCode</td><td>the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> <picture><source srcset="form_271_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r})$" src="form_271.png"/></picture> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">overrideInds</td><td>a flattened list of sub-register coordinates (values of <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture>) of which to explicit set the phase change </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">overridePhases</td><td>a list of replacement phase changes, for the corresponding <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> values in <code>overrideInds</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value \(r_j\) from the bits of a sub-register </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">functionNameCode</td><td>the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> \(f(\vec{r})\) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">overrideInds</td><td>a flattened list of sub-register coordinates (values of \(\vec{r}\)) of which to explicit set the phase change </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">overridePhases</td><td>a list of replacement phase changes, for the corresponding \(\vec{r}\) values in <code>overrideInds</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numOverrides</td><td>the lengths of list <code>overridePhases</code> (but not necessarily of <code>overrideInds</code>) </td></tr>
   </table>
   </dd>
@@ -1865,7 +1872,7 @@ u_{70} &amp; u_{71} &amp; u_{72} &amp; u_{73} &amp; u_{74} &amp; u_{75} &amp; u_
 <p >See <a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a> for full documentation. <br  />
 This function merely accepts additional <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> names which accept one (or more) parameters.</p>
 <ul>
-<li>Argument <code>functionNameCode</code>, which determines the phase function <picture><source srcset="form_296_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r}, \vec{\theta})$" src="form_296.png"/></picture>, can include parameterised <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> names like <code>SCALED_NORM</code>, which require additional parameters <picture><source srcset="form_297_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{\theta}$" src="form_297.png"/></picture> passed via list <code>params</code>.<br  />
+<li>Argument <code>functionNameCode</code>, which determines the phase function \(f(\vec{r}, \vec{\theta})\), can include parameterised <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> names like <code>SCALED_NORM</code>, which require additional parameters \(\vec{\theta}\) passed via list <code>params</code>.<br  />
  For example, <div class="fragment"><div class="line"><span class="keyword">enum</span> <a class="code hl_enumeration" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65">phaseFunc</a> functionNameCode = <a class="code hl_enumvalue" href="group__type.html#ggaa7d869b117ba5024d6b84938e8cdfc65a31a29a30f92fe34c35098f941adbbc93">SCALED_PRODUCT</a>;</div>
 <div class="line"><a class="code hl_define" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> params[] = {0.5};</div>
 <div class="line"><span class="keywordtype">int</span> numParams = 1;</div>
@@ -1873,9 +1880,9 @@ This function merely accepts additional <a class="el" href="group__type.html#gaa
 <div class="ttc" id="agroup__operator_html_ga225b82ff8b8eed1fff312240ec70c731"><div class="ttname"><a href="group__operator.html#ga225b82ff8b8eed1fff312240ec70c731">applyParamNamedPhaseFunc</a></div><div class="ttdeci">void applyParamNamedPhaseFunc(Qureg qureg, int *qubits, int *numQubitsPerReg, int numRegs, enum bitEncoding encoding, enum phaseFunc functionNameCode, qreal *params, int numParams)</div><div class="ttdoc">Induces a phase change upon each amplitude of qureg, determined by a named, paramaterized (and potent...</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l00839">QuEST.c:839</a></div></div>
 <div class="ttc" id="agroup__type_html_ggaa7d869b117ba5024d6b84938e8cdfc65a31a29a30f92fe34c35098f941adbbc93"><div class="ttname"><a href="group__type.html#ggaa7d869b117ba5024d6b84938e8cdfc65a31a29a30f92fe34c35098f941adbbc93">SCALED_PRODUCT</a></div><div class="ttdeci">@ SCALED_PRODUCT</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00234">QuEST.h:234</a></div></div>
 </div><!-- fragment --> invokes phase function  <p class="formulaDsp">
-<picture><source srcset="form_298_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      f(\vec{r}, \theta)|_{\theta=0.5} \; = \; 0.5 \prod_j^{\text{numRegs}} \; r_j\,.
-  \]" src="form_298.png"/></picture>
+  \]
 </p>
  See <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> for all named phased functions.</li>
 <li>Functions with divergences, like <code>INVERSE_NORM</code> and <code>SCALED_INVERSE_DISTANCE</code>, must accompany an extra parameter to specify an overriding phase at the divergence. For example, <div class="fragment"><div class="line"><span class="keyword">enum</span> <a class="code hl_enumeration" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65">phaseFunc</a> functionNameCode = <a class="code hl_enumvalue" href="group__type.html#ggaa7d869b117ba5024d6b84938e8cdfc65ae8c96906c1ec109d295c491e572d01e2">SCALED_INVERSE_NORM</a>;</div>
@@ -1884,9 +1891,9 @@ This function merely accepts additional <a class="el" href="group__type.html#gaa
 <div class="line"><a class="code hl_function" href="group__operator.html#ga225b82ff8b8eed1fff312240ec70c731">applyParamNamedPhaseFunc</a>(..., functionNameCode, params, numParams);</div>
 <div class="ttc" id="agroup__type_html_ggaa7d869b117ba5024d6b84938e8cdfc65ae8c96906c1ec109d295c491e572d01e2"><div class="ttname"><a href="group__type.html#ggaa7d869b117ba5024d6b84938e8cdfc65ae8c96906c1ec109d295c491e572d01e2">SCALED_INVERSE_NORM</a></div><div class="ttdeci">@ SCALED_INVERSE_NORM</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00233">QuEST.h:233</a></div></div>
 </div><!-- fragment --> invokes phase function  <p class="formulaDsp">
-<picture><source srcset="form_299_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      f(\vec{r}, \theta)|_{\theta=0.5} \; = \; \begin{cases} \pi &amp; \;\;\; \vec{r}=\vec{0} \\ \displaystyle 0.5 \left[ \sum_j^{\text{numRegs}} {r_j}^2 \right]^{-1/2} &amp; \;\;\;\text{otherwise} \end{cases}.
-  \]" src="form_299.png"/></picture>
+  \]
 </p>
  Notice the order of the parameters matches the order of the words in the <code>phaseFunc</code>. <blockquote class="doxtable">
 <p >&zwj;Functions <code>SCALED_INVERSE_SHIFTED_NORM</code> and <code>SCALED_INVERSE_SHIFTED_DISTANCE</code>, which can have denominators arbitrarily close to zero, will invoke the divergence parameter whenever the denominator is smaller than (or equal to) machine precision <code>REAL_EPS</code>. </p>
@@ -1900,9 +1907,9 @@ This function merely accepts additional <a class="el" href="group__type.html#gaa
 <div class="line"><a class="code hl_function" href="group__operator.html#ga225b82ff8b8eed1fff312240ec70c731">applyParamNamedPhaseFunc</a>(..., qubits, qubitsPerReg, 2, ..., functionNameCode, params, numParams);</div>
 <div class="ttc" id="agroup__type_html_ggaa7d869b117ba5024d6b84938e8cdfc65aa318172feec5b530e9a7849f2f7b44e7"><div class="ttname"><a href="group__type.html#ggaa7d869b117ba5024d6b84938e8cdfc65aa318172feec5b530e9a7849f2f7b44e7">SCALED_INVERSE_SHIFTED_NORM</a></div><div class="ttdeci">@ SCALED_INVERSE_SHIFTED_NORM</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00233">QuEST.h:233</a></div></div>
 </div><!-- fragment --> invokes phase function  <p class="formulaDsp">
-<picture><source srcset="form_300_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      f(\vec{r}) \; = \; \begin{cases} \pi &amp; \;\;\; \vec{r}=\vec{0} \\ \displaystyle 0.5 \left[(r_1-0.8)^2 + (r_2+0.3)^2\right]^{-1/2} &amp; \;\;\;\text{otherwise} \end{cases}.
-  \]" src="form_300.png"/></picture>
+  \]
 </p>
  and <div class="fragment"><div class="line"><span class="keyword">enum</span> <a class="code hl_enumeration" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65">phaseFunc</a> functionNameCode = <a class="code hl_enumvalue" href="group__type.html#ggaa7d869b117ba5024d6b84938e8cdfc65a39111120b79016d6b3e773b711fa63f7">SCALED_INVERSE_SHIFTED_DISTANCE</a>;</div>
 <div class="line"><span class="keywordtype">int</span> qubits[] = {0,1, 2,3, 4,5, 6,7};</div>
@@ -1912,26 +1919,26 @@ This function merely accepts additional <a class="el" href="group__type.html#gaa
 <div class="line"><a class="code hl_function" href="group__operator.html#ga225b82ff8b8eed1fff312240ec70c731">applyParamNamedPhaseFunc</a>(..., qubits, qubitsPerReg, 4, ..., functionNameCode, params, numParams);</div>
 <div class="ttc" id="agroup__type_html_ggaa7d869b117ba5024d6b84938e8cdfc65a39111120b79016d6b3e773b711fa63f7"><div class="ttname"><a href="group__type.html#ggaa7d869b117ba5024d6b84938e8cdfc65a39111120b79016d6b3e773b711fa63f7">SCALED_INVERSE_SHIFTED_DISTANCE</a></div><div class="ttdeci">@ SCALED_INVERSE_SHIFTED_DISTANCE</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00235">QuEST.h:235</a></div></div>
 </div><!-- fragment --> invokes phase function  <p class="formulaDsp">
-<picture><source srcset="form_301_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      f(\vec{r}) \; = \; \begin{cases} \pi &amp; \;\;\; \vec{r}=\vec{0} \\ \displaystyle 0.5 \left[(r_1-r_2-0.8)^2 + (r_3-r_4+0.3)^2\right]^{-1/2} &amp; \;\;\;\text{otherwise} \end{cases}.
-  \]" src="form_301.png"/></picture>
+  \]
 </p>
 </li>
 <li>Function <code>SCALED_INVERSE_SHIFTED_WEIGHTED_DISTANCE</code>, which effects phase  <p class="formulaDsp">
-<picture><source srcset="form_302_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      \text{coeff}/\sqrt{f_x \, (x_1-x_2-\Delta_x)^2 + f_y \; (y_1-y_2-\Delta_y)^2 + \dots}
-  \]" src="form_302.png"/></picture>
+  \]
 </p>
- (and phase <picture><source srcset="form_303_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\phi$" src="form_303.png"/></picture> at divergences) accepts parameters in the following order:  <p class="formulaDsp">
-<picture><source srcset="form_304_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ (and phase \(\phi\) at divergences) accepts parameters in the following order:  <p class="formulaDsp">
+\[
      \{  \; \text{coeff}, \; \phi, \; f_x, \; \Delta x, \; f_y, \; \Delta y, \; \dots \;   \}
-  \]" src="form_304.png"/></picture>
+  \]
 </p>
  <blockquote class="doxtable">
-<p >&zwj;Note that where the denominator's <picture><source srcset="form_305_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\text{sqrt}$" src="form_305.png"/></picture> argument would be negative (and the resulting phase function <em>complex</em>), the phase is instead set to the divergence parameter <picture><source srcset="form_303_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\phi$" src="form_303.png"/></picture>. </p>
+<p >&zwj;Note that where the denominator's \(\text{sqrt}\) argument would be negative (and the resulting phase function <em>complex</em>), the phase is instead set to the divergence parameter \(\phi\). </p>
 </blockquote>
 <blockquote class="doxtable">
-<p >&zwj;You can further override <picture><source srcset="form_296_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r}, \vec{\theta})$" src="form_296.png"/></picture> at one or more <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> values via <a class="el" href="group__operator.html#gaabd7efa3beebc9f3a525321d41a28989" title="Induces a phase change upon each amplitude of qureg, determined by a named, parameterised (and potent...">applyParamNamedPhaseFuncOverrides()</a>. </p>
+<p >&zwj;You can further override \(f(\vec{r}, \vec{\theta})\) at one or more \(\vec{r}\) values via <a class="el" href="group__operator.html#gaabd7efa3beebc9f3a525321d41a28989" title="Induces a phase change upon each amplitude of qureg, determined by a named, parameterised (and potent...">applyParamNamedPhaseFuncOverrides()</a>. </p>
 </blockquote>
 </li>
 <li>The interpreted parameterised phase function can be previewed in the QASM log, as a comment. <br  />
@@ -1956,8 +1963,8 @@ This function merely accepts additional <a class="el" href="group__type.html#gaa
     <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of all the qubit indices contained in each sub-register </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numQubitsPerReg</td><td>a list of the lengths of each sub-list in <code>qubits</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numRegs</td><td>the number of sub-registers, which is the length of both <code>numQubitsPerReg</code> and <code>numTermsPerReg</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> from the bits of a sub-register </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">functionNameCode</td><td>the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> <picture><source srcset="form_296_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r}, \vec{\theta})$" src="form_296.png"/></picture> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value \(r_j\) from the bits of a sub-register </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">functionNameCode</td><td>the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> \(f(\vec{r}, \vec{\theta})\) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>a list of any additional parameters needed by the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> <code>functionNameCode</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numParams</td><td>the length of list <code>params</code> </td></tr>
   </table>
@@ -2089,17 +2096,17 @@ Richard Meister (shifted functions) </dd></dl>
 <p>Induces a phase change upon each amplitude of <code>qureg</code>, determined by a named, parameterised (and potentially multi-variable) phase function, and an explicit set of 'overriding' values at specific state indices. </p>
 <p >See <a class="el" href="group__operator.html#ga225b82ff8b8eed1fff312240ec70c731" title="Induces a phase change upon each amplitude of qureg, determined by a named, paramaterized (and potent...">applyParamNamedPhaseFunc()</a> and <a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a> first for a full description.</p>
 <ul>
-<li>As in <a class="el" href="group__operator.html#ga225b82ff8b8eed1fff312240ec70c731" title="Induces a phase change upon each amplitude of qureg, determined by a named, paramaterized (and potent...">applyParamNamedPhaseFunc()</a>, <code>functionNameCode</code> specifies a parameterised multi-variable phase function <picture><source srcset="form_296_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r}, \vec{\theta})$" src="form_296.png"/></picture>, where <picture><source srcset="form_297_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{\theta}$" src="form_297.png"/></picture> is passed in list <code>params</code>, and <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> is determined both by the sub-registers in <code>qubits</code>, and <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code> for each basis state of <code>qureg</code>.<br  />
+<li>As in <a class="el" href="group__operator.html#ga225b82ff8b8eed1fff312240ec70c731" title="Induces a phase change upon each amplitude of qureg, determined by a named, paramaterized (and potent...">applyParamNamedPhaseFunc()</a>, <code>functionNameCode</code> specifies a parameterised multi-variable phase function \(f(\vec{r}, \vec{\theta})\), where \(\vec{\theta}\) is passed in list <code>params</code>, and \(\vec{r}\) is determined both by the sub-registers in <code>qubits</code>, and <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code> for each basis state of <code>qureg</code>.<br  />
 <br  />
 </li>
-<li>Additionally, <code>overrideInds</code> is a list of length <code>numOverrides</code> which specifies the values of <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> for which to explicitly set the induced phase change.<br  />
- While flat, <code>overrideInds</code> should be imagined grouped into sub-lists of length <code>numRegs</code>, which specify the full <picture><source srcset="form_286_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{r_1,\; \dots \;r_{\text{numRegs}} \} $" src="form_286.png"/></picture> coordinate to override. <br  />
+<li>Additionally, <code>overrideInds</code> is a list of length <code>numOverrides</code> which specifies the values of \(\vec{r}\) for which to explicitly set the induced phase change.<br  />
+ While flat, <code>overrideInds</code> should be imagined grouped into sub-lists of length <code>numRegs</code>, which specify the full \(\{r_1,\; \dots \;r_{\text{numRegs}} \} \) coordinate to override. <br  />
  Each sublist corresponds to a single element of <code>overridePhases</code>. <br  />
  For example, <div class="fragment"><div class="line"><span class="keywordtype">int</span> numRegs = 3;</div>
 <div class="line"><span class="keywordtype">int</span> numOverrides = 2;</div>
 <div class="line"><span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> overrideInds[] = { 0,0,0,   1,2,3  };</div>
 <div class="line"><a class="code hl_define" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> overridePhases[]       = { <a class="code hl_define" href="QuEST__common_8c.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a>,   - <a class="code hl_define" href="QuEST__common_8c.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> };</div>
-</div><!-- fragment --> denotes that any basis state of <code>qureg</code> with sub-register values <picture><source srcset="form_287_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{r_3,r_2,r_1\} = \{0, 0, 0\}$" src="form_287.png"/></picture> (or <picture><source srcset="form_288_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\{r_3,r_2,r_1\} = \{1,2,3\}$" src="form_288.png"/></picture>) should receive phase change <picture><source srcset="form_122_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi$" src="form_122.png"/></picture> (or <picture><source srcset="form_289_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$-\pi$" src="form_289.png"/></picture>) in lieu of <picture><source srcset="form_306_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\exp(i f(r_3=0,r_2=0,r_1=0, \vec{\theta}))$" src="form_306.png"/></picture>.<br  />
+</div><!-- fragment --> denotes that any basis state of <code>qureg</code> with sub-register values \(\{r_3,r_2,r_1\} = \{0, 0, 0\}\) (or \(\{r_3,r_2,r_1\} = \{1,2,3\}\)) should receive phase change \(\pi\) (or \(-\pi\)) in lieu of \(\exp(i f(r_3=0,r_2=0,r_1=0, \vec{\theta}))\).<br  />
 <br  />
 </li>
 <li>The interpreted overrides can be previewed in the QASM log, as a comment. <br  />
@@ -2126,12 +2133,12 @@ Richard Meister (shifted functions) </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of all the qubit indices contained in each sub-register </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numQubitsPerReg</td><td>a list of the lengths of each sub-list in <code>qubits</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numRegs</td><td>the number of sub-registers, which is the length of both <code>numQubitsPerReg</code> and <code>numTermsPerReg</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value <picture><source srcset="form_278_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r_j$" src="form_278.png"/></picture> from the bits of a sub-register </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">functionNameCode</td><td>the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> <picture><source srcset="form_296_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(\vec{r}, \vec{\theta})$" src="form_296.png"/></picture> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>a list of any additional parameters <picture><source srcset="form_297_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{\theta}$" src="form_297.png"/></picture> needed by the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> <code>functionNameCode</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value \(r_j\) from the bits of a sub-register </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">functionNameCode</td><td>the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> \(f(\vec{r}, \vec{\theta})\) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>a list of any additional parameters \(\vec{\theta}\) needed by the <a class="el" href="group__type.html#gaa7d869b117ba5024d6b84938e8cdfc65" title="Flags for specifying named phase functions.">phaseFunc</a> <code>functionNameCode</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numParams</td><td>the length of list <code>params</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">overrideInds</td><td>a flattened list of sub-register coordinates (values of <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture>) of which to explicit set the phase change </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">overridePhases</td><td>a list of replacement phase changes, for the corresponding <picture><source srcset="form_285_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{r}$" src="form_285.png"/></picture> values in <code>overrideInds</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">overrideInds</td><td>a flattened list of sub-register coordinates (values of \(\vec{r}\)) of which to explicit set the phase change </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">overridePhases</td><td>a list of replacement phase changes, for the corresponding \(\vec{r}\) values in <code>overrideInds</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numOverrides</td><td>the lengths of list <code>overridePhases</code> (but not necessarily of <code>overrideInds</code>) </td></tr>
   </table>
   </dd>
@@ -2215,7 +2222,7 @@ Richard Meister (shifted functions) </dd></dl>
 <p>Modifies <code>outQureg</code> to be the result of applying <code><a class="el" href="structPauliHamil.html" title="A Pauli Hamiltonian, expressed as a real-weighted sum of pauli products, and which can hence represen...">PauliHamil</a></code> (a Hermitian but not necessarily unitary operator) to <code>inQureg</code>. </p>
 <p >Note that afterward, <code>outQureg</code> may no longer be normalised and ergo not a state-vector or density matrix. Users must therefore be careful passing <code>outQureg</code> to other QuEST functions which assume normalisation in order to function correctly.</p>
 <p >This is merely an encapsulation of <a class="el" href="group__operator.html#ga6fc26cf857db070e12959e59ecfed8a6" title="Modifies outQureg to be the result of applying the weighted sum of Pauli products (a Hermitian but no...">applyPauliSum()</a>, which can refer to for elaborated doc.</p>
-<p >Letting <code>hamil</code> be expressed as <picture><source srcset="form_238_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \alpha = \sum_i c_i \otimes_j^{N} \hat{\sigma}_{i,j} $" src="form_238.png"/></picture> (where <picture><source srcset="form_211_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ c_i \in $" src="form_211.png"/></picture> <code>hamil.termCoeffs</code> and <picture><source srcset="form_212_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ N = $" src="form_212.png"/></picture> <code>hamil.numQubits</code>), this function effects <picture><source srcset="form_239_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \alpha | \psi \rangle $" src="form_239.png"/></picture> on state-vector <picture><source srcset="form_240_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |\psi\rangle $" src="form_240.png"/></picture> and <picture><source srcset="form_241_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\alpha \rho$" src="form_241.png"/></picture> (left matrix multiplication) on density matrix <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture>.</p>
+<p >Letting <code>hamil</code> be expressed as \( \alpha = \sum_i c_i \otimes_j^{N} \hat{\sigma}_{i,j} \) (where \( c_i \in \) <code>hamil.termCoeffs</code> and \( N = \) <code>hamil.numQubits</code>), this function effects \( \alpha | \psi \rangle \) on state-vector \( |\psi\rangle \) and \(\alpha \rho\) (left matrix multiplication) on density matrix \( \rho \).</p>
 <p >In theory, <code>inQureg</code> is unchanged though its state is temporarily modified and is reverted by re-applying Paulis (XX=YY=ZZ=I), so may see a change by small numerical errors. The initial state in <code>outQureg</code> is not used.</p>
 <p ><code>inQureg</code> and <code>outQureg</code> must both be state-vectors, or both density matrices, of equal dimensions to <code>hamil</code>. <code>inQureg</code> cannot be <code>outQureg</code>.</p>
 <p >This function works by applying each Pauli product in <code>hamil</code> to <code>inQureg</code> in turn, and adding the resulting state (weighted by a coefficient in <code>termCoeffs</code>) to the initially-blanked <code>outQureg</code>. Ergo it should scale with the total number of Pauli operators specified (excluding identities), and the qureg dimension.</p>
@@ -2319,7 +2326,7 @@ Richard Meister (shifted functions) </dd></dl>
 
 <p>Modifies <code>outQureg</code> to be the result of applying the weighted sum of Pauli products (a Hermitian but not necessarily unitary operator) to <code>inQureg</code>. </p>
 <p >Note that afterward, <code>outQureg</code> may no longer be normalised and ergo not a state-vector or density matrix. Users must therefore be careful passing <code>outQureg</code> to other QuEST functions which assume normalisation in order to function correctly.</p>
-<p >Letting <picture><source srcset="form_238_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \alpha = \sum_i c_i \otimes_j^{N} \hat{\sigma}_{i,j} $" src="form_238.png"/></picture> be the operators indicated by <code>allPauliCodes</code> (where <picture><source srcset="form_211_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ c_i \in $" src="form_211.png"/></picture> <code>termCoeffs</code> and <picture><source srcset="form_212_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ N = $" src="form_212.png"/></picture> <code>qureg.numQubitsRepresented</code>), this function effects <picture><source srcset="form_239_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \alpha | \psi \rangle $" src="form_239.png"/></picture> on state-vector <picture><source srcset="form_240_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ |\psi\rangle $" src="form_240.png"/></picture> and <picture><source srcset="form_241_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\alpha \rho$" src="form_241.png"/></picture> (left matrix multiplication) on density matrix <picture><source srcset="form_48_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \rho $" src="form_48.png"/></picture>.</p>
+<p >Letting \( \alpha = \sum_i c_i \otimes_j^{N} \hat{\sigma}_{i,j} \) be the operators indicated by <code>allPauliCodes</code> (where \( c_i \in \) <code>termCoeffs</code> and \( N = \) <code>qureg.numQubitsRepresented</code>), this function effects \( \alpha | \psi \rangle \) on state-vector \( |\psi\rangle \) and \(\alpha \rho\) (left matrix multiplication) on density matrix \( \rho \).</p>
 <p ><code>allPauliCodes</code> is an array of length <code>numSumTerms*<code>qureg.numQubitsRepresented</code> which</code> specifies which Pauli operators to apply, where 0 = <code>PAULI_I</code>, 1 = <code>PAULI_X</code>, 2 = <code>PAULI_Y</code>, 3 = <code>PAULI_Z</code>. For each sum term, a Pauli operator must be specified for EVERY qubit in <code>qureg</code>; each set of <code>numSumTerms</code> operators will be grouped into a product. <code>termCoeffs</code> is an arrray of length <code>numSumTerms</code> containing the term coefficients. For example, on a 3-qubit state-vector, </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> paulis[6] = {<a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c">PAULI_X</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a63800f45b01ccc2608f754aee850bf4a">PAULI_I</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a63800f45b01ccc2608f754aee850bf4a">PAULI_I</a>,  <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c">PAULI_X</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a2c64a9aaee27f6bcfef894d159e759bd">PAULI_Y</a>, <a class="code hl_enumvalue" href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a085c85cff6ba79c52d8b1e61c42ddddf">PAULI_Z</a>};</div>
 <div class="line"><a class="code hl_define" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> coeffs[2] = {1.5, -3.6};</div>
 <div class="line"><a class="code hl_function" href="group__operator.html#ga6fc26cf857db070e12959e59ecfed8a6">applyPauliSum</a>(inQureg, paulis, coeffs, 2, outQureg);</div>
@@ -2328,7 +2335,7 @@ Richard Meister (shifted functions) </dd></dl>
 <div class="ttc" id="agroup__type_html_gga1c703cf89629e4e9c7023cd402d67028a2c64a9aaee27f6bcfef894d159e759bd"><div class="ttname"><a href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a2c64a9aaee27f6bcfef894d159e759bd">PAULI_Y</a></div><div class="ttdeci">@ PAULI_Y</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00096">QuEST.h:96</a></div></div>
 <div class="ttc" id="agroup__type_html_gga1c703cf89629e4e9c7023cd402d67028a63800f45b01ccc2608f754aee850bf4a"><div class="ttname"><a href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a63800f45b01ccc2608f754aee850bf4a">PAULI_I</a></div><div class="ttdeci">@ PAULI_I</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00096">QuEST.h:96</a></div></div>
 <div class="ttc" id="agroup__type_html_gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c"><div class="ttname"><a href="group__type.html#gga1c703cf89629e4e9c7023cd402d67028a7abac7bb5b71e17382014c443244ad5c">PAULI_X</a></div><div class="ttdeci">@ PAULI_X</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00096">QuEST.h:96</a></div></div>
-</div><!-- fragment --><p> will apply Hermitian operation <picture><source srcset="form_242_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ (1.5 X I I - 3.6 X Y Z) $" src="form_242.png"/></picture> (where in this notation, the left-most operator applies to the least-significant qubit, i.e. that with index 0).</p>
+</div><!-- fragment --><p> will apply Hermitian operation \( (1.5 X I I - 3.6 X Y Z) \) (where in this notation, the left-most operator applies to the least-significant qubit, i.e. that with index 0).</p>
 <p >In theory, <code>inQureg</code> is unchanged though its state is temporarily modified and is reverted by re-applying Paulis (XX=YY=ZZ=I), so may see a change by small numerical errors. The initial state in <code>outQureg</code> is not used.</p>
 <p ><code>inQureg</code> and <code>outQureg</code> must both be state-vectors, or both density matrices, of equal dimensions. <code>inQureg</code> cannot be <code>outQureg</code>.</p>
 <p >This function works by applying each Pauli product to <code>inQureg</code> in turn, and adding the resulting state (weighted by a coefficient in <code>termCoeffs</code>) to the initially-blanked <code>outQureg</code>. Ergo it should scale with the total number of Pauli operators specified (excluding identities), and the qureg dimension.</p>
@@ -2439,33 +2446,33 @@ Richard Meister (shifted functions) </dd></dl>
 <p>Induces a phase change upon each amplitude of <code>qureg</code>, determined by the passed exponential polynomial "phase function". </p>
 <p >This effects a diagonal unitary of unit complex scalars, targeting the nominated <code>qubits</code>.</p>
 <ul>
-<li>Arguments <code>coeffs</code> and <code>exponents</code> together specify a real exponential polynomial <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture> with <code>numTerms</code> terms, of the form  <p class="formulaDsp">
-<picture><source srcset="form_255_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+<li>Arguments <code>coeffs</code> and <code>exponents</code> together specify a real exponential polynomial \(f(r)\) with <code>numTerms</code> terms, of the form  <p class="formulaDsp">
+\[ 
    f(r) = \sum\limits_{i}^{\text{numTerms}} \text{coeffs}[i] \; r^{\, \text{exponents}[i]}\,,
-  \]" src="form_255.png"/></picture>
+  \]
 </p>
  where both <code>coeffs</code> and <code>exponents</code> can be negative, positive and fractional. For example, <div class="fragment"><div class="line"><a class="code hl_define" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> coeffs[] = {1, -3.14};</div>
 <div class="line"><a class="code hl_define" href="group__type.html#ga7740e349b4f8bae6451547680f0ce2d6">qreal</a> exponents[] = {2, -5.5};</div>
 <div class="line"><span class="keywordtype">int</span> numTerms = 2;</div>
 </div><!-- fragment --> constitutes the function  <p class="formulaDsp">
-<picture><source srcset="form_256_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
       f(r) =  1 \, r^2 - 3.14 \, r^{-5.5}.
-  \]" src="form_256.png"/></picture>
+  \]
 </p>
  Note you cannot use fractional exponents with <code>encoding</code> <b>=</b> <a class="el" href="group__type.html#gga9c91c41aa42ae537995e89ffc616afe1a9aa2a35d92976c7de970506c4d19a96c">TWOS_COMPLEMENT</a>, since the negative indices would generate (illegal) complex phases, and must be overriden with <a class="el" href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFuncOverrides()</a>. <br  />
 <blockquote class="doxtable">
-<p >&zwj;If your function <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture> diverges at one or more <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> values, you must instead use <a class="el" href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFuncOverrides()</a> and specify explicit phase changes for these values. Otherwise, the corresponding amplitudes of the state-vector will become indeterminate (like <code>NaN</code>). Note that use of any negative exponent will result in divergences at <picture><source srcset="form_258_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r=0$" src="form_258.png"/></picture>. </p>
+<p >&zwj;If your function \(f(r)\) diverges at one or more \(r\) values, you must instead use <a class="el" href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFuncOverrides()</a> and specify explicit phase changes for these values. Otherwise, the corresponding amplitudes of the state-vector will become indeterminate (like <code>NaN</code>). Note that use of any negative exponent will result in divergences at \(r=0\). </p>
 </blockquote>
 </li>
-<li>The function <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture> specifies the phase change to induce upon amplitude <picture><source srcset="form_96_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\alpha$" src="form_96.png"/></picture> of computational basis state with index <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture>, such that  <p class="formulaDsp">
-<picture><source srcset="form_259_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<li>The function \(f(r)\) specifies the phase change to induce upon amplitude \(\alpha\) of computational basis state with index \(r\), such that  <p class="formulaDsp">
+\[
    \alpha \, |r\rangle \rightarrow \, \exp(i f(r)) \; \alpha \, |r\rangle.
-  \]" src="form_259.png"/></picture>
+  \]
 </p>
- The index <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> associated with each computational basis state is determined by the binary value of the specified <code>qubits</code> (ordered least to most significant), interpreted under the given <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code>. <br  />
+ The index \(r\) associated with each computational basis state is determined by the binary value of the specified <code>qubits</code> (ordered least to most significant), interpreted under the given <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> <code>encoding</code>. <br  />
 <br  />
  For example, under <code>encoding</code> <b>=</b> <code>UNSIGNED</code> and <code>qubits</code> <b>= {0,1}</b>,  <p class="formulaDsp">
-<picture><source srcset="form_260_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
   \begin{aligned}
     |0\mathbf{00}\rangle &amp; \rightarrow \, e^{i f(0)}\,|0\mathbf{00}\rangle \\
     |0\mathbf{01}\rangle &amp; \rightarrow \, e^{i f(1)}\,|0\mathbf{01}\rangle \\
@@ -2476,23 +2483,23 @@ Richard Meister (shifted functions) </dd></dl>
     |1\mathbf{10}\rangle &amp; \rightarrow \, e^{i f(2)}\,|1\mathbf{10}\rangle \\
     |1\mathbf{11}\rangle &amp; \rightarrow \, e^{i f(3)}\,|1\mathbf{11}\rangle
   \end{aligned}
-  \]" src="form_260.png"/></picture>
+  \]
 </p>
 </li>
-<li>If <code>qureg</code> is a density matrix <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture>, this function modifies <code>qureg</code> to  <p class="formulaDsp">
-<picture><source srcset="form_261_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<li>If <code>qureg</code> is a density matrix \(\rho\), this function modifies <code>qureg</code> to  <p class="formulaDsp">
+\[
      \rho \rightarrow \hat{D} \, \rho \, \hat{D}^\dagger
-  \]" src="form_261.png"/></picture>
+  \]
 </p>
- where <picture><source srcset="form_43_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\hat{D}$" src="form_43.png"/></picture> is the diagonal unitary operator  <p class="formulaDsp">
-<picture><source srcset="form_262_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ where \(\hat{D}\) is the diagonal unitary operator  <p class="formulaDsp">
+\[
      \hat{D} = \text{diag} \, \{ \; e^{i f(r_0)}, \; e^{i f(r_1)}, \;  \dots \; \}.
-  \]" src="form_262.png"/></picture>
+  \]
 </p>
- This means element <picture><source srcset="form_263_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho_{jk}$" src="form_263.png"/></picture> is modified to  <p class="formulaDsp">
-<picture><source srcset="form_264_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ This means element \(\rho_{jk}\) is modified to  <p class="formulaDsp">
+\[
      \alpha \, |j\rangle\langle k| \; \rightarrow \; e^{i (f(r_j) - f(r_k))} \; \alpha \, |j\rangle\langle k|
-  \]" src="form_264.png"/></picture>
+  \]
 </p>
 <br  />
 </li>
@@ -2520,11 +2527,11 @@ Richard Meister (shifted functions) </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">qureg</td><td>the state-vector or density matrix to be modified </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of the indices of the qubits which will inform <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> for each amplitude in <code>qureg</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of the indices of the qubits which will inform \(r\) for each amplitude in <code>qureg</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numQubits</td><td>the length of list <code>qubits</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> from the bits of <code>qubits</code> in each basis state of <code>qureg</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>the coefficients of the exponential polynomial phase function <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">exponents</td><td>the exponents of the exponential polynomial phase function <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value \(r\) from the bits of <code>qubits</code> in each basis state of <code>qureg</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>the coefficients of the exponential polynomial phase function \(f(r)\) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exponents</td><td>the exponents of the exponential polynomial phase function \(f(r)\) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numTerms</td><td>the length of list <code>coeffs</code>, which must be the same as that of <code>exponents</code> </td></tr>
   </table>
   </dd>
@@ -2653,10 +2660,10 @@ Richard Meister (shifted functions) </dd></dl>
 <p>Induces a phase change upon each amplitude of <code>qureg</code>, determined by the passed exponential polynomial "phase function", and an explicit set of 'overriding' values at specific state indices. </p>
 <p >See <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a> first for a full description.</p>
 <ul>
-<li>As in <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a>, the arguments <code>coeffs</code> and <code>exponents</code> specify a phase function <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture>, where <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> is determined by <code>qubits</code> and <code>encoding</code> for each basis state of <code>qureg</code>.<br  />
+<li>As in <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a>, the arguments <code>coeffs</code> and <code>exponents</code> specify a phase function \(f(r)\), where \(r\) is determined by <code>qubits</code> and <code>encoding</code> for each basis state of <code>qureg</code>.<br  />
 <br  />
 </li>
-<li>Additionally, <code>overrideInds</code> is a list of length <code>numOverrides</code> which specifies the values of <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> for which to explicitly set the induced phase change.<br  />
+<li>Additionally, <code>overrideInds</code> is a list of length <code>numOverrides</code> which specifies the values of \(r\) for which to explicitly set the induced phase change.<br  />
  The overriding phase changes are specified in the corresponding elements of <code>overridePhases</code>.<br  />
 <br  />
  For example, <div class="fragment"><div class="line"><span class="keywordtype">int</span> qubits[] = {0,1};</div>
@@ -2669,9 +2676,9 @@ Richard Meister (shifted functions) </dd></dl>
 <div class="ttc" id="agroup__operator_html_gaf5344129240243ad11d0c081eb9036ab"><div class="ttname"><a href="group__operator.html#gaf5344129240243ad11d0c081eb9036ab">applyPhaseFuncOverrides</a></div><div class="ttdeci">void applyPhaseFuncOverrides(Qureg qureg, int *qubits, int numQubits, enum bitEncoding encoding, qreal *coeffs, qreal *exponents, int numTerms, long long int *overrideInds, qreal *overridePhases, int numOverrides)</div><div class="ttdoc">Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8c_source.html#l00751">QuEST.c:751</a></div></div>
 <div class="ttc" id="agroup__type_html_ga9c91c41aa42ae537995e89ffc616afe1"><div class="ttname"><a href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1">bitEncoding</a></div><div class="ttdeci">bitEncoding</div><div class="ttdoc">Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00271">QuEST.h:271</a></div></div>
 <div class="ttc" id="agroup__type_html_gga9c91c41aa42ae537995e89ffc616afe1a7165f9a47792f47c718ca128556fb3ae"><div class="ttname"><a href="group__type.html#gga9c91c41aa42ae537995e89ffc616afe1a7165f9a47792f47c718ca128556fb3ae">UNSIGNED</a></div><div class="ttdeci">@ UNSIGNED</div><div class="ttdef"><b>Definition:</b> <a href="QuEST_8h_source.html#l00271">QuEST.h:271</a></div></div>
-</div><!-- fragment --> would effect the same diagonal unitary of <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a>, <em>except</em> that all instance of <picture><source srcset="form_265_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r=2)$" src="form_265.png"/></picture> are overriden with phase <picture><source srcset="form_122_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\pi$" src="form_122.png"/></picture>. <br  />
+</div><!-- fragment --> would effect the same diagonal unitary of <a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a>, <em>except</em> that all instance of \(f(r=2)\) are overriden with phase \(\pi\). <br  />
  I.e.  <p class="formulaDsp">
-<picture><source srcset="form_266_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[ 
+\[ 
   \begin{aligned}
     |0\mathbf{00}\rangle &amp; \rightarrow \, e^{i f(0)}\,|0\mathbf{00}\rangle \\
     |0\mathbf{01}\rangle &amp; \rightarrow \, e^{i f(1)}\,|0\mathbf{01}\rangle \\
@@ -2682,23 +2689,23 @@ Richard Meister (shifted functions) </dd></dl>
     |1\mathbf{10}\rangle &amp; \rightarrow \, e^{i \pi} \hspace{12pt} |1\mathbf{10}\rangle \\
     |1\mathbf{11}\rangle &amp; \rightarrow \, e^{i f(3)}\,|1\mathbf{11}\rangle
   \end{aligned}
-  \]" src="form_266.png"/></picture>
+  \]
 </p>
- Note that if <code>encoding</code> <b>=</b> <a class="el" href="group__type.html#gga9c91c41aa42ae537995e89ffc616afe1a9aa2a35d92976c7de970506c4d19a96c">TWOS_COMPLEMENT</a>, <em>and</em> <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture> features a fractional exponent, then every negative phase index must be overriden. This is checked and enforced by QuEST's validation, <em>unless</em> there are more than 16 targeted qubits, in which case valid input is assumed (due to an otherwise prohibitive performance overhead). <br  />
+ Note that if <code>encoding</code> <b>=</b> <a class="el" href="group__type.html#gga9c91c41aa42ae537995e89ffc616afe1a9aa2a35d92976c7de970506c4d19a96c">TWOS_COMPLEMENT</a>, <em>and</em> \(f(r)\) features a fractional exponent, then every negative phase index must be overriden. This is checked and enforced by QuEST's validation, <em>unless</em> there are more than 16 targeted qubits, in which case valid input is assumed (due to an otherwise prohibitive performance overhead). <br  />
 <blockquote class="doxtable">
-<p >&zwj;Overriding phases are checked at each computational basis state of <code>qureg</code> <em>before</em> evaluating the phase function <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture>, and hence are useful for avoiding singularities or errors at diverging values of <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture>. </p>
+<p >&zwj;Overriding phases are checked at each computational basis state of <code>qureg</code> <em>before</em> evaluating the phase function \(f(r)\), and hence are useful for avoiding singularities or errors at diverging values of \(r\). </p>
 </blockquote>
 </li>
-<li>If <code>qureg</code> is a density matrix <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture>, the overrides determine the diagonal unitary matrix <picture><source srcset="form_43_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\hat{D}$" src="form_43.png"/></picture>, which is then applied to <code>qureg</code> as  <p class="formulaDsp">
-<picture><source srcset="form_267_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<li>If <code>qureg</code> is a density matrix \(\rho\), the overrides determine the diagonal unitary matrix \(\hat{D}\), which is then applied to <code>qureg</code> as  <p class="formulaDsp">
+\[
      \rho \; \rightarrow \; \hat{D} \, \rho \hat{D}^\dagger.
-  \]" src="form_267.png"/></picture>
+  \]
 </p>
- This means that with overrides <picture><source srcset="form_268_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r_j) \rightarrow \theta$" src="form_268.png"/></picture> and <picture><source srcset="form_269_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r_k) \rightarrow \phi$" src="form_269.png"/></picture>, element <picture><source srcset="form_263_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho_{jk}$" src="form_263.png"/></picture> is modified to  <p class="formulaDsp">
-<picture><source srcset="form_270_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+ This means that with overrides \(f(r_j) \rightarrow \theta\) and \(f(r_k) \rightarrow \phi\), element \(\rho_{jk}\) is modified to  <p class="formulaDsp">
+\[
      \alpha \, |j\rangle\langle k| \; \rightarrow \; 
          \exp(\, i \, (\theta - \phi) \, ) \; \alpha \, |j\rangle\langle k|.
-  \]" src="form_270.png"/></picture>
+  \]
 </p>
 <br  />
 </li>
@@ -2718,7 +2725,7 @@ Richard Meister (shifted functions) </dd></dl>
 </li>
 </ul>
 <dl class="section see"><dt>See also</dt><dd><ul>
-<li><a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a> for full doc on how <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture> is evaluated.</li>
+<li><a class="el" href="group__operator.html#ga467f517abd18dbc3d6fced84c6589161" title="Induces a phase change upon each amplitude of qureg, determined by the passed exponential polynomial ...">applyPhaseFunc()</a> for full doc on how \(f(r)\) is evaluated.</li>
 <li><a class="el" href="group__operator.html#ga008a46d178a5a9691e2f5d363e3f518f" title="Induces a phase change upon each amplitude of qureg, determined by a multi-variable exponential polyn...">applyMultiVarPhaseFunc()</a> for multi-variable exponential polynomial phase functions.</li>
 <li><a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a> for a set of specific phase functions.</li>
 <li><a class="el" href="group__operator.html#gad2e953390342cd361cfb4064d47715e6" title="Apply a diagonal operator, which is possibly non-unitary and non-Hermitian, to the entire qureg.">applyDiagonalOp()</a> to apply a non-unitary diagonal <a class="el" href="group__operator.html" title="Non-physical operators which may be non-unitary, non-norm-preserving, even non-Hermitian.">Operators</a>.</li>
@@ -2727,14 +2734,14 @@ Richard Meister (shifted functions) </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">qureg</td><td>the state-vector or density matrix to be modified </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of the indices of the qubits which will inform <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> for each amplitude in <code>qureg</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">qubits</td><td>a list of the indices of the qubits which will inform \(r\) for each amplitude in <code>qureg</code> </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numQubits</td><td>the length of list <code>qubits</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> from the bits of <code>qubits</code> in each basis state of <code>qureg</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>the coefficients of the exponential polynomial phase function <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">exponents</td><td>the exponents of the exponential polynomial phase function <picture><source srcset="form_254_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$f(r)$" src="form_254.png"/></picture> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">encoding</td><td>the <a class="el" href="group__type.html#ga9c91c41aa42ae537995e89ffc616afe1" title="Flags for specifying how the bits in sub-register computational basis states are mapped to indices in...">bitEncoding</a> under which to infer the binary value \(r\) from the bits of <code>qubits</code> in each basis state of <code>qureg</code> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>the coefficients of the exponential polynomial phase function \(f(r)\) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exponents</td><td>the exponents of the exponential polynomial phase function \(f(r)\) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numTerms</td><td>the length of list <code>coeffs</code>, which must be the same as that of <code>exponents</code> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">overrideInds</td><td>a list of sub-state indices (values of <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture>) of which to explicit set the phase change </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">overridePhases</td><td>a list of replacement phase changes, for the corresponding <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> values in <code>overrideInds</code> (one to one) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">overrideInds</td><td>a list of sub-state indices (values of \(r\)) of which to explicit set the phase change </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">overridePhases</td><td>a list of replacement phase changes, for the corresponding \(r\) values in <code>overrideInds</code> (one to one) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">numOverrides</td><td>the lengths of lists <code>overrideInds</code> and <code>overridePhases</code> </td></tr>
   </table>
   </dd>
@@ -2903,7 +2910,7 @@ Richard Meister (shifted functions) </dd></dl>
 <p>Applies the quantum Fourier transform (QFT) to a specific subset of qubits of the register <code>qureg</code>. </p>
 <p >The order of <code>qubits</code> affects the ultimate unitary. The canonical full-state QFT (<a class="el" href="group__operator.html#gaf26f32c25db760065486188497c1da8b" title="Applies the quantum Fourier transform (QFT) to the entirety of qureg.">applyFullQFT()</a>) is achieved by targeting every qubit in increasing order.</p>
 <p >The effected unitary circuit (shown here for <code>numQubits</code> <b>= 4</b>) resembles  </p><p class="formulaDsp">
-<picture><source srcset="form_311_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      \begin{tikzpicture}[scale=.5]
      \draw (-2, 5) -- (23, 5);    \node[draw=none] at (-4,5) {qubits[3]};
      \draw (-2, 3) -- (23, 3);    \node[draw=none] at (-4,3) {qubits[2]};
@@ -2954,17 +2961,17 @@ Richard Meister (shifted functions) </dd></dl>
      \draw (22 - .35, 1 + .35) -- (22 + .35, 1 - .35);
      \draw (22 - .35, 1 - .35) -- (22 + .35, 1 + .35);
      \end{tikzpicture}
-\]" src="form_311.png"/></picture>
+\]
 </p>
 <p> though is performed more efficiently.</p>
 <ul>
 <li>If <code>qureg</code> is a state-vector, the output amplitudes are a kronecker product of the discrete Fourier transform (DFT) acting upon the targeted amplitudes, and the remaining. <br  />
  Precisely,<ul>
-<li>let <picture><source srcset="form_312_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x,r\rangle$" src="form_312.png"/></picture> represent a computational basis state where <picture><source srcset="form_313_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$x$" src="form_313.png"/></picture> is the binary value of the targeted qubits, and <picture><source srcset="form_257_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$r$" src="form_257.png"/></picture> is the binary value of the remaining qubits.</li>
-<li>let <picture><source srcset="form_314_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|x_j,r_j\rangle$" src="form_314.png"/></picture> be the <picture><source srcset="form_315_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$j\text{th}$" src="form_315.png"/></picture> such state.</li>
-<li>let <picture><source srcset="form_316_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$n =$" src="form_316.png"/></picture> <code>numQubits</code>, and <picture><source srcset="form_317_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N =$" src="form_317.png"/></picture> <code>qureg.numQubitsRepresented</code>.<br  />
+<li>let \(|x,r\rangle\) represent a computational basis state where \(x\) is the binary value of the targeted qubits, and \(r\) is the binary value of the remaining qubits.</li>
+<li>let \(|x_j,r_j\rangle\) be the \(j\text{th}\) such state.</li>
+<li>let \(n =\) <code>numQubits</code>, and \(N =\) <code>qureg.numQubitsRepresented</code>.<br  />
 Then, this function effects  <p class="formulaDsp">
-<picture><source srcset="form_318_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      (\text{QFT}\otimes 1) \, \left(  \sum\limits_{j=0}^{2^N-1} \alpha_j \, |x_j,r_j\rangle \right) 
      = 
      \frac{1}{\sqrt{2^n}}
@@ -2972,15 +2979,15 @@ Then, this function effects  <p class="formulaDsp">
           \sum\limits_{y=0}^{2^n-1} e^{2 \pi \, i \, x_j \, y / 2^n} \; 
           |y,r_j \rangle
       \right)
-  \]" src="form_318.png"/></picture>
+  \]
 </p>
 </li>
 </ul>
 </li>
-<li>If <code>qureg</code> is a density matrix <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture>, it will be changed under the unitary action of the QFT. This can be imagined as each mixed state-vector undergoing the DFT on its amplitudes. This is true even if <code>qureg</code> is unnormalised.  <p class="formulaDsp">
-<picture><source srcset="form_319_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<li>If <code>qureg</code> is a density matrix \(\rho\), it will be changed under the unitary action of the QFT. This can be imagined as each mixed state-vector undergoing the DFT on its amplitudes. This is true even if <code>qureg</code> is unnormalised.  <p class="formulaDsp">
+\[
      \rho \; \rightarrow \; \text{QFT} \; \rho \; \text{QFT}^{\dagger}
-  \]" src="form_319.png"/></picture>
+  \]
 </p>
 </li>
 </ul>
@@ -2988,7 +2995,7 @@ Then, this function effects  <p class="formulaDsp">
 <p >&zwj;This function merges contiguous controlled-phase gates into single invocations of <a class="el" href="group__operator.html#gac4df97d8c125c8cc65df720f67b2bf69" title="Induces a phase change upon each amplitude of qureg, determined by a named (and potentially multi-var...">applyNamedPhaseFunc()</a>, and hence is significantly faster than performing the QFT circuit directly. </p>
 </blockquote>
 <blockquote class="doxtable">
-<p >&zwj;Furthermore, in distributed mode, this function requires only <picture><source srcset="form_310_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\log_2(\text{\#nodes})$" src="form_310.png"/></picture> rounds of pair-wise communication, and hence is exponentially faster than directly performing the DFT on the amplitudes of <code>qureg</code>. </p>
+<p >&zwj;Furthermore, in distributed mode, this function requires only \(\log_2(\text{\#nodes})\) rounds of pair-wise communication, and hence is exponentially faster than directly performing the DFT on the amplitudes of <code>qureg</code>. </p>
 </blockquote>
 <dl class="section see"><dt>See also</dt><dd><ul>
 <li><a class="el" href="group__operator.html#gaf26f32c25db760065486188497c1da8b" title="Applies the quantum Fourier transform (QFT) to the entirety of qureg.">applyFullQFT()</a> to apply the QFT to the entirety of <code>qureg</code>.</li>
@@ -3077,17 +3084,17 @@ Then, this function effects  <p class="formulaDsp">
 
 <p>Left-apply a many-qubit a diagonal matrix upon a specific set of qubits of a quantum register. </p>
 <p >This is similar to <a class="el" href="group__operator.html#ga56f8393f74dcf24a8d4b0f47191b38f4" title="Apply a many-qubit unitary specified as a diagonal matrix upon a specific set of qubits of a quantum ...">applyGateSubDiagonalOp()</a>, except that here, the operator <code>op</code> is only <em>left</em> multiplied onto density matrices.</p>
-<p >Let <picture><source srcset="form_43_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\hat{D}$" src="form_43.png"/></picture> denote the operator <code>op</code>. Precisely, this function effects  </p><p class="formulaDsp">
-<picture><source srcset="form_55_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >Let \(\hat{D}\) denote the operator <code>op</code>. Precisely, this function effects  </p><p class="formulaDsp">
+\[
      |\psi\rangle \rightarrow \hat{D}_{\text{targets}} |\psi\rangle
-\]" src="form_55.png"/></picture>
+\]
 </p>
-<p> upon state-vectors <picture><source srcset="form_39_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$|\psi\rangle$" src="form_39.png"/></picture>, and  </p><p class="formulaDsp">
-<picture><source srcset="form_56_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p> upon state-vectors \(|\psi\rangle\), and  </p><p class="formulaDsp">
+\[
      \rho \rightarrow \hat{D}_{\text{targets}} \; \rho
-\]" src="form_56.png"/></picture>
+\]
 </p>
-<p> upon density matrices <picture><source srcset="form_41_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\rho$" src="form_41.png"/></picture>, imposing no numerical conditions (like unitarity) upon <code>op</code>.</p>
+<p> upon density matrices \(\rho\), imposing no numerical conditions (like unitarity) upon <code>op</code>.</p>
 <blockquote class="doxtable">
 <p >&zwj;To apply <code>op</code> as if it were unitary, use <a class="el" href="group__operator.html#ga56f8393f74dcf24a8d4b0f47191b38f4" title="Apply a many-qubit unitary specified as a diagonal matrix upon a specific set of qubits of a quantum ...">applyGateSubDiagonalOp()</a> (or use <a class="el" href="group__unitary.html#ga2c8946d0ea290a0ef60f10bc701bc64c" title="Apply a many-qubit unitary specified as a diagonal matrix upon a specific set of qubits of a quantum ...">diagonalUnitary()</a> to explicitly check/enforce unitarity). </p>
 </blockquote>
@@ -3183,40 +3190,40 @@ Then, this function effects  <p class="formulaDsp">
       </table>
 </div><div class="memdoc">
 
-<p>Applies a trotterisation of unitary evolution <picture><source srcset="form_243_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \exp(-i \, \text{hamil} \, \text{time}) $" src="form_243.png"/></picture> to <code>qureg</code>. </p>
+<p>Applies a trotterisation of unitary evolution \( \exp(-i \, \text{hamil} \, \text{time}) \) to <code>qureg</code>. </p>
 <p >This is a sequence of unitary operators, effected by <a class="el" href="group__unitary.html#ga34aa4865c92f9aa5d898c91286c9eca5" title="Apply a multi-qubit multi-Pauli rotation, also known as a Pauli gadget, on a selected number of qubit...">multiRotatePauli()</a>, which together approximate the action of full unitary-time evolution under the given Hamiltonian.</p>
-<p >Notate <picture><source srcset="form_244_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \text{hamil} = \sum_j^N c_j \, \hat \sigma_j $" src="form_244.png"/></picture> where <picture><source srcset="form_245_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$c_j$" src="form_245.png"/></picture> is a real coefficient in <code>hamil</code>, <picture><source srcset="form_246_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\hat \sigma_j$" src="form_246.png"/></picture> is the corresponding product of Pauli operators, of which there are a total <picture><source srcset="form_31_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$N$" src="form_31.png"/></picture>. Then, <code>order=1</code> performs first-order Trotterisation, whereby  </p><p class="formulaDsp">
-<picture><source srcset="form_247_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p >Notate \( \text{hamil} = \sum_j^N c_j \, \hat \sigma_j \) where \(c_j\) is a real coefficient in <code>hamil</code>, \(\hat \sigma_j\) is the corresponding product of Pauli operators, of which there are a total \(N\). Then, <code>order=1</code> performs first-order Trotterisation, whereby  </p><p class="formulaDsp">
+\[
   \exp(-i \, \text{hamil} \, \text{time})
      \approx 
    \prod\limits^{\text{reps}} \prod\limits_{j=1}^{N} \exp(-i \, c_j \, \text{time} \, \hat\sigma_j / \text{reps})
-\]" src="form_247.png"/></picture>
+\]
 </p>
 <p> <code>order=2</code> performs the lowest order "symmetrized" Suzuki decomposition, whereby  </p><p class="formulaDsp">
-<picture><source srcset="form_248_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
   \exp(-i \, \text{hamil} \, \text{time})
      \approx 
    \prod\limits^{\text{reps}} \left[
         \prod\limits_{j=1}^{N} \exp(-i \, c_j \, \text{time} \, \hat\sigma_j / (2 \, \text{reps}))
          \prod\limits_{j=N}^{1} \exp(-i \, c_j \, \text{time} \, \hat\sigma_j / (2 \, \text{reps}))
     \right]
-\]" src="form_248.png"/></picture>
+\]
 </p>
-<p> Greater even values of <code>order</code> specify higher-order symmetrized decompositions <picture><source srcset="form_249_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ S[\text{time}, \text{order}, \text{reps}] $" src="form_249.png"/></picture> which satisfy  </p><p class="formulaDsp">
-<picture><source srcset="form_250_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+<p> Greater even values of <code>order</code> specify higher-order symmetrized decompositions \( S[\text{time}, \text{order}, \text{reps}] \) which satisfy  </p><p class="formulaDsp">
+\[
      S[\text{time}, \text{order}, 1] = 
          \left( \prod\limits^2 S[p \, \text{time}, \text{order}-2, 1] \right)
          S[ (1-4p)\,\text{time}, \text{order}-2, 1]
          \left( \prod\limits^2 S[p \, \text{time}, \text{order}-2, 1] \right)
-\]" src="form_250.png"/></picture>
+\]
 </p>
 <p> and  </p><p class="formulaDsp">
-<picture><source srcset="form_251_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
      S[\text{time}, \text{order}, \text{reps}] = 
          \prod\limits^{\text{reps}} S[\text{time}/\text{reps}, \text{order}, 1]
-\]" src="form_251.png"/></picture>
+\]
 </p>
-<p> where <picture><source srcset="form_252_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ p = \left( 4 - 4^{1/(\text{order}-1)} \right)^{-1} $" src="form_252.png"/></picture>.</p>
+<p> where \( p = \left( 4 - 4^{1/(\text{order}-1)} \right)^{-1} \).</p>
 <p >These formulations are taken from 'Finding Exponential Product Formulas of Higher Orders', Naomichi Hatano and Masuo Suzuki (2005) (<a href="https://arxiv.org/abs/math-ph/0506007">arXiv</a>).</p>
 <p >Note that the applied Trotter circuit is captured by QASM, if QASM logging is enabled on <code>qureg</code>. <br  />
 For example: </p><div class="fragment"><div class="line"><a class="code hl_function" href="group__qasm.html#ga65bf1906298ca6355e2942f4923d77b6">startRecordingQASM</a>(qureg);</div>

@@ -11,6 +11,13 @@
         <title>QuEST: Unit test utilities</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
+        <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
         <link href="doxygen.css" rel="stylesheet" type="text/css" />
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
@@ -698,9 +705,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the density matrix <code>state</code> to be the result of applying the multi-target operator matrix <code>op</code>, with the specified control and target qubits (in <code>ctrls</code> and <code>targs</code> respectively). </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_320_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state} \, \text{op}^\dagger
-\]" src="form_320.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary (which is useful for applying Kraus operators).</p>
 <p ><code>op</code> must be a 2^<code>numTargs-by-2^<code>numTargs</code> matrix</code>. Furthermore, every element of <code>targs</code> must not appear in <code>ctrls</code> (and vice-versa), though this is not explicitly checked. Elements of <code>targs</code> and <code>ctrls</code> should be unique.</p>
@@ -772,9 +779,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the density matrix <code>state</code> to be the result of applying the two-target operator matrix <code>op</code>, with the specified control qubits (in <code>ctrls</code>). </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_320_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state} \, \text{op}^\dagger
-\]" src="form_320.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary (which is useful for applying Kraus operators).</p>
 <p ><code>op</code> must be a 4-by-4 matrix. Both <code>targ1</code> and <code>targ2</code> must not appear in <code>ctrls</code>, though this is not explicitly checked. Elements of <code>ctrls</code>, and <code>targ1</code> and <code>targ2</code>, should be unique.</p>
@@ -837,9 +844,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the density matrix <code>state</code> to be the result of applying the single-target operator matrix <code>op</code>, with the specified control qubits (in <code>ctrls</code>). </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_320_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state} \, \text{op}^\dagger
-\]" src="form_320.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary (which is useful for applying Kraus operators).</p>
 <p ><code>op</code> must be a 2-by-2 matrix. <code>target</code> must not appear in <code>ctrls</code>, though this is not explicitly checked.</p>
@@ -896,9 +903,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the density matrix <code>state</code> to be the result of applying the multi-target operator matrix <code>op</code>, with no control qubits. </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_320_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state} \, \text{op}^\dagger
-\]" src="form_320.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary (which is useful for applying Kraus operators).</p>
 <p ><code>op</code> must be a 2^<code>numTargs-by-2^<code>numTargs</code> matrix</code>. Every element in <code>targs</code> should be unique, though this is not explicitly checked.</p>
@@ -960,9 +967,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the density matrix <code>state</code> to be the result of applying the multi-target operator matrix <code>op</code>, with a single control qubit <code>ctrl</code>. </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_320_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state} \, \text{op}^\dagger
-\]" src="form_320.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary (which is useful for applying Kraus operators).</p>
 <p ><code>op</code> must be a 2^<code>numTargs-by-2^<code>numTargs</code> matrix</code>, and <code>ctrl</code> must not appear in <code>targs</code> (though this is not explicitly checked).</p>
@@ -1019,9 +1026,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the density matrix <code>state</code> to be the result of applying the single-control single-target operator matrix <code>op</code>. </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_320_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state} \, \text{op}^\dagger
-\]" src="form_320.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary (which is useful for applying Kraus operators).</p>
 <p ><code>op</code> must be a 2-by-2 matrix, and <code>ctrl</code> and <code>targ</code> should be different.</p>
@@ -1085,9 +1092,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the density matrix <code>state</code> to be the result of applying the two-target operator matrix <code>op</code>, with a single control qubit <code>ctrl</code>. </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_320_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state} \, \text{op}^\dagger
-\]" src="form_320.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary (which is useful for applying Kraus operators).</p>
 <p ><code>op</code> must be a 4-by-4 matrix, and <code>ctrl</code>, <code>targ1</code> and <code>targ2</code> must be unique.</p>
@@ -1139,9 +1146,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the density matrix <code>state</code> to be the result of applying the single-target operator matrix <code>op</code>, with no control qubit. </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_320_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state} \, \text{op}^\dagger
-\]" src="form_320.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary (which is useful for applying Kraus operators).</p>
 <p ><code>op</code> must be a 2-by-2 matrix.</p>
@@ -1210,9 +1217,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the state-vector <code>state</code> to be the result of applying the multi-target operator matrix <code>op</code>, with the specified control and target qubits (in <code>ctrls</code> and <code>targs</code> respectively). </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_321_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state}
-\]" src="form_321.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary.</p>
 <p ><code>op</code> must be a 2^<code>numTargs-by-2^<code>numTargs</code> matrix</code>. Furthermore, every element of <code>targs</code> must not appear in <code>ctrls</code> (and vice-versa), though this is not explicitly checked. Elements of <code>targs</code> and <code>ctrls</code> should be unique.</p>
@@ -1284,9 +1291,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the state-vector <code>state</code> to be the result of applying the two-target operator matrix <code>op</code>, with the specified control qubits (in <code>ctrls</code>). </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_321_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state}
-\]" src="form_321.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary.</p>
 <p ><code>op</code> must be a 4-by-4 matrix. Furthermore, <code>ctrls</code>, <code>targ1</code> and <code>targ2</code> should all be unique.</p>
@@ -1349,9 +1356,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the state-vector <code>state</code> to be the result of applying the single-target operator matrix <code>op</code>, with the specified control qubits (in <code>ctrls</code>). </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_321_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state}
-\]" src="form_321.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary.</p>
 <p ><code>op</code> must be a 2-by-2 matrix. Furthermore, elements in <code>ctrls</code> and <code>target</code> should all be unique.</p>
@@ -1408,9 +1415,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the state-vector <code>state</code> to be the result of applying the multi-target operator matrix <code>op</code>, with no contorl qubits. </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_321_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state}
-\]" src="form_321.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary.</p>
 <p ><code>op</code> must be a 2^<code>numTargs-by-2^<code>numTargs</code> matrix</code>. Furthermore, elements in <code>targs</code> should be unique.</p>
@@ -1472,9 +1479,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the state-vector <code>state</code> to be the result of applying the multi-target operator matrix <code>op</code>, with a single control qubit (<code>ctrl</code>) This updates <code>state</code> under. </p>
 <p class="formulaDsp">
-<picture><source srcset="form_321_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state}
-\]" src="form_321.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary.</p>
 <p ><code>op</code> must be a 2^<code>numTargs-by-2^<code>numTargs</code> matrix</code>. Furthermore, elements in <code>targs</code> and <code>ctrl</code> should be unique.</p>
@@ -1531,9 +1538,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the state-vector <code>state</code> to be the result of applying the single-target operator matrix <code>op</code>, with a single control qubit (<code>ctrl</code>). </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_321_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state}
-\]" src="form_321.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary.</p>
 <p ><code>op</code> must be a 2-by-2 matrix. Furthermore, <code>ctrl</code> and <code>targ</code> must be different.</p>
@@ -1597,9 +1604,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the state-vector <code>state</code> to be the result of applying the two-target operator matrix <code>op</code>, with a single control qubit (<code>ctrl</code>). </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_321_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state}
-\]" src="form_321.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary.</p>
 <p ><code>op</code> must be a 4-by-4 matrix. Furthermore, <code>ctrl</code>, <code>targ1</code> and <code>targ2</code> should all be unique.</p>
@@ -1651,9 +1658,9 @@ Functions</h2></td></tr>
 
 <p>Modifies the state-vector <code>state</code> to be the result of applying the single-target operator matrix <code>op</code>, with no contorl qubits. </p>
 <p >This updates <code>state</code> under  </p><p class="formulaDsp">
-<picture><source srcset="form_321_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\[
         \text{state} \to \text{op} \, \text{state}
-\]" src="form_321.png"/></picture>
+\]
 </p>
 <p> even if <code>op</code> is not unitary.</p>
 <p ><code>op</code> must be a 2-by-2 matrix.</p>
