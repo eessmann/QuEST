@@ -144,13 +144,16 @@ COMPILE_CUDA=$ENABLE_GPU_ACCELERATION
 COMPILE_CUQUANTUM=$ENABLE_CUQUANTUM
 
 # compiler flags given to all backend files (but not user files)
-BACKEND_COMP_FLAGS='-std=c++17 -O3 -flto'
+BACKEND_COMP_FLAGS='-std=c++17 -O3'
+
+# compiler flags given only to host compilers (like gcc), never device compilers (like nvcc)
+BACKEND_HOST_COMP_FLAGS='-flto'
 
 # linker flags given when linking all backend files, including user files
 BACKEND_LINK_FLAGS='-O3 -flto'
 
 # GPU-specific flags
-GPU_COMP_FLAGS="-x cu -arch=sm_${GPU_CC} -I${CUDA_LIB_DIR}/include"
+GPU_COMP_FLAGS="-x cu -arch=sm_${GPU_CC} -Xcompiler ${BACKEND_HOST_COMP_FLAGS} -I${CUDA_LIB_DIR}/include"
 GPU_LINK_FLAGS="-L${CUDA_LIB_DIR}/lib -L${CUDA_LIB_DIR}/lib64 -lcudart -lcuda"
 
 # extend GPU flags if cuQuantum enabled
@@ -339,7 +342,7 @@ echo "compiling core files in C++"
 for fn in ${CORE_FILES[@]}
 do
     echo "${INDENT}${fn}.cpp ..."
-    $BASE_COMPILER -c $CORE_DIR/$fn.cpp -o ${QUEST_OBJ_PREF}${fn}.o $BACKEND_COMP_FLAGS $GLOBAL_COMP_FLAGS
+    $BASE_COMPILER -c $CORE_DIR/$fn.cpp -o ${QUEST_OBJ_PREF}${fn}.o $BACKEND_COMP_FLAGS $BACKEND_HOST_COMP_FLAGS $GLOBAL_COMP_FLAGS
 done
 
 echo ""
@@ -353,7 +356,7 @@ echo "compiling API files in C++:"
 for fn in ${API_FILES[@]}
 do
     echo "${INDENT}${fn}.cpp ..."
-    $BASE_COMPILER -c $API_DIR/$fn.cpp -o ${QUEST_OBJ_PREF}${fn}.o $BACKEND_COMP_FLAGS $GLOBAL_COMP_FLAGS
+    $BASE_COMPILER -c $API_DIR/$fn.cpp -o ${QUEST_OBJ_PREF}${fn}.o $BACKEND_COMP_FLAGS $BACKEND_HOST_COMP_FLAGS $GLOBAL_COMP_FLAGS
 done
 
 echo ""
@@ -366,7 +369,7 @@ echo "compiling CPU/OMP files..."
 
 for fn in ${OMP_FILES[@]}; do
     echo "${INDENT}${fn}.cpp ..."
-    $CPU_FILES_COMPILER -c $OMP_DIR/$fn.cpp -o ${QUEST_OBJ_PREF}${fn}.o $CPU_FILES_FLAGS $BACKEND_COMP_FLAGS $GLOBAL_COMP_FLAGS
+    $CPU_FILES_COMPILER -c $OMP_DIR/$fn.cpp -o ${QUEST_OBJ_PREF}${fn}.o $CPU_FILES_FLAGS $BACKEND_COMP_FLAGS $BACKEND_HOST_COMP_FLAGS $GLOBAL_COMP_FLAGS
 done
 
 echo ""
@@ -392,7 +395,7 @@ echo "compiling communication/MPI files..."
 
 for fn in ${MPI_FILES[@]}; do
     echo "${INDENT}${fn}.cpp ..."
-    $MPI_FILES_COMPILER -c $MPI_DIR/$fn.cpp -o ${QUEST_OBJ_PREF}${fn}.o $MPI_FILES_FLAGS $BACKEND_COMP_FLAGS $GLOBAL_COMP_FLAGS
+    $MPI_FILES_COMPILER -c $MPI_DIR/$fn.cpp -o ${QUEST_OBJ_PREF}${fn}.o $MPI_FILES_FLAGS $BACKEND_COMP_FLAGS $BACKEND_HOST_COMP_FLAGS $GLOBAL_COMP_FLAGS
 done
 
 echo ""
