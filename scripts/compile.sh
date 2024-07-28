@@ -149,8 +149,8 @@ BACKEND_COMP_FLAGS='-std=c++17 -O3'
 # compiler flags given only to host compilers (like gcc), never device compilers (like nvcc)
 BACKEND_HOST_COMP_FLAGS='-flto'
 
-# linker flags given when linking all backend files, including user files
-BACKEND_LINK_FLAGS='-O3 -flto'
+# linker flags given when linking all files, including user files
+BASE_LINK_FLAGS='-O3 -flto'
 
 # GPU-specific flags
 GPU_COMP_FLAGS="-x cu -arch=sm_${GPU_CC} -Xcompiler ${BACKEND_HOST_COMP_FLAGS} -I${CUDA_LIB_DIR}/include"
@@ -197,7 +197,7 @@ HEADER_FLAGS="-I. -I${INCLUDE_DIR}"
 GLOBAL_COMP_FLAGS="${HEADER_FLAGS} ${MODE_FLAGS} ${PREC_FLAG}"
 
 # choose linker flags (extended below)
-ALL_LINK_FLAGS="${BACKEND_LINK_FLAGS} ${USER_LINK_FLAGS}"
+ALL_LINK_FLAGS="${BASE_LINK_FLAGS} ${USER_LINK_FLAGS}"
 
 # choose compiler and flags for CPU/OMP files
 if [ $COMPILE_OPENMP == 1 ]
