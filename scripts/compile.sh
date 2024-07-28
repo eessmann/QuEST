@@ -18,7 +18,7 @@ ENABLE_GPU_ACCELERATION=0
 ENABLE_CUQUANTUM=0
 
 # deployment params
-GPU_CC=90
+GPU_CC=61
 
 # backend compilers
 BASE_COMPILER=g++
@@ -30,7 +30,7 @@ GPU_COMPILER=nvcc
 LINKER=g++
 
 # the type of OMP_COMPILER (CLANG or other)
-OMP_COMPILER_TYPE=CLANG
+OMP_COMPILER_TYPE=other
 
 # name of the compiled executable
 EXEC_FILE="main"
