@@ -152,8 +152,8 @@ BACKEND_HOST_COMP_FLAGS='-flto'
 # linker flags given when linking all files, including user files
 BASE_LINK_FLAGS='-O3 -flto'
 
-# GPU-specific flags
-GPU_COMP_FLAGS="-x cu -arch=sm_${GPU_CC} -Xcompiler ${BACKEND_HOST_COMP_FLAGS} -I${CUDA_LIB_DIR}/include"
+# GPU-specific flags (cannot use LTO unless we do all compiling and linking with nvcc -dlto)
+GPU_COMP_FLAGS="-x cu -arch=sm_${GPU_CC} -I${CUDA_LIB_DIR}/include"
 GPU_LINK_FLAGS="-L${CUDA_LIB_DIR}/lib -L${CUDA_LIB_DIR}/lib64 -lcudart -lcuda"
 
 # extend GPU flags if cuQuantum enabled
