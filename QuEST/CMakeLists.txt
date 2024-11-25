@@ -20,6 +20,10 @@
 #   cmake -DDISTRIBUTED=1 ..
 
 cmake_minimum_required(VERSION 3.7)
+include(CheckCXXCompilerFlag)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 project(QuEST_Library)
 
 option(MULTITHREADED "Switches on OpenMP Threading if an OpenMP implementation can be found. Set to 0 to disable." 1)
@@ -233,55 +237,6 @@ endif()
 # set C flags that are common between compilers and build types
 set (CMAKE_C_STANDARD 99)
 
-# Use -O2 for all but debug mode by default 
-if (NOT("${CMAKE_BUILD_TYPE}" STREQUAL "Debug"))
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
-        -O2"
-    )
-endif()
-
-# Set c flags to use in debug mode
-
-if (NOT("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC"))
-  set(CMAKE_C_FLAGS_DEBUG 
-      "-g"
-  )
-else()
-  set(CMAKE_C_FLAGS_DEBUG 
-      "-Zi"
-  )
-endif()
-
-# Set c flags for release
-set(CMAKE_C_FLAGS_RELEASE 
-    "-O2"
-)
-
-# TODO standardize
-# set C compiler flags based on compiler type
-if ("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang")
-  # using Clang
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
-    -mavx -Wall"
-  )
-elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
-  # using GCC
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
-    -mavx -Wall"
-  )
-elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "Intel")
-  # using Intel
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
-    -fprotect-parens -Wall -xAVX -axCORE-AVX2 -diag-disable cpu-dispatch"
-  )
-elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
-  # using Visual Studio
-  string(REGEX REPLACE "/W3" "" CMAKE_C_FLAGS ${CMAKE_C_FLAGS})
-  string(REGEX REPLACE "-W3" "" CMAKE_C_FLAGS ${CMAKE_C_FLAGS})
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
-    -w"
-  )
-endif()
 
 # ----- C++ COMPILER FLAGS --------------------------------------------------
 
@@ -292,54 +247,6 @@ if (USE_CUQUANTUM)
 else ()
   set (CMAKE_CXX_STANDARD 98)
 endif ()
-
-# Use -O2 for all but debug mode by default 
-if (NOT("${CMAKE_BUILD_TYPE}" STREQUAL "Debug"))
-    set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} \
-        -O2"
-    )
-endif()
-
-# Set c++ flags for release
-set(CMAKE_CXX_FLAGS_RELEASE
-    "-O2"
-)
-
-# Set c++ flags to use in debug mode
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-  set(CMAKE_CXX_FLAGS_DEBUG 
-    "-Zi -MDd"
-  )
-else()
-  set(CMAKE_CXX_FLAGS_DEBUG 
-    "-g"
-  )
-endif()
-
-# set C++ compiler flags based on compiler type
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-  # using Clang
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
-    -mavx -Wall"
-  )
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-  # using GCC
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
-    -mavx -Wall"
-  )
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
-  # using Intel
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
-    -xAVX -axCORE-AVX2 -diag-disable -cpu-dispatch -Wall"
-  )
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-  # using Visual Studio
-  string(REGEX REPLACE "/W3" "" CMAKE_C_FLAGS ${CMAKE_C_FLAGS})
-  string(REGEX REPLACE "-W3" "" CMAKE_C_FLAGS ${CMAKE_C_FLAGS})
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
-    -w"
-  )
-endif()
 
 if (VERBOSE_CMAKE)
     message("-- Compiler flags:")
